@@ -15,6 +15,7 @@
 		6A4347792427CCF5000A852D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347772427CCF5000A852D /* LaunchScreen.storyboard */; };
 		6A4347842427CCF5000A852D /* TeamCleaningOptimizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4347832427CCF5000A852D /* TeamCleaningOptimizationTests.swift */; };
 		6A43478F2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A43478E2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift */; };
+		6A4347A12427FD8D000A852D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347A02427FD8D000A852D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6A43478A2427CCF5000A852D /* TeamCleaningOptimizationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimizationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A43478E2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCleaningOptimizationUITests.swift; sourceTree = "<group>"; };
 		6A4347902427CCF5000A852D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A4347A02427FD8D000A852D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				6A4347772427CCF5000A852D /* LaunchScreen.storyboard */,
 				6A43477A2427CCF5000A852D /* Info.plist */,
 				6A4347742427CCF5000A852D /* Preview Content */,
+				6A4347A02427FD8D000A852D /* Main.storyboard */,
 			);
 			path = TeamCleaningOptimization;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				6A4347792427CCF5000A852D /* LaunchScreen.storyboard in Resources */,
 				6A4347762427CCF5000A852D /* Preview Assets.xcassets in Resources */,
 				6A4347732427CCF5000A852D /* Assets.xcassets in Resources */,
+				6A4347A12427FD8D000A852D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
