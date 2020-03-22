@@ -15,6 +15,7 @@
 		6A4347792427CCF5000A852D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347772427CCF5000A852D /* LaunchScreen.storyboard */; };
 		6A4347842427CCF5000A852D /* TeamCleaningOptimizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4347832427CCF5000A852D /* TeamCleaningOptimizationTests.swift */; };
 		6A43478F2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A43478E2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift */; };
+		6A43479D2427CE43000A852D /* .gitlab-ci.yml in Resources */ = {isa = PBXBuildFile; fileRef = 6A43479C2427CE43000A852D /* .gitlab-ci.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6A43478A2427CCF5000A852D /* TeamCleaningOptimizationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimizationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A43478E2427CCF5000A852D /* TeamCleaningOptimizationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCleaningOptimizationUITests.swift; sourceTree = "<group>"; };
 		6A4347902427CCF5000A852D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A43479C2427CE43000A852D /* .gitlab-ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = ".gitlab-ci.yml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		6A4347602427CCF4000A852D = {
 			isa = PBXGroup;
 			children = (
+				6A43479C2427CE43000A852D /* .gitlab-ci.yml */,
 				6A43476B2427CCF4000A852D /* TeamCleaningOptimization */,
 				6A4347822427CCF5000A852D /* TeamCleaningOptimizationTests */,
 				6A43478D2427CCF5000A852D /* TeamCleaningOptimizationUITests */,
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A43479D2427CE43000A852D /* .gitlab-ci.yml in Resources */,
 				6A4347792427CCF5000A852D /* LaunchScreen.storyboard in Resources */,
 				6A4347762427CCF5000A852D /* Preview Assets.xcassets in Resources */,
 				6A4347732427CCF5000A852D /* Assets.xcassets in Resources */,
