@@ -101,6 +101,8 @@
 		6A43476B2427CCF4000A852D /* TeamCleaningOptimization */ = {
 			isa = PBXGroup;
 			children = (
+				6A5D7EFA242A74E1001AA34B /* Storyboards */,
+				6A5D7EF9242A74B5001AA34B /* ViewControllers */,
 				6A43476C2427CCF4000A852D /* AppDelegate.swift */,
 				6A43476E2427CCF4000A852D /* SceneDelegate.swift */,
 				6A4347702427CCF4000A852D /* ContentView.swift */,
@@ -108,7 +110,6 @@
 				6A4347772427CCF5000A852D /* LaunchScreen.storyboard */,
 				6A43477A2427CCF5000A852D /* Info.plist */,
 				6A4347742427CCF5000A852D /* Preview Content */,
-				6A4347A02427FD8D000A852D /* Main.storyboard */,
 			);
 			path = TeamCleaningOptimization;
 			sourceTree = "<group>";
@@ -137,6 +138,21 @@
 				6A4347902427CCF5000A852D /* Info.plist */,
 			);
 			path = TeamCleaningOptimizationUITests;
+			sourceTree = "<group>";
+		};
+		6A5D7EF9242A74B5001AA34B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6A5D7EFA242A74E1001AA34B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				6A4347A02427FD8D000A852D /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
