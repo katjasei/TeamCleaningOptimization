@@ -5,6 +5,7 @@ A tool for cleaners and hospital staff to see room cleanliness based on heat sen
 * Swift
 * Xcode version 11.3
 * Mongo DB
+* Gitlab CI/CD
 * iOS deployment target 13.2
 
 # Project related links
