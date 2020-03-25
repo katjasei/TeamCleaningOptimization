@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  TeamCleaningOptimization
 //
-//  Created by iosdev on 22.3.2020.
-//  Copyright © 2020 iosdev. All rights reserved.
+//  Created by iosdev on 25.3.2020.
+//  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
 import UIKit
