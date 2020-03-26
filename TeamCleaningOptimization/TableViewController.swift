@@ -12,7 +12,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // IB & variables
     @IBOutlet var tableView: UITableView!
-    let sampleData = [100, 105, 199, 202]
+    let sampleData = [100, 105, 199, 202, 233]
     
     // Lifecycle methods
     override func viewDidLoad() {
