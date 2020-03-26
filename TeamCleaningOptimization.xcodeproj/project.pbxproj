@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A4347A5242CAE32000A852D /* RoomInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347A4242CAE32000A852D /* RoomInfo.storyboard */; };
+		6A4347A7242CB566000A852D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4347A6242CB566000A852D /* RoundButton.swift */; };
 		6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */; };
 		6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */; };
 		6A5D7F4A242BCCDD001AA34B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F49242BCCDD001AA34B /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A4347A4242CAE32000A852D /* RoomInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomInfo.storyboard; sourceTree = "<group>"; };
+		6A4347A6242CB566000A852D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamCleaningOptimization.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,10 +109,12 @@
 				6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */,
 				6A5D7F49242BCCDD001AA34B /* ViewController.swift */,
 				6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */,
+				6A4347A4242CAE32000A852D /* RoomInfo.storyboard */,
 				6ABE7FDA242CA9EA005A6D5D /* TableViewController.swift */,
 				6A5D7F4E242BCCDE001AA34B /* Assets.xcassets */,
 				6A5D7F50242BCCDE001AA34B /* LaunchScreen.storyboard */,
 				6A5D7F53242BCCDE001AA34B /* Info.plist */,
+				6A4347A6242CB566000A852D /* RoundButton.swift */,
 			);
 			path = TeamCleaningOptimization;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				6A5D7F52242BCCDE001AA34B /* LaunchScreen.storyboard in Resources */,
 				6A5D7F4F242BCCDE001AA34B /* Assets.xcassets in Resources */,
 				6ABE7FCF242BD1CC005A6D5D /* Main.storyboard in Resources */,
+				6A4347A5242CAE32000A852D /* RoomInfo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A5D7F4A242BCCDD001AA34B /* ViewController.swift in Sources */,
+				6A4347A7242CB566000A852D /* RoundButton.swift in Sources */,
 				6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */,
 				6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */,
 				6ABE7FDB242CA9EA005A6D5D /* TableViewController.swift in Sources */,
