@@ -9,10 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet var tableView2: UITableView!
-    
-    
     
     
     override func viewDidLoad() {
