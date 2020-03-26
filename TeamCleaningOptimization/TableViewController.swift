@@ -17,7 +17,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -30,8 +30,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = String(sampleData[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath)
         return cell
     }
 
