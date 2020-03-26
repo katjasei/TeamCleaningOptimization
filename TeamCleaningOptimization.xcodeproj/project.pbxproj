@@ -16,6 +16,7 @@
 		6A5D7F68242BCCDE001AA34B /* TeamCleaningOptimizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F67242BCCDE001AA34B /* TeamCleaningOptimizationUITests.swift */; };
 		6ABE7FCF242BD1CC005A6D5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */; };
 		6ABE7FDB242CA9EA005A6D5D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABE7FDA242CA9EA005A6D5D /* TableViewController.swift */; };
+		6ABE7FDD242CD43E005A6D5D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE7FDC242CD43E005A6D5D /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6A5D7F69242BCCDE001AA34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6ABE7FDA242CA9EA005A6D5D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6ABE7FDC242CD43E005A6D5D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		6A5D7F39242BCCDD001AA34B = {
 			isa = PBXGroup;
 			children = (
+				6ABE7FDC242CD43E005A6D5D /* .gitignore */,
 				6A5D7F44242BCCDD001AA34B /* TeamCleaningOptimization */,
 				6A5D7F5B242BCCDE001AA34B /* TeamCleaningOptimizationTests */,
 				6A5D7F66242BCCDE001AA34B /* TeamCleaningOptimizationUITests */,
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ABE7FDD242CD43E005A6D5D /* .gitignore in Resources */,
 				6A5D7F52242BCCDE001AA34B /* LaunchScreen.storyboard in Resources */,
 				6A5D7F4F242BCCDE001AA34B /* Assets.xcassets in Resources */,
 				6ABE7FCF242BD1CC005A6D5D /* Main.storyboard in Resources */,
