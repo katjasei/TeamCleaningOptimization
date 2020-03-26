@@ -1,11 +1,27 @@
 stages:
   - build
+  - archive
 
 build_project:
   stage: build
   script:
     - xcodebuild clean -project TeamCleaningOptimization.xcodeproj -scheme TeamCleaningOptimization 
     - xcodebuild test -project TeamCleaningOptimization.xcodeproj -scheme TeamCleaningOptimization -destination 'platform=iOS Simulator,name=iPad Air (3rd generation),OS=13.3'
+  tags:
+    - ios_13-3
+    - xcode_11-3
+    - osx_10-15
+    
+  archive_project:
+  stage: archive
+  script:
+    - xcodebuild clean archive -archivePath build/TeamCleaningOptimization -scheme TeamCleaningOptimization
+    - xcodebuild -exportArchive -exportFormat ipa -archivePath "build/TeamCleaningOptimization.xcarchive" -exportPath "build/TeamCleaningOptimization.ipa" -exportProvisioningProfile "ProvisioningTeamCleaningOptimization"
+  only:
+    - master
+  artifacts:
+    paths:
+    - build/TeamCleaningOptimization.ipa
   tags:
     - ios_13-3
     - xcode_11-3
