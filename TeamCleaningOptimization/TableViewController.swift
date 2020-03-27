@@ -13,12 +13,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // IB & variables
     @IBOutlet var tableView: UITableView!
     let sampleData = [100, 105, 199, 202, 233]
+    let sampleIndexes = [29, 12, 66, 90]
     
     // Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(TableViewCell.nib(), forCellReuseIdentifier: TableViewCell.identifier)
-        tableView.delegate = self
         tableView.dataSource = self
     }
     
@@ -30,7 +29,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
+        
+        cell.updateContent(with: sampleData[indexPath.row], and: sampleIndexes.randomElement() ?? 0 )
         return cell
     }
 
