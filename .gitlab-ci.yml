@@ -1,6 +1,5 @@
 stages:
   - build
-  - archive
 
 build_project:
   stage: build
@@ -12,17 +11,3 @@ build_project:
     - xcode_11-3
     - osx_10-15
     
-  archive_project:
-  stage: archive
-  script:
-    - xcodebuild clean archive -archivePath build/TeamCleaningOptimization -scheme TeamCleaningOptimization
-    - xcodebuild -exportArchive -exportFormat ipa -archivePath "build/TeamCleaningOptimization.xcarchive" -exportPath "build/TeamCleaningOptimization.ipa" -exportProvisioningProfile "ProvisioningTeamCleaningOptimization"
-  only:
-    - master
-  artifacts:
-    paths:
-    - build/TeamCleaningOptimization.ipa
-  tags:
-    - ios_13-3
-    - xcode_11-3
-    - osx_10-15
