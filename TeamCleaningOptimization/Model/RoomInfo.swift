@@ -11,16 +11,17 @@ struct RoomInfo {
     let roomType: String
     let index: Int
     let sinceLastCleaned: String
+    let movementInTheRoom: Bool
     let roomNeededNext: String
     let patientInRoom: Bool
   
     
-    init(roomType: String, index: Int, sinceLastCleaned: String, roomNeededNext: String,
-         patientInRoom:Bool) {
+    init(roomType: String, index: Int, sinceLastCleaned: String, movementInTheRoom: Bool, roomNeededNext: String, patientInRoom:Bool) {
         
         self.roomType = roomType
         self.index = index
         self.sinceLastCleaned = sinceLastCleaned
+        self.movementInTheRoom = movementInTheRoom
         self.roomNeededNext = roomNeededNext
         self.patientInRoom = patientInRoom
         
