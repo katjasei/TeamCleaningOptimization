@@ -18,6 +18,7 @@
 		6A5D7F68242BCCDE001AA34B /* TeamCleaningOptimizationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F67242BCCDE001AA34B /* TeamCleaningOptimizationUITests.swift */; };
 		6ABE7FCF242BD1CC005A6D5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */; };
 		6ABE7FDB242CA9EA005A6D5D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABE7FDA242CA9EA005A6D5D /* TableViewController.swift */; };
+		6AE00CD0242F5F2D00A34F64 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		6A5D7F69242BCCDE001AA34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6ABE7FDA242CA9EA005A6D5D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,8 @@
 		6A5D7F44242BCCDD001AA34B /* TeamCleaningOptimization */ = {
 			isa = PBXGroup;
 			children = (
+				6AE00CCE242F5F1100A34F64 /* Model */,
+				6AE00CCD242F5EE100A34F64 /* CustomViews */,
 				6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */,
 				6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */,
 				6A5D7F49242BCCDD001AA34B /* ViewController.swift */,
@@ -114,7 +118,6 @@
 				6A5D7F4E242BCCDE001AA34B /* Assets.xcassets */,
 				6A5D7F50242BCCDE001AA34B /* LaunchScreen.storyboard */,
 				6A5D7F53242BCCDE001AA34B /* Info.plist */,
-				6A4347A6242CB566000A852D /* RoundButton.swift */,
 			);
 			path = TeamCleaningOptimization;
 			sourceTree = "<group>";
@@ -135,6 +138,22 @@
 				6A5D7F69242BCCDE001AA34B /* Info.plist */,
 			);
 			path = TeamCleaningOptimizationUITests;
+			sourceTree = "<group>";
+		};
+		6AE00CCD242F5EE100A34F64 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				6A4347A6242CB566000A852D /* RoundButton.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		6AE00CCE242F5F1100A34F64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +292,7 @@
 				6A4347A7242CB566000A852D /* RoundButton.swift in Sources */,
 				6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */,
 				6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */,
+				6AE00CD0242F5F2D00A34F64 /* RoomInfo.swift in Sources */,
 				6ABE7FDB242CA9EA005A6D5D /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
