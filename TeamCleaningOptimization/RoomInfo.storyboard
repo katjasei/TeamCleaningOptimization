@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UfH-TH-SQD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1H-v3-ZhK">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,22 +7,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="OXv-P5-ZEn">
+            <objects>
+                <navigationController id="A1H-v3-ZhK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ILl-dh-UA0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UfH-TH-SQD" kind="relationship" relationship="rootViewController" id="FOe-QS-844"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fui-VH-X1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1342" y="-377"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="tXe-Ca-Tb6">
             <objects>
-                <viewController id="UfH-TH-SQD" sceneMemberID="viewController">
+                <viewController id="UfH-TH-SQD" customClass="ViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q6X-5G-PCR">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="afs-M0-lNX">
-                                <rect key="frame" x="56" y="100" width="912" height="757"/>
+                                <rect key="frame" x="56" y="150" width="912" height="717"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-E3-Xfr">
-                                <rect key="frame" x="56" y="1176" width="912" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-E3-Xfr">
+                                <rect key="frame" x="56" y="1186" width="912" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOI-lM-C3p" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="250.5" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="60"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="START">
@@ -38,7 +54,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4V-un-yhs" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                        <rect key="frame" x="330.5" y="0.0" width="251" height="70"/>
+                                        <rect key="frame" x="324" y="0.0" width="264" height="60"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="CLEANED">
@@ -54,7 +70,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-ia-gpJ" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                        <rect key="frame" x="661.5" y="0.0" width="250.5" height="70"/>
+                                        <rect key="frame" x="648" y="0.0" width="264" height="60"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="SCHEDULE">
@@ -71,7 +87,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="TsU-2Y-sAW"/>
+                                    <constraint firstAttribute="height" constant="60" id="TsU-2Y-sAW"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -87,10 +103,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QDB-3K-qdf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Lbc-6g-Db2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96.6796875" y="73.792093704245971"/>
+            <point key="canvasLocation" x="-611" y="-173"/>
         </scene>
     </scenes>
     <resources>
