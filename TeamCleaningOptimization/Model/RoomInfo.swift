@@ -10,9 +10,9 @@ struct RoomInfo {
     
     let roomType: String
     let index: Int
-    let sinceLastCleaned: String
+    let sinceLastCleaned: String //should be time
     let movementInTheRoom: Bool
-    let roomNeededNext: String
+    let roomNeededNext: String //should be time
     let patientInRoom: Bool
   
     
