@@ -10,24 +10,41 @@ import UIKit
 
 class RoomInfoViewController: UIViewController {
     
+    var isCleaning = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         self.title = "Room 102"
+        changeButtons()
     }
     
     //MARK: Actions
 
-    @IBAction func btnStart(_ sender: UIButton) {
+    @IBOutlet weak var startButton: RoundButton!
+    @IBAction func startButtonClicked(_ sender: UIButton) {
+        isCleaning = true
+        changeButtons()
     }
     
-    @IBAction func btnCleaned(_ sender: UIButton) {
+    @IBOutlet weak var cleanedButton: RoundButton!
+    @IBAction func cleanedButtonClicked(_ sender: UIButton) {
+        isCleaning = false
+        changeButtons()
     }
     
-    @IBAction func btnSchedule(_ sender: UIButton) {
+    @IBAction func scheduleButtonClicked(_ sender: UIButton) {
     }
     
-    
+    func changeButtons() {
+        if isCleaning {
+            cleanedButton.isHidden = false
+            startButton.isHidden = true
+        }
+        else {
+            cleanedButton.isHidden = true
+            startButton.isHidden = false
+        }
+    }
 }
 
