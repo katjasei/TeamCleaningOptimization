@@ -9,5 +9,5 @@ build_project:
   tags:
     - ios_13-3
     - xcode_11-3
-    - osx_10-15
+    - osx_10-13
     
