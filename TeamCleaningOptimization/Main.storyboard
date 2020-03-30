@@ -10,7 +10,7 @@
         <!--Table View Controller-->
         <scene sceneID="BUW-hJ-bZe">
             <objects>
-                <viewController storyboardIdentifier="Main" id="4Bd-6k-aIP" customClass="TableViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Bd-6k-aIP" customClass="TableViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qYI-iu-YX7">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,7 @@
                                         <connections>
                                             <outlet property="roomIndexLabel" destination="eyA-FO-EJT" id="OeW-Oq-ttb"/>
                                             <outlet property="roomNumberLabel" destination="K9Q-ak-dAh" id="1Gd-zq-kzw"/>
+                                            <segue destination="lbJ-TD-sda" kind="show" identifier="ShowInfo" id="8eF-88-GXs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,6 +62,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5I4-yn-bfD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49.21875" y="160.76134699853586"/>
+        </scene>
+        <!--RoomInfo-->
+        <scene sceneID="ZHN-Rh-Pwf">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RoomInfo" storyboardName="RoomInfo" referencedIdentifier="RoomInfo" id="lbJ-TD-sda" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gIQ-iH-iWN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFH-tj-xV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="451" y="-213"/>
         </scene>
     </scenes>
 </document>

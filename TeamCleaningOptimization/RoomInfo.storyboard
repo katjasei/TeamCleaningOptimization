@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UfH-TH-SQD" kind="relationship" relationship="rootViewController" id="FOe-QS-844"/>
+                        <segue destination="BsV-CO-Z9W" kind="relationship" relationship="rootViewController" id="Kzo-LL-eBa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fui-VH-X1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -26,13 +26,13 @@
         <!--Title-->
         <scene sceneID="tXe-Ca-Tb6">
             <objects>
-                <viewController id="UfH-TH-SQD" customClass="ViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="q6X-5G-PCR">
+                <viewController restorationIdentifier="RoomInfo" storyboardIdentifier="RoomInfo" id="UfH-TH-SQD" customClass="ViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="RoomInfo" id="q6X-5G-PCR">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="afs-M0-lNX">
-                                <rect key="frame" x="56" y="120" width="912" height="683.5"/>
+                                <rect key="frame" x="56" y="70" width="912" height="733.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-E3-Xfr">
                                 <rect key="frame" x="56" y="1236" width="912" height="60"/>
@@ -185,7 +185,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-611" y="-173"/>
+            <point key="canvasLocation" x="-422" y="-288"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="sie-k7-RcJ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" referencedIdentifier="Main" id="BsV-CO-Z9W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i0b-1r-efj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4A-0I-Rqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-689" y="-916"/>
         </scene>
     </scenes>
     <resources>

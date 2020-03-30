@@ -34,5 +34,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.updateContent(with: sampleData[indexPath.row], and: sampleIndexes.randomElement() ?? 0 )
         return cell
     }
-
+    // didSelectRowAt
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+           self.performSegue(withIdentifier: "ShowInfo", sender: nil)
+       }
 }
