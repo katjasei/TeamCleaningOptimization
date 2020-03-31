@@ -65,7 +65,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="F7E-UW-WyL" secondAttribute="trailing" constant="20" symbolic="YES" id="OcH-OI-TXp"/>
                                                         <constraint firstItem="F7E-UW-WyL" firstAttribute="top" secondItem="tBo-Ug-ABz" secondAttribute="top" constant="20" symbolic="YES" id="oeA-DG-7r7"/>
                                                         <constraint firstItem="F7E-UW-WyL" firstAttribute="leading" secondItem="tBo-Ug-ABz" secondAttribute="leading" constant="20" symbolic="YES" id="qfh-ba-yDe"/>
-                                                        <constraint firstAttribute="width" constant="684" id="wgo-F2-ERH"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
