@@ -51,6 +51,11 @@ playground.xcworkspace
 
 .build/
 
+#
+# MergeTool .orig files
+
+*.orig
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However

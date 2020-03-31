@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  TeamCleaningOptimization
 //
-//  Created by iosdev on 27.3.2020.
+//  Created by Oona on 27.3.2020.
 //  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
