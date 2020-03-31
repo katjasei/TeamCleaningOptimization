@@ -2,7 +2,7 @@
 //  RoundButton.swift
 //  TeamCleaningOptimization
 //
-//  Created by iosdev on 19/11/2019.
+//  Created by Katja on 19/11/2019.
 //  Copyright © 2019 iosdev. All rights reserved.
 //
 

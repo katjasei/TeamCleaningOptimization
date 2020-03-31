@@ -2,7 +2,7 @@
 //  TableViewController.swift
 //  TeamCleaningOptimization
 //
-//  Created by iosdev on 25.3.2020.
+//  Created by Oona on 25.3.2020.
 //  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
@@ -19,6 +19,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        self.title = "Room List"
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
     // Protocol methods
@@ -34,5 +36,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.updateContent(with: sampleData[indexPath.row], and: sampleIndexes.randomElement() ?? 0 )
         return cell
     }
-
+    
+    // didSelectRowAt
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+           self.performSegue(withIdentifier: "ShowInfo", sender: self)
+       }
+    
+  
 }
