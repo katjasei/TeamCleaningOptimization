@@ -19,6 +19,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        self.title = "Room List"
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
     // Protocol methods
@@ -38,6 +40,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // didSelectRowAt
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-           self.performSegue(withIdentifier: "ShowInfo", sender: nil)
+           self.performSegue(withIdentifier: "ShowInfo", sender: self)
        }
+    
+  
 }

@@ -50,7 +50,11 @@ playground.xcworkspace
 # .swiftpm
 
 .build/
-TeamCleaningOptimization.xcodeproj/project.pbxproj.orig
+
+#
+# MergeTool .orig files
+
+*.orig
 
 # CocoaPods
 #
