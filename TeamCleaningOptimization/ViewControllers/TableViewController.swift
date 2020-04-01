@@ -12,9 +12,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // IB & variables
     @IBOutlet var tableView: UITableView!
-    let sampleDataFloor1 = [100, 105, 199]
-    let sampleDataFloor2 = [202, 233]
-    let sampleDataFloor3 = [301, 304,305,306]
+    let sampleDataFloor1 = ["100", "105", "199"]
+    let sampleDataFloor2 = ["202", "233"]
+    let sampleDataFloor3 = ["301","304","305","306"]
     let sampleIndexes = [29, 12, 66, 90]
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     
@@ -23,6 +23,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
+       
        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
@@ -75,17 +76,38 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // didSelectRowAt
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-           self.performSegue(withIdentifier: "ShowInfo", sender: self)
+
+        self.performSegue(withIdentifier: "ShowInfo", sender: indexPath.row)
+        print(indexPath.row)
        }
     
-    @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let getIndex = scFloorSelection.selectedSegmentIndex
-        print(getIndex)
+        if let indexPath = tableView.indexPathForSelectedRow {
+         guard let destViewController = segue.destination as? RoomInfoViewController else {return}
+        let selectedRow = indexPath.row
+        switch(scFloorSelection.selectedSegmentIndex)
+              {
+              case 0:
+                destViewController.getNumber = sampleDataFloor1[selectedRow]
+                  break
+              case 1:
+              
+                destViewController.getNumber = sampleDataFloor2[selectedRow]
+                  break
+              case 2:
+                destViewController.getNumber = sampleDataFloor3[selectedRow]
+                  break
+              default:
+                  break
+                 }
+    }
+}
+    
+    @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
+       // let getIndex = scFloorSelection.selectedSegmentIndex
+        //print(getIndex)
         tableView.reloadData()
     }
-    
 
-  
 }

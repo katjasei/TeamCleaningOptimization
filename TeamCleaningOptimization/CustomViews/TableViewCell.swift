@@ -13,8 +13,8 @@ class TableViewCell: UITableViewCell{
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var roomIndexLabel: UILabel!
     
-    func updateContent(with number: Int, and index: Int) {
-        roomNumberLabel.text = String(number)
+    func updateContent(with number: String, and index: Int) {
+        roomNumberLabel.text = number
         roomIndexLabel.text = String(index)
     }
 }
