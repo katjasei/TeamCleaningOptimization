@@ -20,7 +20,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //let sampleDataFloor1 = [100, 105, 199]
    // let sampleDataFloor2 = [202, 233]
     //let sampleDataFloor3 = [301,304,305,306]
-    let sampleIndexes = [29, 12, 66, 90]
+    let sampleIndexes = [29, 12, 66, 90, 40, 50]
     let sampleTime = ["3h","4h","2h","1h"]
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     
