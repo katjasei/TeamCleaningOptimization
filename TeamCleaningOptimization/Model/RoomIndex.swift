@@ -6,7 +6,7 @@
 //  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RoomIndex {
     
@@ -21,14 +21,17 @@ class RoomIndex {
         self.index  = index
     }
     
-    func getColor(index: Int) {
+    func getColor(index: Int) -> UIColor {
         
-       // var color = "orange"
+        var color = UIColor.red
         
         if index < 33 {
-            //color = "green"
+            color = UIColor.blue
         } else if index > 66 {
-            //color = "red"
-        }
+            color = UIColor.yellow
     }
+        return color
 }
+    
+}
+

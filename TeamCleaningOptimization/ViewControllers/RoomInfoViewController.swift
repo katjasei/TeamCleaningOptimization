@@ -11,12 +11,12 @@ import UIKit
 class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
-    var getNumber = String()
+    var getNumber = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        self.title = "Room " + getNumber
+        self.title = "Room " + String(getNumber)
         changeButtons()
     }
     
