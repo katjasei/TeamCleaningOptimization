@@ -12,24 +12,28 @@ class RoomIndex {
     
     var room: Int
     var index: Int
+    var time: String
     
 //    var heatmap_dirty: binary
 //    var is_cleaning: bool
     
-    init(room: Int, index: Int) {
+    init(room: Int, index: Int, time: String) {
         self.room   = room
         self.index  = index
+        self.time = time
     }
     
     func getColor(index: Int) -> UIColor {
         
         var color = UIColor.red
         
-        if index < 33 {
-            color = UIColor.blue
-        } else if index > 66 {
+        if index <= 33 {
             color = UIColor.yellow
-    }
+        } else if index >= 66 {
+            color = UIColor.red
+    } else  {
+               color = UIColor.orange
+       }
         return color
 }
     

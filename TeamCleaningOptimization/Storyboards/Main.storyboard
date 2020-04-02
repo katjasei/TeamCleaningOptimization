@@ -37,23 +37,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimization" customModuleProvider="target">
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimization" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="964" height="120"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
+                                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
                                                             <rect key="frame" x="20" y="20" width="924" height="80"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-Ua-ad5">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-Ua-ad5">
                                                                     <rect key="frame" x="20" y="22" width="884" height="36"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="roomNumberLabel" text="no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-ak-dAh">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="442" height="36"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="roomNumberLabel" text="no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-ak-dAh">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="778.5" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="roomIndexLabel" text="Index" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-FO-EJT">
-                                                                            <rect key="frame" x="442" y="0.0" width="442" height="36"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="roomIndexLabel" text="Index" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-FO-EJT">
+                                                                            <rect key="frame" x="778.5" y="0.0" width="70.5" height="36"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcD-X4-PME" userLabel="TimeCleaned">
+                                                                            <rect key="frame" x="849" y="0.0" width="35" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -90,6 +96,7 @@
                                         <connections>
                                             <outlet property="roomIndexLabel" destination="eyA-FO-EJT" id="OeW-Oq-ttb"/>
                                             <outlet property="roomNumberLabel" destination="K9Q-ak-dAh" id="1Gd-zq-kzw"/>
+                                            <outlet property="timeLabel" destination="GcD-X4-PME" id="Qcn-nd-c0G"/>
                                             <segue destination="lbJ-TD-sda" kind="show" identifier="ShowInfo" id="8eF-88-GXs"/>
                                         </connections>
                                     </tableViewCell>
