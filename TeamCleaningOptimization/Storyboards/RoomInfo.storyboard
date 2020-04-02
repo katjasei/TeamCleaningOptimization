@@ -19,13 +19,14 @@
                         <segue destination="BsV-CO-Z9W" kind="relationship" relationship="rootViewController" id="Kzo-LL-eBa"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fui-VH-X1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1342" y="-377"/>
         </scene>
         <!--Title-->
         <scene sceneID="tXe-Ca-Tb6">
             <objects>
-                <viewController storyboardIdentifier="RoomInfo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UfH-TH-SQD" customClass="RoomInfoViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="RoomInfo" storyboardIdentifier="RoomInfo" id="UfH-TH-SQD" customClass="RoomInfoViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="RoomInfo" id="q6X-5G-PCR">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,10 +255,10 @@
         <!--Main-->
         <scene sceneID="sie-k7-RcJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P4A-0I-Rqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" referencedIdentifier="Main" id="BsV-CO-Z9W" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="i0b-1r-efj"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4A-0I-Rqe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-689" y="-916"/>
         </scene>
