@@ -10,8 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OXv-P5-ZEn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fui-VH-X1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController id="A1H-v3-ZhK" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Navigator" storyboardIdentifier="Navigator" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="fullScreen" id="A1H-v3-ZhK" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ILl-dh-UA0">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -193,6 +192,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="scheduleButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="LyO-6s-AJ4"/>
+                                                                    <segue destination="BHT-2J-buH" kind="show" id="7iL-oG-8ZI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -240,6 +240,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-422.30215827338134" y="-288.4422110552764"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="7px-V0-5mO">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Report" storyboardName="Report" referencedIdentifier="Report" id="BHT-2J-buH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="x3S-Jr-ChL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOB-Pz-fTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-288"/>
         </scene>
         <!--Main-->
         <scene sceneID="sie-k7-RcJ">
