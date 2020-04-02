@@ -26,10 +26,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimization" customModuleProvider="target">
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimization" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="964" height="120"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
+                                                        <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
                                                             <rect key="frame" x="20" y="20" width="924" height="80"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-Ua-ad5">
