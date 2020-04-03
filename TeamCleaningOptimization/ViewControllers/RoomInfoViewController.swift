@@ -17,7 +17,7 @@ class RoomInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        timeLabel.isHidden = true
         self.title = "Room " + String(getNumber)
         changeButtons()
     }
@@ -25,7 +25,22 @@ class RoomInfoViewController: UIViewController {
     // Timer calls this every second
     @objc func countTime() {
         time += 1
+        timeLabel.text = String(time)
         print(time)
+    }
+    
+    // Changes start and stop cleaning buttons. Disables back navigation for timer to work correctly
+    func changeButtons() {
+        if isCleaning {
+            self.navigationItem.hidesBackButton = true
+            cleanedButton.isHidden = false
+            startButton.isHidden = true
+        }
+        else {
+            self.navigationItem.hidesBackButton = false
+            cleanedButton.isHidden = true
+            startButton.isHidden = false
+        }
     }
     
     //MARK: Actions
@@ -34,6 +49,7 @@ class RoomInfoViewController: UIViewController {
     @IBAction func startButtonClicked(_ sender: UIButton) {
         isCleaning = true
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
+        timeLabel.isHidden = false
         changeButtons()
     }
     
@@ -45,18 +61,8 @@ class RoomInfoViewController: UIViewController {
         changeButtons()
     }
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
-    }
-    
-    func changeButtons() {
-        if isCleaning {
-            cleanedButton.isHidden = false
-            startButton.isHidden = true
-        }
-        else {
-            cleanedButton.isHidden = true
-            startButton.isHidden = false
-        }
     }
 }
 
