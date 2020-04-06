@@ -174,6 +174,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="cleanedButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="6iq-zL-3Fj"/>
+                                                                    <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="4B2-zS-syn"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-ia-gpJ" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
@@ -193,7 +194,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="scheduleButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="LyO-6s-AJ4"/>
-                                                                    <segue destination="BHT-2J-buH" kind="show" id="7iL-oG-8ZI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
