@@ -10,7 +10,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OXv-P5-ZEn">
             <objects>
-                <navigationController id="A1H-v3-ZhK" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Navigator" storyboardIdentifier="Navigator" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="fullScreen" id="A1H-v3-ZhK" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ILl-dh-UA0">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,7 +161,7 @@
                                                                 <rect key="frame" x="274.5" y="0.0" width="235" height="60"/>
                                                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                                <state key="normal" title="CLEANED">
+                                                                <state key="normal" title="STOP CLEANING">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -193,6 +193,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="scheduleButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="LyO-6s-AJ4"/>
+                                                                    <segue destination="BHT-2J-buH" kind="show" id="7iL-oG-8ZI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -209,6 +210,13 @@
                                                     <constraint firstItem="rjM-E3-Xfr" firstAttribute="leading" secondItem="YRP-kz-Ri1" secondAttribute="leading" constant="5" id="oos-QT-Z2Z"/>
                                                 </constraints>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgv-vV-La9">
+                                                <rect key="frame" x="319" y="494" width="196" height="66"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -235,11 +243,22 @@
                     <connections>
                         <outlet property="cleanedButton" destination="B4V-un-yhs" id="qCn-FH-YBe"/>
                         <outlet property="startButton" destination="YOI-lM-C3p" id="4vh-vP-Fl9"/>
+                        <outlet property="timeLabel" destination="zgv-vV-La9" id="3pG-0J-MYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-422.30215827338134" y="-288.4422110552764"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="7px-V0-5mO">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Report" storyboardName="Report" referencedIdentifier="Report" id="BHT-2J-buH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="x3S-Jr-ChL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sOB-Pz-fTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-288"/>
         </scene>
         <!--Main-->
         <scene sceneID="sie-k7-RcJ">

@@ -12,9 +12,11 @@ class TableViewCell: UITableViewCell{
     
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var roomIndexLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
-    func updateContent(with number: Int, and index: Int) {
+    func updateContent(with number: Int, and index: Int, and time: String) {
         roomNumberLabel.text = String(number)
         roomIndexLabel.text = String(index)
+        timeLabel.text = time
     }
 }
