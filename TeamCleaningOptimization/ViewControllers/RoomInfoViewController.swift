@@ -43,6 +43,15 @@ class RoomInfoViewController: UIViewController {
         }
     }
     
+    // Pass room data to report
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showReport" {
+            let destinationViewController = segue.destination as! ReportViewController
+            destinationViewController.roomNumb = self.getNumber
+            destinationViewController.time = self.time
+        }
+    }
+    
     //MARK: Actions
 
     @IBOutlet weak var startButton: RoundButton!
@@ -59,6 +68,7 @@ class RoomInfoViewController: UIViewController {
         timer.invalidate()
         print("Timer stopped")
         changeButtons()
+        self.performSegue(withIdentifier: "showReport", sender: "cleanedButton")
     }
     
     @IBOutlet weak var timeLabel: UILabel!

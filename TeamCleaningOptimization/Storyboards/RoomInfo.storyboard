@@ -174,7 +174,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="cleanedButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="6iq-zL-3Fj"/>
-                                                                    <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="4B2-zS-syn"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-ia-gpJ" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
@@ -244,6 +243,7 @@
                         <outlet property="cleanedButton" destination="B4V-un-yhs" id="qCn-FH-YBe"/>
                         <outlet property="startButton" destination="YOI-lM-C3p" id="4vh-vP-Fl9"/>
                         <outlet property="timeLabel" destination="zgv-vV-La9" id="3pG-0J-MYv"/>
+                        <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="UMc-DO-mmQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,7 +258,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOB-Pz-fTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="-288"/>
+            <point key="canvasLocation" x="95" y="-450"/>
         </scene>
         <!--Main-->
         <scene sceneID="sie-k7-RcJ">
