@@ -26,25 +26,25 @@
                                     <action selector="scSelectFloor:" destination="4Bd-6k-aIP" eventType="valueChanged" id="0ik-Ia-zVN"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-wf-OAw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-wf-OAw">
                                 <rect key="frame" x="20" y="150" width="984" height="1196"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="140" id="ZJx-Z9-bCI" customClass="TableViewCell" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="984" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="110" id="ZJx-Z9-bCI" customClass="TableViewCell" customModule="TeamCleaningOptimization" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="984" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJx-Z9-bCI" id="lS3-2Z-Krf">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="10" width="964" height="120"/>
+                                                    <rect key="frame" x="10" y="10" width="964" height="90"/>
                                                     <subviews>
                                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
-                                                            <rect key="frame" x="20" y="20" width="924" height="80"/>
+                                                            <rect key="frame" x="20" y="20" width="924" height="50"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-Ua-ad5">
-                                                                    <rect key="frame" x="20" y="22" width="884" height="36"/>
+                                                                    <rect key="frame" x="20" y="7" width="884" height="36"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" restorationIdentifier="roomNumberLabel" text="no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-ak-dAh">
                                                                             <rect key="frame" x="0.0" y="0.0" width="778.5" height="36"/>

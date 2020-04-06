@@ -28,14 +28,17 @@ class RoomIndex {
         var color = UIColor.red
         
         if index <= 33 {
-            color = UIColor.yellow
-        } else if index >= 66 {
-            color = UIColor.red
-    } else  {
-               color = UIColor.orange
-       }
+            color = UIColor(hex: "#EF5350ff") ?? UIColor.white} //red
+        else if (index <= 66)  {
+            color = UIColor(hex: "#FFB74Dff") ?? UIColor.white} // orange
+        else if index <= 95 {
+            color = UIColor(hex: "#FFF176ff") ?? UIColor.white} //yellow
+        else
+           {color = UIColor(hex: "#81C784ff") ?? UIColor.white} //green
+        
         return color
 }
-    
 }
+
+
 

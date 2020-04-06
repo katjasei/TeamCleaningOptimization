@@ -34,8 +34,12 @@ class ReportViewController: UIViewController {
     
     //prepare function to pass data between two ViewControllers
       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ShowRoomInfo"){
+            
           guard let destViewController = segue.destination as? RoomInfoViewController else {return}
           destViewController.getNumber = roomNumb
+            
+        }
     }
     
     

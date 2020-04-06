@@ -64,14 +64,14 @@ class RoomInfoViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
-    }
-    
-    //prepare function to pass data between two ViewControllers
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destViewController = segue.destination as? ReportViewController else {return}
-        destViewController.roomNumb = getNumber
-         }
-    
-    
+      
 }
 
+//prepare function to pass data between two ViewControllers
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if (segue.identifier == "ShowReport"){
+       guard let destViewController = segue.destination as? ReportViewController else {return}
+       destViewController.roomNumb = getNumber }
+        }
+
+        }
