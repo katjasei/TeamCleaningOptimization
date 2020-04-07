@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A5D7F41242BCCDD001AA34B"
-               BuildableName = "TeamCleaningOptimization.app"
-               BlueprintName = "TeamCleaningOptimization"
-               ReferencedContainer = "container:TeamCleaningOptimization.xcodeproj">
+               BuildableName = "TeamCleaningOptimisation.app"
+               BlueprintName = "TeamCleaningOptimisation"
+               ReferencedContainer = "container:TeamCleaningOptimisation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A5D7F57242BCCDE001AA34B"
-               BuildableName = "TeamCleaningOptimizationTests.xctest"
-               BlueprintName = "TeamCleaningOptimizationTests"
-               ReferencedContainer = "container:TeamCleaningOptimization.xcodeproj">
+               BuildableName = "TeamCleaningOptimisationTests.xctest"
+               BlueprintName = "TeamCleaningOptimisationTests"
+               ReferencedContainer = "container:TeamCleaningOptimisation.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6A5D7F62242BCCDE001AA34B"
-               BuildableName = "TeamCleaningOptimizationUITests.xctest"
-               BlueprintName = "TeamCleaningOptimizationUITests"
-               ReferencedContainer = "container:TeamCleaningOptimization.xcodeproj">
+               BuildableName = "TeamCleaningOptimisationUITests.xctest"
+               BlueprintName = "TeamCleaningOptimisationUITests"
+               ReferencedContainer = "container:TeamCleaningOptimisation.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A5D7F41242BCCDD001AA34B"
-            BuildableName = "TeamCleaningOptimization.app"
-            BlueprintName = "TeamCleaningOptimization"
-            ReferencedContainer = "container:TeamCleaningOptimization.xcodeproj">
+            BuildableName = "TeamCleaningOptimisation.app"
+            BlueprintName = "TeamCleaningOptimisation"
+            ReferencedContainer = "container:TeamCleaningOptimisation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6A5D7F41242BCCDD001AA34B"
-            BuildableName = "TeamCleaningOptimization.app"
-            BlueprintName = "TeamCleaningOptimization"
-            ReferencedContainer = "container:TeamCleaningOptimization.xcodeproj">
+            BuildableName = "TeamCleaningOptimisation.app"
+            BlueprintName = "TeamCleaningOptimisation"
+            ReferencedContainer = "container:TeamCleaningOptimisation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
