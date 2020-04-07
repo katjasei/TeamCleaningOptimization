@@ -134,15 +134,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func loadSampleDataFloor (){
         
-        let room1_1 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: "A105", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: "A117", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: "205", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: "210", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_4 = RoomIndex(room: "303", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_1 = RoomIndex(room: 101, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_2 = RoomIndex(room: 105, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_3 = RoomIndex(room: 117, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_1 = RoomIndex(room: 205, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_2 = RoomIndex(room: 210, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_1 = RoomIndex(room: 311, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_2 = RoomIndex(room: 308, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_3 = RoomIndex(room: 326, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_4 = RoomIndex(room: 303, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         
         floor1 += [room1_1, room1_2, room1_3]
         floor1_sorted = floor1.sorted(by: { $0.index < $1.index})

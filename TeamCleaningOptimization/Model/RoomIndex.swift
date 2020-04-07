@@ -10,14 +10,14 @@ import UIKit
 
 class RoomIndex {
     
-    var room: String
+    var room: Int
     var index: Int
     var time: String
     
 //    var heatmap_dirty: binary
 //    var is_cleaning: bool
     
-    init(room: String, index: Int, time: String) {
+    init(room: Int, index: Int, time: String) {
         self.room   = room
         self.index  = index
         self.time = time

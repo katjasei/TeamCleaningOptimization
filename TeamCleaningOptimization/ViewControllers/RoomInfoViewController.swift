@@ -11,14 +11,14 @@ import UIKit
 class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
-    var getNumber = String()
+    var getNumber = Int()
     var timer: Timer!
     var time = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.isHidden = true
-        self.title = "Room " + getNumber
+        self.title = "Room " + String(getNumber)
         changeButtons()
     }
     
@@ -75,13 +75,5 @@ class RoomInfoViewController: UIViewController {
     
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
       
+    }
 }
-
-//prepare function to pass data between two ViewControllers
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       if (segue.identifier == "ShowReport"){
-       guard let destViewController = segue.destination as? ReportViewController else {return}
-       destViewController.roomNumb = getNumber }
-        }
-
-        }
