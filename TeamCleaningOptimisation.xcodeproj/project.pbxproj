@@ -55,17 +55,17 @@
 		6A4347A6242CB566000A852D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6A58DE3F243B830E00785FEC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		6A5D329D2432321300AB4F0E /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
-		6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamCleaningOptimization.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimisation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamCleaningOptimisation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6A5D7F49242BCCDD001AA34B /* RoomInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfoViewController.swift; sourceTree = "<group>"; };
 		6A5D7F4E242BCCDE001AA34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A5D7F51242BCCDE001AA34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A5D7F53242BCCDE001AA34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimizationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimizationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimisationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimisationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D7F5C242BCCDE001AA34B /* TeamCleaningOptimizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCleaningOptimizationTests.swift; sourceTree = "<group>"; };
 		6A5D7F5E242BCCDE001AA34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimizationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimizationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimisationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamCleaningOptimisationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D7F67242BCCDE001AA34B /* TeamCleaningOptimizationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCleaningOptimizationUITests.swift; sourceTree = "<group>"; };
 		6A5D7F69242BCCDE001AA34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ABE7FCE242BD1CC005A6D5D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -122,9 +122,9 @@
 		6A5D7F43242BCCDD001AA34B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimization.app */,
-				6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimizationTests.xctest */,
-				6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimizationUITests.xctest */,
+				6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimisation.app */,
+				6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimisationTests.xctest */,
+				6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimisationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,9 +207,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimization */ = {
+		6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimisation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A5D7F6C242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimization" */;
+			buildConfigurationList = 6A5D7F6C242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisation" */;
 			buildPhases = (
 				6A5D7F3E242BCCDD001AA34B /* Sources */,
 				6A5D7F3F242BCCDD001AA34B /* Frameworks */,
@@ -219,14 +219,14 @@
 			);
 			dependencies = (
 			);
-			name = TeamCleaningOptimization;
+			name = TeamCleaningOptimisation;
 			productName = TeamCleaningOptimization;
-			productReference = 6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimization.app */;
+			productReference = 6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimisation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6A5D7F57242BCCDE001AA34B /* TeamCleaningOptimizationTests */ = {
+		6A5D7F57242BCCDE001AA34B /* TeamCleaningOptimisationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A5D7F6F242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimizationTests" */;
+			buildConfigurationList = 6A5D7F6F242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisationTests" */;
 			buildPhases = (
 				6A5D7F54242BCCDE001AA34B /* Sources */,
 				6A5D7F55242BCCDE001AA34B /* Frameworks */,
@@ -237,14 +237,14 @@
 			dependencies = (
 				6A5D7F5A242BCCDE001AA34B /* PBXTargetDependency */,
 			);
-			name = TeamCleaningOptimizationTests;
+			name = TeamCleaningOptimisationTests;
 			productName = TeamCleaningOptimizationTests;
-			productReference = 6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimizationTests.xctest */;
+			productReference = 6A5D7F58242BCCDE001AA34B /* TeamCleaningOptimisationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6A5D7F62242BCCDE001AA34B /* TeamCleaningOptimizationUITests */ = {
+		6A5D7F62242BCCDE001AA34B /* TeamCleaningOptimisationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A5D7F72242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimizationUITests" */;
+			buildConfigurationList = 6A5D7F72242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisationUITests" */;
 			buildPhases = (
 				6A5D7F5F242BCCDE001AA34B /* Sources */,
 				6A5D7F60242BCCDE001AA34B /* Frameworks */,
@@ -255,9 +255,9 @@
 			dependencies = (
 				6A5D7F65242BCCDE001AA34B /* PBXTargetDependency */,
 			);
-			name = TeamCleaningOptimizationUITests;
+			name = TeamCleaningOptimisationUITests;
 			productName = TeamCleaningOptimizationUITests;
-			productReference = 6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimizationUITests.xctest */;
+			productReference = 6A5D7F63242BCCDE001AA34B /* TeamCleaningOptimisationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -283,7 +283,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6A5D7F3D242BCCDD001AA34B /* Build configuration list for PBXProject "TeamCleaningOptimization" */;
+			buildConfigurationList = 6A5D7F3D242BCCDD001AA34B /* Build configuration list for PBXProject "TeamCleaningOptimisation" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -296,9 +296,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimization */,
-				6A5D7F57242BCCDE001AA34B /* TeamCleaningOptimizationTests */,
-				6A5D7F62242BCCDE001AA34B /* TeamCleaningOptimizationUITests */,
+				6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimisation */,
+				6A5D7F57242BCCDE001AA34B /* TeamCleaningOptimisationTests */,
+				6A5D7F62242BCCDE001AA34B /* TeamCleaningOptimisationUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -374,12 +374,12 @@
 /* Begin PBXTargetDependency section */
 		6A5D7F5A242BCCDE001AA34B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimization */;
+			target = 6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimisation */;
 			targetProxy = 6A5D7F59242BCCDE001AA34B /* PBXContainerItemProxy */;
 		};
 		6A5D7F65242BCCDE001AA34B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimization */;
+			target = 6A5D7F41242BCCDD001AA34B /* TeamCleaningOptimisation */;
 			targetProxy = 6A5D7F64242BCCDE001AA34B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -446,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -500,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -514,15 +514,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6NB4523R5F;
+				DEVELOPMENT_TEAM = EVMSWPGYSG;
 				INFOPLIST_FILE = TeamCleaningOptimization/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TeamCleaningOptimization;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.TeamCleaningOptimisation;
+				PRODUCT_NAME = TeamCleaningOptimisation;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -532,15 +535,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6NB4523R5F;
+				DEVELOPMENT_TEAM = EVMSWPGYSG;
 				INFOPLIST_FILE = TeamCleaningOptimization/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.TeamCleaningOptimization;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.TeamCleaningOptimisation;
+				PRODUCT_NAME = TeamCleaningOptimisation;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -563,7 +569,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamCleaningOptimization.app/TeamCleaningOptimization";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamCleaningOptimisation.app/TeamCleaningOptimisation";
 			};
 			name = Debug;
 		};
@@ -584,7 +590,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamCleaningOptimization.app/TeamCleaningOptimization";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeamCleaningOptimisation.app/TeamCleaningOptimisation";
 			};
 			name = Release;
 		};
@@ -629,7 +635,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6A5D7F3D242BCCDD001AA34B /* Build configuration list for PBXProject "TeamCleaningOptimization" */ = {
+		6A5D7F3D242BCCDD001AA34B /* Build configuration list for PBXProject "TeamCleaningOptimisation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A5D7F6A242BCCDE001AA34B /* Debug */,
@@ -638,7 +644,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A5D7F6C242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimization" */ = {
+		6A5D7F6C242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A5D7F6D242BCCDE001AA34B /* Debug */,
@@ -647,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A5D7F6F242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimizationTests" */ = {
+		6A5D7F6F242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A5D7F70242BCCDE001AA34B /* Debug */,
@@ -656,7 +662,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A5D7F72242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimizationUITests" */ = {
+		6A5D7F72242BCCDE001AA34B /* Build configuration list for PBXNativeTarget "TeamCleaningOptimisationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A5D7F73242BCCDE001AA34B /* Debug */,
