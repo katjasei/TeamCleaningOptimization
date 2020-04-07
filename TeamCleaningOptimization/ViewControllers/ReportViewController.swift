@@ -10,9 +10,9 @@ import UIKit
 
 class ReportViewController: UIViewController {
     
-    var roomNumb = "A102"
+    var roomNumb = 0
     var cleaner  = "Leonardo DiCpario"
-    var time     = "0:30:56"
+    var time     = 0
     var cleanInd = "95"
     var success  = "Yes"
     
@@ -27,7 +27,7 @@ class ReportViewController: UIViewController {
         self.title = "Report \(roomNumb)"
         
         rCleanerTF.text  = cleaner
-        rTimeTF.text     = time
+        rTimeTF.text     = String(time)
         rCleanIndTF.text = cleanInd
         rSuccessTF.text  = success
     }

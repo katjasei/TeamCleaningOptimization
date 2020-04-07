@@ -13,6 +13,7 @@
 		6A01A4E9242E4DAF004A5B73 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01A4E8242E4DAF004A5B73 /* TableViewCell.swift */; };
 		6A4347A5242CAE32000A852D /* RoomInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347A4242CAE32000A852D /* RoomInfo.storyboard */; };
 		6A4347A7242CB566000A852D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4347A6242CB566000A852D /* RoundButton.swift */; };
+		6A58DE40243B830E00785FEC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58DE3F243B830E00785FEC /* UIColor.swift */; };
 		6A5D329E2432321300AB4F0E /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D329D2432321300AB4F0E /* DesignView.swift */; };
 		6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */; };
 		6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5D7F47242BCCDD001AA34B /* SceneDelegate.swift */; };
@@ -52,6 +53,7 @@
 		6A01A4E8242E4DAF004A5B73 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6A4347A4242CAE32000A852D /* RoomInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomInfo.storyboard; sourceTree = "<group>"; };
 		6A4347A6242CB566000A852D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		6A58DE3F243B830E00785FEC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		6A5D329D2432321300AB4F0E /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
 		6A5D7F42242BCCDD001AA34B /* TeamCleaningOptimization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamCleaningOptimization.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5D7F45242BCCDD001AA34B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A58DE3E243B82F000785FEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6A58DE3F243B830E00785FEC /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6A5D7F39242BCCDD001AA34B = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		6A5D7F44242BCCDD001AA34B /* TeamCleaningOptimization */ = {
 			isa = PBXGroup;
 			children = (
+				6A58DE3E243B82F000785FEC /* Extensions */,
 				6AFC374D24320F1200B36A60 /* ViewControllers */,
 				6AFC374C24320E9C00B36A60 /* Storyboards */,
 				6AE00CCE242F5F1100A34F64 /* Model */,
@@ -328,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A01A4E9242E4DAF004A5B73 /* TableViewCell.swift in Sources */,
+				6A58DE40243B830E00785FEC /* UIColor.swift in Sources */,
 				5A5287C2242E77BC0095D21D /* RoomIndex.swift in Sources */,
 				6A5D329E2432321300AB4F0E /* DesignView.swift in Sources */,
 				6A5D7F4A242BCCDD001AA34B /* RoomInfoViewController.swift in Sources */,
