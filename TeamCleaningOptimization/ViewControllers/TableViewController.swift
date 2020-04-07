@@ -16,11 +16,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var floor1 = [RoomIndex]()
     var floor2 = [RoomIndex]()
     var floor3 = [RoomIndex]()
+    var floor1_sorted = [RoomIndex]()
+    var floor2_sorted = [RoomIndex]()
+    var floor3_sorted = [RoomIndex]()
 
     //let sampleDataFloor1 = [100, 105, 199]
    // let sampleDataFloor2 = [202, 233]
     //let sampleDataFloor3 = [301,304,305,306]
-    let sampleIndexes = [29, 12, 66, 90, 40, 50]
+    let sampleIndexes = [75, 80, 29, 66, 97, 40, 30, 99]
     let sampleTime = ["3h","4h","2h","1h"]
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     
@@ -41,13 +44,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         switch(scFloorSelection.selectedSegmentIndex)
         {
         case 0:
-            returnValue = floor1.count
+            returnValue = floor1_sorted.count
             break
         case 1:
-            returnValue = floor2.count
+            returnValue = floor2_sorted.count
             break
         case 2:
-            returnValue = floor3.count
+            returnValue = floor3_sorted.count
             break
         default:
             break
@@ -63,24 +66,25 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                
                {
                case 0:
-                cell.updateContent(with: floor1[indexPath.row].room, and: floor1[indexPath.row].index, and: floor1[indexPath.row].time)
+                cell.updateContent(with: floor1_sorted[indexPath.row].room, and: floor1_sorted[indexPath.row].index, and: floor1_sorted[indexPath.row].time)
             
-                cell.viewWithTag(1)?.backgroundColor = floor1[indexPath.row].getColor(index: floor1[indexPath.row].index)
-                cell.viewWithTag(2)?.backgroundColor = floor1[indexPath.row].getColor(index: floor1[indexPath.row].index)
+                cell.viewWithTag(1)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
+                cell.viewWithTag(2)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
+                
                 
                    break
                case 1:
-                   cell.updateContent(with: floor2[indexPath.row].room, and: floor2[indexPath.row].index, and: floor2[indexPath.row].time)
+                   cell.updateContent(with: floor2_sorted[indexPath.row].room, and: floor2_sorted[indexPath.row].index, and: floor2_sorted[indexPath.row].time)
                    
-                   cell.viewWithTag(1)?.backgroundColor = floor2[indexPath.row].getColor(index: floor2[indexPath.row].index)
-                   cell.viewWithTag(2)?.backgroundColor = floor2[indexPath.row].getColor(index: floor2[indexPath.row].index)
+                   cell.viewWithTag(1)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
+                   cell.viewWithTag(2)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
                    
                    break
                case 2:
-                  cell.updateContent(with: floor3[indexPath.row].room, and: floor3[indexPath.row].index, and: floor3[indexPath.row].time)
+                  cell.updateContent(with: floor3_sorted[indexPath.row].room, and: floor3_sorted[indexPath.row].index, and: floor3_sorted[indexPath.row].time)
                   
-                  cell.viewWithTag(1)?.backgroundColor = floor3[indexPath.row].getColor(index: floor3[indexPath.row].index)
-                  cell.viewWithTag(2)?.backgroundColor = floor3[indexPath.row].getColor(index: floor3[indexPath.row].index)
+                  cell.viewWithTag(1)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
+                  cell.viewWithTag(2)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
                    break
                default:
                    break
@@ -130,21 +134,22 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func loadSampleDataFloor (){
         
-        let room1_1 = RoomIndex(room: 101, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: 105, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: 117, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: 205, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: 210, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_1 = RoomIndex(room: 311, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_2 = RoomIndex(room: 308, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_3 = RoomIndex(room: 326, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_4 = RoomIndex(room: 303, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_1 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_2 = RoomIndex(room: "A105", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_3 = RoomIndex(room: "A117", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_1 = RoomIndex(room: "205", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_2 = RoomIndex(room: "210", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_4 = RoomIndex(room: "303", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         
         floor1 += [room1_1, room1_2, room1_3]
+        floor1_sorted = floor1.sorted(by: { $0.index < $1.index})
         floor2 += [room2_1, room2_2]
+        floor2_sorted = floor2.sorted(by: { $0.index < $1.index })
         floor3 += [room3_1, room3_2, room3_3, room3_4]
-        
-        
+        floor3_sorted = floor3.sorted(by: { $0.index < $1.index })
         
     }
 

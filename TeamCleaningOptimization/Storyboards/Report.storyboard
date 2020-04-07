@@ -132,7 +132,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="2b7-Qo-RhV" kind="show" animates="NO" id="WaS-f2-tt6"/>
+                                            <segue destination="2b7-Qo-RhV" kind="show" identifier="ShowRoomInfo" animates="NO" id="WaS-f2-tt6"/>
                                         </connections>
                                     </button>
                                 </subviews>
