@@ -10,7 +10,7 @@
         <!--Report View Controller-->
         <scene sceneID="q87-hp-IU4">
             <objects>
-                <viewController restorationIdentifier="Report" storyboardIdentifier="Report" id="gJZ-Ak-r0R" customClass="ReportViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Report" storyboardIdentifier="Report" id="gJZ-Ak-r0R" customClass="ReportViewController" customModule="TeamCleaningOptimisation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mmp-Rh-Seu">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                                             <constraint firstItem="ilC-YS-Arw" firstAttribute="centerX" secondItem="pfY-xx-f7z" secondAttribute="centerX" id="IdE-o8-el7"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmJ-U4-nch" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmJ-U4-nch" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="718.5" width="984" height="70"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="-645.32374100719426" y="-82.914572864321613"/>
         </scene>
-        <!--RoomInfo-->
+        <!--Navigator-->
         <scene sceneID="8B9-KF-GG8">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="RoomInfo" storyboardName="RoomInfo" referencedIdentifier="RoomInfo" id="2b7-Qo-RhV" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="RoomInfo" storyboardName="RoomInfo" referencedIdentifier="Navigator" id="2b7-Qo-RhV" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="UQN-ch-Hcd"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWt-CD-h49" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
