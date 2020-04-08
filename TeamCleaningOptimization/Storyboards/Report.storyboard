@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,16 +10,16 @@
         <!--Report View Controller-->
         <scene sceneID="q87-hp-IU4">
             <objects>
-                <viewController restorationIdentifier="Report" storyboardIdentifier="Report" id="gJZ-Ak-r0R" customClass="ReportViewController" customModule="TeamCleaningOptimization" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Report" storyboardIdentifier="Report" id="gJZ-Ak-r0R" customClass="ReportViewController" customModule="TeamCleaningOptimisation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mmp-Rh-Seu">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="wYJ-pC-Lwr">
-                                <rect key="frame" x="20" y="30" width="794" height="788.5"/>
+                                <rect key="frame" x="20" y="30" width="984" height="788.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M9A-ZY-DY9" userLabel="Cleaner SV">
-                                        <rect key="frame" x="0.0" y="0.0" width="794" height="72"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="72"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cleaner:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjP-VQ-ge9">
                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="25.5"/>
@@ -28,7 +28,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Kos-0p-JHh">
-                                                <rect key="frame" x="0.0" y="35.5" width="794" height="36.5"/>
+                                                <rect key="frame" x="0.0" y="35.5" width="984" height="36.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" smartDashesType="no" smartQuotesType="no" textContentType="name"/>
                                             </textField>
@@ -38,16 +38,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rpg-WQ-6Al" userLabel="Time SV">
-                                        <rect key="frame" x="0.0" y="142" width="794" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="142" width="984" height="77.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of cleaning:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="430-9w-KJK">
-                                                <rect key="frame" x="0.0" y="0.0" width="794" height="25.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="984" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJT-Zo-92i">
-                                                <rect key="frame" x="0.0" y="40.5" width="794" height="37"/>
+                                                <rect key="frame" x="0.0" y="40.5" width="984" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -57,7 +57,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fAh-KA-CXM" userLabel="Clean Ind SV">
-                                        <rect key="frame" x="0.0" y="289.5" width="794" height="73"/>
+                                        <rect key="frame" x="0.0" y="289.5" width="984" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean index:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNP-J8-FkM">
                                                 <rect key="frame" x="0.0" y="0.0" width="107.5" height="24"/>
@@ -66,7 +66,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEC-ht-kqz">
-                                                <rect key="frame" x="0.0" y="39" width="794" height="34"/>
+                                                <rect key="frame" x="0.0" y="39" width="984" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -76,7 +76,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bPY-q8-9OR" userLabel="Success SV">
-                                        <rect key="frame" x="0.0" y="432.5" width="794" height="73"/>
+                                        <rect key="frame" x="0.0" y="432.5" width="984" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was cleaning successful:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQG-VJ-Fng">
                                                 <rect key="frame" x="0.0" y="0.0" width="218.5" height="24"/>
@@ -85,7 +85,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="el7-0s-IvN">
-                                                <rect key="frame" x="0.0" y="39" width="794" height="34"/>
+                                                <rect key="frame" x="0.0" y="39" width="984" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -95,7 +95,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-xx-f7z" userLabel="Comment SV">
-                                        <rect key="frame" x="0.0" y="575.5" width="794" height="73"/>
+                                        <rect key="frame" x="0.0" y="575.5" width="984" height="73"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwb-Fb-FZL">
                                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="24"/>
@@ -104,7 +104,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Comment" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-YS-Arw">
-                                                <rect key="frame" x="0.0" y="39" width="794" height="34"/>
+                                                <rect key="frame" x="0.0" y="39" width="984" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
@@ -113,8 +113,8 @@
                                             <constraint firstItem="ilC-YS-Arw" firstAttribute="centerX" secondItem="pfY-xx-f7z" secondAttribute="centerX" id="IdE-o8-el7"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmJ-U4-nch" customClass="RoundButton" customModule="TeamCleaningOptimization" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="718.5" width="794" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmJ-U4-nch" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="718.5" width="984" height="70"/>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="tBw-qz-cyI"/>
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="-645.32374100719426" y="-82.914572864321613"/>
         </scene>
-        <!--RoomInfo-->
+        <!--Navigator-->
         <scene sceneID="8B9-KF-GG8">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="RoomInfo" storyboardName="RoomInfo" referencedIdentifier="RoomInfo" id="2b7-Qo-RhV" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="RoomInfo" storyboardName="RoomInfo" referencedIdentifier="Navigator" id="2b7-Qo-RhV" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="UQN-ch-Hcd"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWt-CD-h49" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
