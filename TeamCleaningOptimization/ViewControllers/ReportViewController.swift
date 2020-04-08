@@ -10,7 +10,7 @@ import UIKit
 
 class ReportViewController: UIViewController {
     
-    var roomNumb = 0
+    var roomNumb = String()
     var cleaner  = "Leonardo DiCpario"
     var time     = 0
     var cleanInd = "95"
@@ -31,4 +31,12 @@ class ReportViewController: UIViewController {
         rCleanIndTF.text = cleanInd
         rSuccessTF.text  = success
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "ShowRoomInfo" {
+               let destinationViewController = segue.destination as! RoomInfoViewController
+               destinationViewController.getNumber = self.roomNumb
+           }
+       }
+    
 }

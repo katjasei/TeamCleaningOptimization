@@ -11,7 +11,7 @@ import UIKit
 class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
-    var getNumber = Int()
+    var getNumber = String()
     var timer: Timer!
     var time = 0
     

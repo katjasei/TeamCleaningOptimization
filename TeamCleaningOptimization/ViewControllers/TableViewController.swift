@@ -100,8 +100,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
        }
     
-    //prepare function to pass data between two ViewControllers (use with performSegue)
+    //prepare function to pass data between two ViewControllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "ShowInfo"){
         
         if let indexPath = tableView.indexPathForSelectedRow {
          guard let destViewController = segue.destination as? RoomInfoViewController else {return}
@@ -109,20 +111,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         switch(scFloorSelection.selectedSegmentIndex)
               {
               case 0:
-                destViewController.getNumber = floor1[selectedRow].room
+                destViewController.getNumber = floor1_sorted[selectedRow].room
                   break
               case 1:
-              
-                destViewController.getNumber = floor2[selectedRow].room
+                destViewController.getNumber = floor2_sorted[selectedRow].room
                   break
               case 2:
-                destViewController.getNumber = floor3[selectedRow].room
+                destViewController.getNumber = floor3_sorted[selectedRow].room
                   break
               default:
                   break
                  }
         
     }
+         }
          }
     
     @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
@@ -134,15 +136,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func loadSampleDataFloor (){
         
-        let room1_1 = RoomIndex(room: 101, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: 105, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: 117, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: 205, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: 210, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_1 = RoomIndex(room: 311, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_2 = RoomIndex(room: 308, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_3 = RoomIndex(room: 326, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_4 = RoomIndex(room: 303, index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_1 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_2 = RoomIndex(room: "A105", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_3 = RoomIndex(room: "A117", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_1 = RoomIndex(room: "205", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_2 = RoomIndex(room: "210", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room3_4 = RoomIndex(room: "303", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         
         floor1 += [room1_1, room1_2, room1_3]
         floor1_sorted = floor1.sorted(by: { $0.index < $1.index})
