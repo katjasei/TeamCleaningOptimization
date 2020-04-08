@@ -4,8 +4,8 @@ stages:
 build_project:
   stage: build
   script:
-    - xcodebuild clean -project TeamCleaningOptimisation.xcodeproj -scheme TeamCleaningOptimization 
-    - xcodebuild test -project TeamCleaningOptimisation.xcodeproj -scheme TeamCleaningOptimization -destination 'platform=iOS Simulator,name=iPad Air (3rd generation),OS=13.3'
+    - xcodebuild clean -project TeamCleaningOptimisation.xcodeproj -scheme TeamCleaningOptimisation 
+    - xcodebuild test -project TeamCleaningOptimisation.xcodeproj -scheme TeamCleaningOptimisation -destination 'platform=iOS Simulator,name=iPad Air (3rd generation),OS=13.3'
   tags:
     - ios_13-3
     - xcode_11-3
