@@ -31,12 +31,12 @@ class ReportViewController: UIViewController {
         rCleanIndTF.text = cleanInd
         rSuccessTF.text  = success
     }
-    
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if segue.identifier == "ShowRoomInfo" {
                let destinationViewController = segue.destination as! RoomInfoViewController
                destinationViewController.getNumber = self.roomNumb
            }
-       }
+       }*/
     
 }
