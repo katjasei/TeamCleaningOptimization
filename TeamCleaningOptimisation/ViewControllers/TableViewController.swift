@@ -33,6 +33,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         self.title = "Room List"
         loadSampleDataFloor()
+        
+        // Get json data from db
+        let apiRequest = APIRequest()
+        apiRequest.sendRequest("/rooms")
     }
     
     // Protocol methods
