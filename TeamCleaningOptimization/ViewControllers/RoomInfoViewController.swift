@@ -35,6 +35,8 @@ class RoomInfoViewController: UIViewController {
             self.navigationItem.hidesBackButton = true
             cleanedButton.isHidden = false
             startButton.isHidden = true
+            scheduleButton.isHidden = true
+            timeLabel.isHidden = false
         }
         else {
             self.navigationItem.hidesBackButton = false
@@ -73,6 +75,7 @@ class RoomInfoViewController: UIViewController {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var scheduleButton: RoundButton!
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
       
     }
