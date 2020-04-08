@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import TeamCleaningOptimization
+@testable import TeamCleaningOptimisation
 
 class TeamCleaningOptimizationTests: XCTestCase {
 
