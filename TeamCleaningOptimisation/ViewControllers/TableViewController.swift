@@ -36,7 +36,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Get json data from db
         let apiRequest = APIRequest()
-        apiRequest.sendRequest("/rooms")
+        apiRequest.getRoom(roomID: "A100")
     }
     
     // Protocol methods
