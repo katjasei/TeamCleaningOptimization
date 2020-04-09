@@ -9,30 +9,45 @@
 import Foundation
 
 class APIRequest {
-    let endpoint = "https://cleaner-app-api.azurewebsites.net/api/hospital0"
-    let getRoomsString = "/rooms"
-    let getRoomString = "/room/"
-    let getReportString = "/reports"
+    private let endpoint = "https://cleaner-app-api.azurewebsites.net/api/hospital0"
+    private let getRoomsString = "/rooms"
+    private let getRoomString = "/room/"
+    private let getReportString = "/reports"
+    private let putStartCleaningString = "/startcleaning"
+    private let putStopCleaningString = "/stopcleaning"
     
     func getRoom(roomID: String) {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
         print("URL: \(url)")
-        doGETRequest(url: url)
+        doRequest(url: url)
     }
     
     func getRooms() {
         guard let url = URL(string: endpoint+getRoomsString) else { return }
         print("URL: \(url)")
-        doGETRequest(url: url)
+        doRequest(url: url)
     }
     
     func getReport() {
         guard let url = URL(string: endpoint+getReportString) else { return }
         print("URL: \(url)")
-        doGETRequest(url: url)
+        doRequest(url: url)
     }
     
-    private func doGETRequest(url: URL) {
+    func putStartCleaning(roomID: String) {
+        guard let url = URL(string: endpoint+getRoomString+roomID+putStartCleaningString) else { return }
+        print("URL: \(url)")
+        doRequest(url: url)
+    }
+    
+    func putStopCleaning(roomID: String) {
+        guard let url = URL(string: endpoint+getRoomString+roomID+putStopCleaningString) else { return }
+        print("URL: \(url)")
+        doRequest(url: url)
+    }
+    
+    // For all empty body requests (GET & PUT)
+    private func doRequest(url: URL) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
