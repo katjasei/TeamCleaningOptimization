@@ -12,7 +12,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     @IBOutlet var tableView: UITableView!
-    
     var floor1 = [RoomIndex]()
     var floor2 = [RoomIndex]()
     var floor3 = [RoomIndex]()
@@ -36,6 +35,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // Get json data from db
         let apiRequest = APIRequest()
+        do {
+            try apiRequest.getRoom(roomID: "A100")
+        }
+        catch {
+            print("Error getting data from API")
+        }
         
     }
     

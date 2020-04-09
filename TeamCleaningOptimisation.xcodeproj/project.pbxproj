@@ -12,6 +12,9 @@
 		5A54794524351D680080738C /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A54794424351D680080738C /* Report.storyboard */; };
 		6A01A4E9242E4DAF004A5B73 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01A4E8242E4DAF004A5B73 /* TableViewCell.swift */; };
 		6A284CDC243E56BE00C60760 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A284CDB243E56BE00C60760 /* APIRequest.swift */; };
+		6A284CDE243F699500C60760 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A284CDD243F699500C60760 /* Room.swift */; };
+		6A284CE0243F6CE800C60760 /* Rooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A284CDF243F6CE800C60760 /* Rooms.swift */; };
+		6A284CE2243F6D1C00C60760 /* Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A284CE1243F6D1C00C60760 /* Heatmap.swift */; };
 		6A4347A5242CAE32000A852D /* RoomInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A4347A4242CAE32000A852D /* RoomInfo.storyboard */; };
 		6A4347A7242CB566000A852D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4347A6242CB566000A852D /* RoundButton.swift */; };
 		6A58DE40243B830E00785FEC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A58DE3F243B830E00785FEC /* UIColor.swift */; };
@@ -53,6 +56,9 @@
 		5A54794424351D680080738C /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		6A01A4E8242E4DAF004A5B73 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6A284CDB243E56BE00C60760 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		6A284CDD243F699500C60760 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		6A284CDF243F6CE800C60760 /* Rooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rooms.swift; sourceTree = "<group>"; };
+		6A284CE1243F6D1C00C60760 /* Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heatmap.swift; sourceTree = "<group>"; };
 		6A4347A4242CAE32000A852D /* RoomInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomInfo.storyboard; sourceTree = "<group>"; };
 		6A4347A6242CB566000A852D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		6A58DE3F243B830E00785FEC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -190,6 +196,9 @@
 				5A5287C1242E77BC0095D21D /* RoomIndex.swift */,
 				6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */,
 				6AE00CD12430A9CA00A34F64 /* Report.swift */,
+				6A284CDD243F699500C60760 /* Room.swift */,
+				6A284CE1243F6D1C00C60760 /* Heatmap.swift */,
+				6A284CDF243F6CE800C60760 /* Rooms.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,17 +360,20 @@
 			files = (
 				6A01A4E9242E4DAF004A5B73 /* TableViewCell.swift in Sources */,
 				6A58DE40243B830E00785FEC /* UIColor.swift in Sources */,
+				6A284CDE243F699500C60760 /* Room.swift in Sources */,
 				6A284CDC243E56BE00C60760 /* APIRequest.swift in Sources */,
 				5A5287C2242E77BC0095D21D /* RoomIndex.swift in Sources */,
 				6A5D329E2432321300AB4F0E /* DesignView.swift in Sources */,
 				6A5D7F4A242BCCDD001AA34B /* RoomInfoViewController.swift in Sources */,
 				5A54794324351BDE0080738C /* ReportViewController.swift in Sources */,
+				6A284CE2243F6D1C00C60760 /* Heatmap.swift in Sources */,
 				6A4347A7242CB566000A852D /* RoundButton.swift in Sources */,
 				6AE00CD22430A9CA00A34F64 /* Report.swift in Sources */,
 				6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */,
 				6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */,
 				6AE00CD0242F5F2D00A34F64 /* RoomInfo.swift in Sources */,
 				6ABE7FDB242CA9EA005A6D5D /* TableViewController.swift in Sources */,
+				6A284CE0243F6CE800C60760 /* Rooms.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
