@@ -15,46 +15,50 @@ class APIRequest {
     private let getReportString = "/reports"
     private let putStartCleaningString = "/startcleaning"
     private let putStopCleaningString = "/stopcleaning"
+    private let API_KEY = "zL43mXgXk5xa7YFRBVZscbLnGFaqVh24q5G6fhGjmAv532FAVBRtnuCJpwXWXnhw"
     
-    func getRoom(roomID: String) throws {
+    func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .getRoom)
+        doRequest(url: url, type: .getRoom, completion: completion)
     }
     
     func getRooms() throws {
         guard let url = URL(string: endpoint+getRoomsString) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .getRooms)
+        //doRequest(url: url, type: .getRooms)
     }
     
     func getReport() throws {
         guard let url = URL(string: endpoint+getReportString) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .getReport)
+        //doRequest(url: url, type: .getReport)
     }
     
     func putStartCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStartCleaningString) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .put)
+       // doRequest(url: url, type: .put)
     }
     
     func putStopCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStopCleaningString) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .put)
+      //  doRequest(url: url, type: .put)
     }
     
     // For all empty body requests (GET & PUT)
-    private func doRequest(url: URL, type: APIType) {
+    private func doRequest<T:Decodable>(url: URL, type: APIType, completion: @escaping (Result<T,Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        //with authorization
+        request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             // Check for errors
             if let error = error {
                 print("Error: \(error)")
+                completion(.failure(error))
                 return
             }
             
@@ -64,12 +68,18 @@ class APIRequest {
             }
             
             // Read data
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data: \(dataString)")
-            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                do{
+                    let nesData = try decoder.decode(T.self, from: data)
+                    completion(.success(nesData))
+               }catch {
+                completion(.failure(error))}
+                }
         }
         task.resume()
     }
+    
 }
 
 enum APIType {

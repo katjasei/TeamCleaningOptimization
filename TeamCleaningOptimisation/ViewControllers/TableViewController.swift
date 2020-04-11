@@ -19,9 +19,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var floor2_sorted = [RoomIndex]()
     var floor3_sorted = [RoomIndex]()
 
-    //let sampleDataFloor1 = [100, 105, 199]
-   // let sampleDataFloor2 = [202, 233]
-    //let sampleDataFloor3 = [301,304,305,306]
     let sampleIndexes = [75, 80, 29, 66, 97, 40, 30, 99]
     let sampleTime = ["3h","4h","2h","1h"]
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
@@ -34,13 +31,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         loadSampleDataFloor()
         
         // Get json data from db
-        let apiRequest = APIRequest()
-        do {
-            try apiRequest.getRoom(roomID: "A100")
-        }
-        catch {
-            print("Error getting data from API")
-        }
+        //let apiRequest = APIRequest()
+       // do {
+           // try apiRequest.getRoom(roomID: "A100", completion:  (Result<Room,Error>)->Void)
+       // }
+        //catch {
+         //   print("Error getting data from API")
+        //}
         
     }
     
@@ -145,11 +142,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func loadSampleDataFloor (){
         
-        let room1_1 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: "A105", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: "A117", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: "205", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: "210", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_1 = RoomIndex(room: "A100", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_2 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room1_3 = RoomIndex(room: "A102", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_1 = RoomIndex(room: "A106", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
+        let room2_2 = RoomIndex(room: "A107", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
         let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")

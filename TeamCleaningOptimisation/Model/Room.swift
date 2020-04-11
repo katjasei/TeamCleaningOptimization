@@ -12,13 +12,13 @@ import Foundation
 //   let rooms = try? newJSONDecoder().decode(Rooms.self, from: jsonData)
 
 struct Room: Codable {
-    let id, roomID: String
+    let floorId, roomID: String
     let dirtIndex: Int
-    let dirtHeatmap, movHeatmap: Heatmap
-    let lastUpdate: String
+    let dirtHeatmap, movHeatmap: String
+    let lastUpdate: Int
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
+        case floorId = "floor_id"
         case roomID = "room_id"
         case dirtIndex = "dirt_index"
         case dirtHeatmap = "dirt_heatmap"

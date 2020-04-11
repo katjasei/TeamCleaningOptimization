@@ -14,12 +14,35 @@ class RoomInfoViewController: UIViewController {
     var getNumber = String()
     var timer: Timer!
     var time = 0
+    var dirtHeatMap: String = ""
+    @IBOutlet weak var heatMapImageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.isHidden = true
         self.title = "Room " + String(getNumber)
         changeButtons()
+        
+        //Using API
+        let apiRequest = APIRequest()
+        do {
+           try apiRequest.getRoom(roomID: getNumber, completion: { result in
+                switch result {
+                case .success(let room) : self.dirtHeatMap = room.dirtHeatmap
+                case .failure(let error) : print(error)
+                }
+            print(self.dirtHeatMap)
+            let heatMap = self.base64Convert(base64String: self.dirtHeatMap)
+            DispatchQueue.main.async {
+            self.heatMapImageView.image = heatMap
+            }
+             }
+            )
+            
+          }catch {
+              print("Error getting data from API")
+          }
     }
     
     // Timer calls this every second
@@ -78,5 +101,17 @@ class RoomInfoViewController: UIViewController {
     @IBOutlet weak var scheduleButton: RoundButton!
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
       
+    }
+    
+    func base64Convert(base64String: String?) -> UIImage{
+      if (base64String?.isEmpty)! {
+          return #imageLiteral(resourceName: "no_image_found")
+      }else {
+          // !!! Separation part is optional, depends on your Base64String !!!
+          let temp = base64String
+          let dataDecoded : Data = Data(base64Encoded: temp!, options: .ignoreUnknownCharacters)!
+          let decodedimage = UIImage(data: dataDecoded)
+          return decodedimage!
+      }
     }
 }
