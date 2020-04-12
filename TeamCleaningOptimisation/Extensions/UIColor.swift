@@ -2,7 +2,7 @@
 //  UIColor.swift
 //  TeamCleaningOptimization
 //
-//  Created by iosdev on 6.4.2020.
+//  Created by Katja on 6.4.2020.
 //  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
