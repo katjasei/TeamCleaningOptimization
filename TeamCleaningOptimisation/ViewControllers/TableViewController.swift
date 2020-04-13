@@ -12,9 +12,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     @IBOutlet var tableView: UITableView!
+    // Segmented control
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     var rooms: Rooms?
-    
     
     
     // Lifecycle methods
@@ -25,6 +25,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 switch result {
                 case .success(let rooms) :
                     self.rooms = rooms
+                    print(rooms)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -40,29 +41,26 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.title = "Room List"
     }
     
-    
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
-        var returnValue = 0
+        let segmentIndex = scFloorSelection.selectedSegmentIndex
+        let roomsInThisFloor = roomsToFloors(floorNumber: segmentIndex)
         
-        switch(scFloorSelection.selectedSegmentIndex)
-        {
-        case 0:
-            returnValue = floor1_sorted.count
-            break
-        case 1:
-            returnValue = floor2_sorted.count
-            break
-        case 2:
-            returnValue = floor3_sorted.count
-            break
-        default:
-            break
-           }
- */
-        let returnValue = rooms?.count ?? 0
-        return returnValue
+        return roomsInThisFloor.count
+    }
+    
+    func roomsToFloors(floorNumber: Int) -> Array<Room> {
+        var returnArray: [Room] = []
+        guard let roomsUnwrapped = rooms else {
+            print("Rooms array was nil")
+            return returnArray
+        }
+        for room in roomsUnwrapped {
+            if (Int(room.floorId) == (floorNumber+1)) {
+                returnArray.append(room)
+            }
+        }
+        return returnArray
     }
     
     //Define cell
