@@ -12,17 +12,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     @IBOutlet var tableView: UITableView!
-    var floor1 = [RoomIndex]()
-    var floor2 = [RoomIndex]()
-    var floor3 = [RoomIndex]()
-    var floor1_sorted = [RoomIndex]()
-    var floor2_sorted = [RoomIndex]()
-    var floor3_sorted = [RoomIndex]()
-    var rooms: Rooms?
-
-    let sampleIndexes = [75, 80, 29, 66, 97, 40, 30, 99]
-    let sampleTime = ["3h","4h","2h","1h"]
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
+    var rooms: Rooms?
+    
+    
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -30,7 +23,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         do {
            try apiRequest.getRooms(completion: { result in
                 switch result {
-                case .success(let rooms) : self.rooms = rooms
+                case .success(let rooms) :
+                    self.rooms = rooms
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 print(rooms.count)
                 case .failure(let error) : print(error)
                 }})
@@ -38,21 +35,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
           } catch {
               print("Error getting data from API")
           }
-        
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
-        //loadSampleDataFloor()
-        tableView.reloadData()
     }
     
-    func setRoomData(rooms: Rooms) {
-        for room in rooms {
-            
-        }
-    }
     
-    // Protocol methods
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /*
@@ -155,27 +143,4 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //print(getIndex)
         tableView.reloadData()
     }
-    
-    
-    private func loadSampleDataFloor (){
-        
-        let room1_1 = RoomIndex(room: "A100", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: "A102", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: "A106", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: "A107", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_4 = RoomIndex(room: "303", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        
-        floor1 += [room1_1, room1_2, room1_3]
-        floor1_sorted = floor1.sorted(by: { $0.index < $1.index})
-        floor2 += [room2_1, room2_2]
-        floor2_sorted = floor2.sorted(by: { $0.index < $1.index })
-        floor3 += [room3_1, room3_2, room3_3, room3_4]
-        floor3_sorted = floor3.sorted(by: { $0.index < $1.index })
-        
-    }
-
 }
