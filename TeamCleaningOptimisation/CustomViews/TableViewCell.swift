@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewCell: UITableViewCell{
     
+    @IBOutlet weak var innerView: UIView!
+    @IBOutlet weak var designView: DesignView!
     @IBOutlet weak var roomNumberLabel: UILabel!
     @IBOutlet weak var roomIndexLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -17,5 +19,9 @@ class TableViewCell: UITableViewCell{
     func updateContent(roomID number: String, roomIndex index: Int) {
         roomNumberLabel.text = number
         roomIndexLabel.text = String(index)
+    }
+    func updateBackgroundColour(colour: UIColor) {
+        innerView.backgroundColor = colour
+        designView.backgroundColor = colour
     }
 }

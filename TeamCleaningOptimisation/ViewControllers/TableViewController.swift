@@ -11,14 +11,15 @@ import UIKit
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
+    
     @IBOutlet var tableView: UITableView!
-    // Segmented control
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     var rooms: Rooms?
     
     
     // Lifecycle methods
     override func viewDidLoad() {
+        // API call
         let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
@@ -26,6 +27,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 case .success(let rooms) :
                     self.rooms = rooms
                     print(rooms)
+                    // Reload tableView in main thread
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -49,6 +51,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return roomsInThisFloor.count
     }
     
+    // Picks rooms in selected floor and returns an array
     func roomsToFloors(floorNumber: Int) -> Array<Room> {
         var returnArray: [Room] = []
         guard let roomsUnwrapped = rooms else {
@@ -67,7 +70,31 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
         let room = rooms?[indexPath.row]
+        let roomsInThisFloor = roomsToFloors(floorNumber: indexPath.row)
         cell.updateContent(roomID: room?.roomID ?? "0", roomIndex: room?.dirtIndex ?? 0)
+        
+        for room in roomsInThisFloor {
+            switch room.dirtIndex {
+                case 0...33:
+                    //print("Index 0-33")
+                    let colour = UIColor(hex: "#81C784ff") ?? UIColor.white //green
+                    cell.updateBackgroundColour(colour: colour)
+                case 34...66:
+                    print("Index 34-66")
+                    let colour = UIColor(hex: "#FFF176ff") ?? UIColor.white //yellow
+                    cell.updateBackgroundColour(colour: colour)
+                case 67...90:
+                    print("Index: 67-90")
+                    let colour = UIColor(hex: "#FFB74Dff") ?? UIColor.white // orange
+                    cell.updateBackgroundColour(colour: colour)
+                case 91...100:
+                    print("Index: 01-100")
+                    let colour = UIColor(hex: "#EF5350ff") ?? UIColor.white //red
+                    cell.updateBackgroundColour(colour: colour)
+            default:
+                print("Index error")
+            }
+        }
         /*
         switch(scFloorSelection.selectedSegmentIndex)
                
@@ -117,21 +144,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
                 let selectedRow = indexPath.row
                 destViewController.room = rooms?[selectedRow]
-                /*
-                switch(scFloorSelection.selectedSegmentIndex)
-                      {
-                      case 0:
-                        destViewController.getNumber = floor1_sorted[selectedRow].room
-                          break
-                      case 1:
-                        destViewController.getNumber = floor2_sorted[selectedRow].room
-                          break
-                      case 2:
-                        destViewController.getNumber = floor3_sorted[selectedRow].room
-                          break
-                      default:
-                          break
-                         } */
             }
         }
     }
