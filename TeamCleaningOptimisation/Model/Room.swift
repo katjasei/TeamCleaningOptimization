@@ -26,3 +26,5 @@ struct Room: Codable {
         case lastUpdate = "last_update"
     }
 }
+
+typealias Rooms = [Room]

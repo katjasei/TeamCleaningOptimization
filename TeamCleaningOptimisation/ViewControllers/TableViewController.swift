@@ -18,6 +18,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var floor1_sorted = [RoomIndex]()
     var floor2_sorted = [RoomIndex]()
     var floor3_sorted = [RoomIndex]()
+    var rooms: Rooms?
 
     let sampleIndexes = [75, 80, 29, 66, 97, 40, 30, 99]
     let sampleTime = ["3h","4h","2h","1h"]
@@ -25,26 +26,36 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Lifecycle methods
     override func viewDidLoad() {
+        let apiRequest = APIRequest()
+        do {
+           try apiRequest.getRooms(completion: { result in
+                switch result {
+                case .success(let rooms) : self.rooms = rooms
+                print(rooms.count)
+                case .failure(let error) : print(error)
+                }})
+        
+          } catch {
+              print("Error getting data from API")
+          }
+        
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
-        loadSampleDataFloor()
-        
-        // Get json data from db
-        //let apiRequest = APIRequest()
-       // do {
-           // try apiRequest.getRoom(roomID: "A100", completion:  (Result<Room,Error>)->Void)
-       // }
-        //catch {
-         //   print("Error getting data from API")
-        //}
-        
+        //loadSampleDataFloor()
+        tableView.reloadData()
+    }
+    
+    func setRoomData(rooms: Rooms) {
+        for room in rooms {
+            
+        }
     }
     
     // Protocol methods
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        /*
         var returnValue = 0
         
         switch(scFloorSelection.selectedSegmentIndex)
@@ -61,13 +72,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             break
            }
+ */
+        let returnValue = rooms?.count ?? 0
         return returnValue
     }
     
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
-        
+        let room = rooms?[indexPath.row]
+        cell.updateContent(roomID: room?.roomID ?? "0", roomIndex: room?.dirtIndex ?? 0)
+        /*
         switch(scFloorSelection.selectedSegmentIndex)
                
                {
@@ -95,6 +110,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                default:
                    break
                   }
+ */
         
         return cell
     }
@@ -109,29 +125,30 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //prepare function to pass data between two ViewControllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if(segue.identifier == "ShowInfo"){
+        if (segue.identifier == "ShowInfo") {
         
-        if let indexPath = tableView.indexPathForSelectedRow {
-         guard let destViewController = segue.destination as? RoomInfoViewController else {return}
-        let selectedRow = indexPath.row
-        switch(scFloorSelection.selectedSegmentIndex)
-              {
-              case 0:
-                destViewController.getNumber = floor1_sorted[selectedRow].room
-                  break
-              case 1:
-                destViewController.getNumber = floor2_sorted[selectedRow].room
-                  break
-              case 2:
-                destViewController.getNumber = floor3_sorted[selectedRow].room
-                  break
-              default:
-                  break
-                 }
-        
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let destViewController = segue.destination as? RoomInfoViewController else {return}
+                let selectedRow = indexPath.row
+                destViewController.room = rooms?[selectedRow]
+                /*
+                switch(scFloorSelection.selectedSegmentIndex)
+                      {
+                      case 0:
+                        destViewController.getNumber = floor1_sorted[selectedRow].room
+                          break
+                      case 1:
+                        destViewController.getNumber = floor2_sorted[selectedRow].room
+                          break
+                      case 2:
+                        destViewController.getNumber = floor3_sorted[selectedRow].room
+                          break
+                      default:
+                          break
+                         } */
+            }
+        }
     }
-         }
-         }
     
     @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
        // let getIndex = scFloorSelection.selectedSegmentIndex

@@ -20,13 +20,13 @@ class APIRequest {
     func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
         print("URL: \(url)")
-        doRequest(url: url, type: .getRoom, completion: completion)
+        doRequest(url: url, completion: completion)
     }
     
-    func getRooms() throws {
+    func getRooms(completion: @escaping (Result<Rooms, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomsString) else { return }
         print("URL: \(url)")
-        //doRequest(url: url, type: .getRooms)
+        doRequest(url: url, completion: completion)
     }
     
     func getReport() throws {
@@ -48,7 +48,7 @@ class APIRequest {
     }
     
     // For all empty body requests (GET & PUT)
-    private func doRequest<T:Decodable>(url: URL, type: APIType, completion: @escaping (Result<T,Error>) -> Void) {
+    private func doRequest<T:Decodable>(url: URL, completion: @escaping (Result<T,Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         //with authorization
@@ -82,7 +82,3 @@ class APIRequest {
     
 }
 
-enum APIType {
-    // For different kinds of response parsing (no response in either PUT)
-    case getRooms, getRoom, getReport, put
-}

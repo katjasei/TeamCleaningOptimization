@@ -14,7 +14,7 @@ class RoomInfoViewController: UIViewController {
     var getNumber = String()
     var timer: Timer!
     var time = 0
-    var dirtHeatMap: String = ""
+    var room: Room!
     @IBOutlet weak var heatMapImageView: UIImageView!
     
     
@@ -24,25 +24,11 @@ class RoomInfoViewController: UIViewController {
         self.title = "Room " + String(getNumber)
         changeButtons()
         
-        //Using API
-        let apiRequest = APIRequest()
-        do {
-           try apiRequest.getRoom(roomID: getNumber, completion: { result in
-                switch result {
-                case .success(let room) : self.dirtHeatMap = room.dirtHeatmap
-                case .failure(let error) : print(error)
-                }
-            print(self.dirtHeatMap)
-            let heatMap = self.base64Convert(base64String: self.dirtHeatMap)
-            DispatchQueue.main.async {
-            self.heatMapImageView.image = heatMap
-            }
-             }
-            )
-            
-          }catch {
-              print("Error getting data from API")
-          }
+        //Set dirt heatmap
+        let convertedHeatMap = self.base64Convert(base64String: room.dirtHeatmap)
+        DispatchQueue.main.async {
+        self.heatMapImageView.image = convertedHeatMap
+        }
     }
     
     // Timer calls this every second
