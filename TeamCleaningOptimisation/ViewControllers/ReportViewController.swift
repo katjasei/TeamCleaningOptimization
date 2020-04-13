@@ -38,5 +38,4 @@ class ReportViewController: UIViewController {
                destinationViewController.getNumber = self.roomNumb
            }
        }*/
-    
 }

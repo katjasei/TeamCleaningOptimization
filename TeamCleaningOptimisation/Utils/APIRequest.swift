@@ -79,6 +79,5 @@ class APIRequest {
         }
         task.resume()
     }
-    
 }
 

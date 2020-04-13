@@ -11,17 +11,19 @@ import UIKit
 class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
-    var getNumber = String()
     var timer: Timer!
     var time = 0
     var room: Room!
     @IBOutlet weak var heatMapImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scheduleButton: RoundButton!
+    @IBOutlet weak var cleanedButton: RoundButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.isHidden = true
-        self.title = "Room " + String(getNumber)
+        self.title = "Room " + String(room.roomID)
         changeButtons()
         
         //Set dirt heatmap
@@ -58,7 +60,7 @@ class RoomInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showReport" {
             let destinationViewController = segue.destination as! ReportViewController
-            destinationViewController.roomNumb = self.getNumber
+            destinationViewController.roomNumb = room.roomID
             destinationViewController.time = self.time
         }
     }
@@ -73,7 +75,6 @@ class RoomInfoViewController: UIViewController {
         changeButtons()
     }
     
-    @IBOutlet weak var cleanedButton: RoundButton!
     @IBAction func cleanedButtonClicked(_ sender: UIButton) {
         isCleaning = false
         timer.invalidate()
@@ -82,13 +83,11 @@ class RoomInfoViewController: UIViewController {
         self.performSegue(withIdentifier: "showReport", sender: "cleanedButton")
     }
     
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var scheduleButton: RoundButton!
     @IBAction func scheduleButtonClicked(_ sender: UIButton) {
       
     }
     
+    // Converts heatmap data to images
     func base64Convert(base64String: String?) -> UIImage{
       if (base64String?.isEmpty)! {
           return #imageLiteral(resourceName: "no_image_found")
