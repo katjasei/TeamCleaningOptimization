@@ -19,7 +19,7 @@ class APIRequest {
     
     func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
-        print("URL: \(url)")
+        //print("URL: \(url)")
         doRequest(url: url, completion: completion)
     }
     
