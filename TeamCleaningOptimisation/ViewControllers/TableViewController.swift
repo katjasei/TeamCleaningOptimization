@@ -61,17 +61,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         for room in roomsUnwrapped {
             if (Int(room.floorId) == (floorNumber+1)) {
                 returnArray.append(room)
+                print("Floor number: "+String(floorNumber+1))
+                print("roomsToFloors: "+room.roomID)
             }
         }
+        print("------")
         return returnArray
     }
     
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
-        let room = rooms?[indexPath.row]
-        let roomsInThisFloor = roomsToFloors(floorNumber: indexPath.row)
-        cell.updateContent(roomID: room?.roomID ?? "0", roomIndex: room?.dirtIndex ?? 0)
+        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
+        let room = roomsInThisFloor[indexPath.row]
+        cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
         for room in roomsInThisFloor {
             switch room.dirtIndex {
