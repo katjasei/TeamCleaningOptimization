@@ -11,7 +11,7 @@ import UIKit
 class ReportViewController: UIViewController {
     
     var roomNumb = String()
-    var cleaner  = "Leonardo DiCpario"
+    var cleaner  = "Leonardo DiCaprio"
     var time     = 0
     var cleanInd = "95"
     var success  = "Yes"
@@ -38,5 +38,4 @@ class ReportViewController: UIViewController {
                destinationViewController.getNumber = self.roomNumb
            }
        }*/
-    
 }

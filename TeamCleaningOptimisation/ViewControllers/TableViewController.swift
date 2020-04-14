@@ -11,85 +11,86 @@ import UIKit
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
-    @IBOutlet var tableView: UITableView!
     
-    var floor1 = [RoomIndex]()
-    var floor2 = [RoomIndex]()
-    var floor3 = [RoomIndex]()
-    var floor1_sorted = [RoomIndex]()
-    var floor2_sorted = [RoomIndex]()
-    var floor3_sorted = [RoomIndex]()
-
-    //let sampleDataFloor1 = [100, 105, 199]
-   // let sampleDataFloor2 = [202, 233]
-    //let sampleDataFloor3 = [301,304,305,306]
-    let sampleIndexes = [75, 80, 29, 66, 97, 40, 30, 99]
-    let sampleTime = ["3h","4h","2h","1h"]
+    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
+    var rooms: Rooms?
+    
     
     // Lifecycle methods
     override func viewDidLoad() {
+        // API call
+        let apiRequest = APIRequest()
+        do {
+           try apiRequest.getRooms(completion: { result in
+                switch result {
+                case .success(let rooms) :
+                    self.rooms = rooms
+                    print(rooms)
+                    // Reload tableView in main thread
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                print(rooms.count)
+                case .failure(let error) : print(error)
+                }})
+        
+          } catch {
+              print("Error getting data from API")
+          }
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
-        loadSampleDataFloor()
     }
     
-    // Protocol methods
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let segmentIndex = scFloorSelection.selectedSegmentIndex
+        let roomsInThisFloor = roomsToFloors(floorNumber: segmentIndex)
         
-        var returnValue = 0
-        
-        switch(scFloorSelection.selectedSegmentIndex)
-        {
-        case 0:
-            returnValue = floor1_sorted.count
-            break
-        case 1:
-            returnValue = floor2_sorted.count
-            break
-        case 2:
-            returnValue = floor3_sorted.count
-            break
-        default:
-            break
-           }
-        return returnValue
+        return roomsInThisFloor.count
+    }
+    
+    // Picks rooms in selected floor and returns an array
+    func roomsToFloors(floorNumber: Int) -> Array<Room> {
+        var returnArray: [Room] = []
+        guard let roomsUnwrapped = rooms else {
+            print("Rooms array was nil")
+            return returnArray
+        }
+        for room in roomsUnwrapped {
+            if (Int(room.floorId) == (floorNumber+1)) {
+                returnArray.append(room)
+            }
+        }
+        return returnArray
     }
     
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
+        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
+        let room = roomsInThisFloor[indexPath.row]
+        cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
-        switch(scFloorSelection.selectedSegmentIndex)
-               
-               {
-               case 0:
-                cell.updateContent(with: floor1_sorted[indexPath.row].room, and: floor1_sorted[indexPath.row].index, and: floor1_sorted[indexPath.row].time)
-            
-                cell.viewWithTag(1)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
-                cell.viewWithTag(2)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
-                
-                
-                   break
-               case 1:
-                   cell.updateContent(with: floor2_sorted[indexPath.row].room, and: floor2_sorted[indexPath.row].index, and: floor2_sorted[indexPath.row].time)
-                   
-                   cell.viewWithTag(1)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
-                   cell.viewWithTag(2)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
-                   
-                   break
-               case 2:
-                  cell.updateContent(with: floor3_sorted[indexPath.row].room, and: floor3_sorted[indexPath.row].index, and: floor3_sorted[indexPath.row].time)
-                  
-                  cell.viewWithTag(1)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
-                  cell.viewWithTag(2)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
-                   break
-               default:
-                   break
-                  }
-        
+        for room in roomsInThisFloor {
+            switch room.dirtIndex {
+                case 0...33:
+                    let colour = UIColor(hex: "#81C784ff") ?? UIColor.white //green
+                    cell.updateBackgroundColour(colour: colour)
+                case 34...66:
+                    let colour = UIColor(hex: "#FFF176ff") ?? UIColor.white //yellow
+                    cell.updateBackgroundColour(colour: colour)
+                case 67...90:
+                    let colour = UIColor(hex: "#FFB74Dff") ?? UIColor.white // orange
+                    cell.updateBackgroundColour(colour: colour)
+                case 91...100:
+                    let colour = UIColor(hex: "#EF5350ff") ?? UIColor.white //red
+                    cell.updateBackgroundColour(colour: colour)
+            default:
+                print("Index error")
+            }
+        }
         return cell
     }
     
@@ -103,56 +104,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //prepare function to pass data between two ViewControllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if(segue.identifier == "ShowInfo"){
+        if (segue.identifier == "ShowInfo") {
         
-        if let indexPath = tableView.indexPathForSelectedRow {
-         guard let destViewController = segue.destination as? RoomInfoViewController else {return}
-        let selectedRow = indexPath.row
-        switch(scFloorSelection.selectedSegmentIndex)
-              {
-              case 0:
-                destViewController.getNumber = floor1_sorted[selectedRow].room
-                  break
-              case 1:
-                destViewController.getNumber = floor2_sorted[selectedRow].room
-                  break
-              case 2:
-                destViewController.getNumber = floor3_sorted[selectedRow].room
-                  break
-              default:
-                  break
-                 }
-        
+            if let indexPath = tableView.indexPathForSelectedRow {
+                guard let destViewController = segue.destination as? RoomInfoViewController else {return}
+                let selectedRow = indexPath.row
+                destViewController.room = rooms?[selectedRow]
+            }
+        }
     }
-         }
-         }
     
     @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
        // let getIndex = scFloorSelection.selectedSegmentIndex
         //print(getIndex)
         tableView.reloadData()
     }
-    
-    
-    private func loadSampleDataFloor (){
-        
-        let room1_1 = RoomIndex(room: "A101", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_2 = RoomIndex(room: "A105", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room1_3 = RoomIndex(room: "A117", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_1 = RoomIndex(room: "205", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room2_2 = RoomIndex(room: "210", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_1 = RoomIndex(room: "311", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_2 = RoomIndex(room: "308", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_3 = RoomIndex(room: "326", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        let room3_4 = RoomIndex(room: "303", index: sampleIndexes.randomElement() ?? 0, time:sampleTime.randomElement() ?? "1h")
-        
-        floor1 += [room1_1, room1_2, room1_3]
-        floor1_sorted = floor1.sorted(by: { $0.index < $1.index})
-        floor2 += [room2_1, room2_2]
-        floor2_sorted = floor2.sorted(by: { $0.index < $1.index })
-        floor3 += [room3_1, room3_2, room3_3, room3_4]
-        floor3_sorted = floor3.sorted(by: { $0.index < $1.index })
-        
-    }
-
 }
