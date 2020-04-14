@@ -26,7 +26,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 switch result {
                 case .success(let rooms) :
                     self.rooms = rooms
-                    print(rooms)
+                    //print(rooms)
                     // Reload tableView in main thread
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -115,8 +115,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
-       // let getIndex = scFloorSelection.selectedSegmentIndex
-        //print(getIndex)
         tableView.reloadData()
     }
 }

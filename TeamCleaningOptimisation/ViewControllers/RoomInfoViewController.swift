@@ -26,11 +26,11 @@ class RoomInfoViewController: UIViewController {
         self.title = "Room " + String(room.roomID)
         changeButtons()
         
-        //Set dirt heatmap
+        //Set dirt_heatmap
         let convertedHeatMap = self.base64Convert(base64String: room.dirtHeatmap)
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
         self.heatMapImageView.image = convertedHeatMap
-        }
+        //}
     }
     
     // Timer calls this every second
@@ -73,6 +73,9 @@ class RoomInfoViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
         timeLabel.isHidden = false
         changeButtons()
+        //when "Start" button is pressed we should see mov_heatmap
+        let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
+        self.heatMapImageView.image = convertedMov_heatmap
     }
     
     @IBAction func cleanedButtonClicked(_ sender: UIButton) {
