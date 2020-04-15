@@ -26,7 +26,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 switch result {
                 case .success(let rooms) :
                     self.rooms = rooms
-                    print(rooms)
+                    //print(rooms)
                     // Reload tableView in main thread
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -59,7 +59,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return returnArray
         }
         for room in roomsUnwrapped {
-            if (Int(room.floorId) == (floorNumber+1)) {
+            if (Int(room.floorId) == (floorNumber + 1)) {
                 returnArray.append(room)
             }
         }
@@ -69,6 +69,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
+
         let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
         let room = roomsInThisFloor[indexPath.row]
         cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
@@ -115,8 +116,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
-       // let getIndex = scFloorSelection.selectedSegmentIndex
-        //print(getIndex)
         tableView.reloadData()
     }
 }

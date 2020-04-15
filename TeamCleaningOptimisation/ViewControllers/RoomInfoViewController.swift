@@ -12,6 +12,8 @@ class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
     var timer: Timer!
+    //make request every 10 sec
+    var timerForRequest:Timer!
     var time = 0
     var room: Room!
     @IBOutlet weak var heatMapImageView: UIImageView!
@@ -26,19 +28,41 @@ class RoomInfoViewController: UIViewController {
         self.title = "Room " + String(room.roomID)
         changeButtons()
         
-        //Set dirt heatmap
+        //Set dirt_heatmap
         let convertedHeatMap = self.base64Convert(base64String: room.dirtHeatmap)
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
         self.heatMapImageView.image = convertedHeatMap
-        }
+        //}
     }
     
     // Timer calls this every second
     @objc func countTime() {
         time += 1
         timeLabel.text = String(time)
-        print(time)
+        //print(time)
     }
+    
+    //timerForRequest calls this every 10 seconds
+    @objc func updateMov_heatmap() {
+        // API call
+               let apiRequest = APIRequest()
+               do {
+                try apiRequest.getRoom(roomID: room.roomID ,completion: { result in
+                       switch result {
+                       case .success(let room) :
+                        print(room.movHeatmap)
+                        let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
+                           DispatchQueue.main.async {
+                              self.heatMapImageView.image = convertedMov_heatmap
+                           }
+                       case .failure(let error) : print(error)
+                       }})
+               
+                 } catch {
+                     print("Error getting data from API")
+                 }
+          
+       }
     
     // Changes start and stop cleaning buttons. Disables back navigation for timer to work correctly
     func changeButtons() {
@@ -66,18 +90,24 @@ class RoomInfoViewController: UIViewController {
     }
     
     //MARK: Actions
-
     @IBOutlet weak var startButton: RoundButton!
     @IBAction func startButtonClicked(_ sender: UIButton) {
         isCleaning = true
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
         timeLabel.isHidden = false
         changeButtons()
-    }
+        //when "Start" button is pressed we should see mov_heatmap
+        let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
+        self.heatMapImageView.image = convertedMov_heatmap
+        //update mov_heatmap every 10 seconds
+        timerForRequest = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateMov_heatmap), userInfo: nil, repeats: true)
+      }
     
     @IBAction func cleanedButtonClicked(_ sender: UIButton) {
         isCleaning = false
         timer.invalidate()
+        //stop to update mov_heatmap
+        timerForRequest.invalidate()
         print("Timer stopped")
         changeButtons()
         self.performSegue(withIdentifier: "showReport", sender: "cleanedButton")
