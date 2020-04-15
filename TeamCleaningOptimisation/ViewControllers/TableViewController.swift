@@ -69,63 +69,29 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Define cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
-        let room = rooms?[indexPath.row]
-        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex) // CHANGE the floorNumber
-        print(scFloorSelection.selectedSegmentIndex)
-        cell.updateContent(roomID: room?.roomID ?? "0", roomIndex: room?.dirtIndex ?? 0)
+
+        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
+        let room = roomsInThisFloor[indexPath.row]
+        cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
         for room in roomsInThisFloor {
             switch room.dirtIndex {
                 case 0...33:
-                    //print("Index 0-33")
                     let colour = UIColor(hex: "#81C784ff") ?? UIColor.white //green
                     cell.updateBackgroundColour(colour: colour)
                 case 34...66:
-                    print("Index 34-66")
                     let colour = UIColor(hex: "#FFF176ff") ?? UIColor.white //yellow
                     cell.updateBackgroundColour(colour: colour)
                 case 67...90:
-                    print("Index: 67-90")
                     let colour = UIColor(hex: "#FFB74Dff") ?? UIColor.white // orange
                     cell.updateBackgroundColour(colour: colour)
                 case 91...100:
-                    print("Index: 01-100")
                     let colour = UIColor(hex: "#EF5350ff") ?? UIColor.white //red
                     cell.updateBackgroundColour(colour: colour)
             default:
                 print("Index error")
             }
         }
-        /*
-        switch(scFloorSelection.selectedSegmentIndex)
-               
-               {
-               case 0:
-                cell.updateContent(with: floor1_sorted[indexPath.row].room, and: floor1_sorted[indexPath.row].index, and: floor1_sorted[indexPath.row].time)
-            
-                cell.viewWithTag(1)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
-                cell.viewWithTag(2)?.backgroundColor = floor1_sorted[indexPath.row].getColor(index: floor1_sorted[indexPath.row].index)
-                
-                
-                   break
-               case 1:
-                   cell.updateContent(with: floor2_sorted[indexPath.row].room, and: floor2_sorted[indexPath.row].index, and: floor2_sorted[indexPath.row].time)
-                   
-                   cell.viewWithTag(1)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
-                   cell.viewWithTag(2)?.backgroundColor = floor2_sorted[indexPath.row].getColor(index: floor2_sorted[indexPath.row].index)
-                   
-                   break
-               case 2:
-                  cell.updateContent(with: floor3_sorted[indexPath.row].room, and: floor3_sorted[indexPath.row].index, and: floor3_sorted[indexPath.row].time)
-                  
-                  cell.viewWithTag(1)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
-                  cell.viewWithTag(2)?.backgroundColor = floor3_sorted[indexPath.row].getColor(index: floor3_sorted[indexPath.row].index)
-                   break
-               default:
-                   break
-                  }
- */
-        
         return cell
     }
     
