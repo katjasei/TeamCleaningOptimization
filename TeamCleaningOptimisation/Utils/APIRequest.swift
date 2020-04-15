@@ -57,11 +57,17 @@ class APIRequest {
     private func doPostRequest(url: URL, report: Report) {
         do {
             var request = URLRequest(url: url)
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
             request.httpMethod = "POST"
             // auth
             request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
-            request.httpBody = try JSONEncoder().encode(report)
+            request.httpBody = try encoder.encode(report)
+            
+            print(String(data: request.httpBody!, encoding: .utf8)!)
+            
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                
                 
                 // Check for errors
                 if let error = error {
