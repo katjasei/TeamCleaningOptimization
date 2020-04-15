@@ -104,14 +104,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-YP-kax">
+                                <rect key="frame" x="460" y="109" width="114" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="3fb-ex-cZq"/>
+                                    <constraint firstAttribute="width" constant="114" id="O7u-PU-Oh9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Big report"/>
+                                <connections>
+                                    <segue destination="jvn-PZ-wPi" kind="show" id="g9P-KL-Kbx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jyV-ie-8c9" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="30" id="1AL-v8-RQC"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
+                            <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="jyV-ie-8c9" secondAttribute="bottom" constant="9" id="MH0-Cx-fjN"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
+                            <constraint firstItem="dKn-YP-kax" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="460" id="Xfc-71-F0e"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="jyV-ie-8c9" secondAttribute="trailing" constant="30" id="YXC-WB-cOP"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="jyV-ie-8c9" secondAttribute="bottom" constant="50" id="aye-WG-5Hh"/>
                             <constraint firstItem="jyV-ie-8c9" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="50" id="lp7-dk-Y6E"/>
@@ -136,6 +150,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFH-tj-xV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="451" y="-213"/>
+        </scene>
+        <!--bigReport-->
+        <scene sceneID="DcB-r5-ziQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BigReport" referencedIdentifier="bigReport" id="jvn-PZ-wPi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ZdI-Iz-4wl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxU-sx-2wh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="27"/>
         </scene>
     </scenes>
 </document>

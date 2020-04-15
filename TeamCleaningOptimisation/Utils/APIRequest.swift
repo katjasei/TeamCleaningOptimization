@@ -29,10 +29,10 @@ class APIRequest {
         doRequest(url: url, completion: completion)
     }
     
-    func getReport() throws {
+    func getReports(completion: @escaping (Result<Reports, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getReportString) else { return }
         print("URL: \(url)")
-        //doRequest(url: url, type: .getReport)
+        doRequest(url: url, completion: completion)
     }
     
     func putStartCleaning(roomID: String) throws {
