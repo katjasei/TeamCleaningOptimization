@@ -20,6 +20,9 @@ class ReportViewController: UIViewController {
     @IBOutlet weak var rCleanIndTF:     UITextField!
     @IBOutlet weak var rSuccessTF:      UITextField!
     @IBOutlet weak var rCommentPicker:  UITextField!
+    @IBAction func onClickSendReport(_ sender: RoundButton) {
+        postReport()
+    }
     
     let options = ["Room locked",
                    "Room occupied",
@@ -37,6 +40,23 @@ class ReportViewController: UIViewController {
         rCleanerTF.text  = cleaner
         rCleanIndTF.text = cleanInd
         rSuccessTF.text  = success
+    }
+    
+    func postReport() {
+        // Dummy data for post testing
+        let timeOfCleaning = "01:00"
+        let reportID = "2"
+        let wasCleaningSuccessful: Bool = true
+        let cleanerComments = "Everything went well"
+        
+        let apiRequest = APIRequest()
+        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, timeOfCleaning: timeOfCleaning, wasCleaningSuccessful: wasCleaningSuccessful, cleanerComments: cleanerComments)
+        print("Report to be posted: \(report.reportID)")
+        do{
+            try apiRequest.postReport(report: report)
+        } catch {
+            print("Error posting report to API (from reportVC)")
+        }
     }
     
     func createOptionPicker() {

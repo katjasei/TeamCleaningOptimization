@@ -15,6 +15,7 @@ class APIRequest {
     private let getReportString = "/reports"
     private let putStartCleaningString = "/startcleaning"
     private let putStopCleaningString = "/stopcleaning"
+    private let postReportString = "/report"
     private let API_KEY = "zL43mXgXk5xa7YFRBVZscbLnGFaqVh24q5G6fhGjmAv532FAVBRtnuCJpwXWXnhw"
     
     func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
@@ -38,13 +39,46 @@ class APIRequest {
     func putStartCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStartCleaningString) else { return }
         print("URL: \(url)")
-       // doRequest(url: url, type: .put)
+       // doRequest(url: url)
     }
     
     func putStopCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStopCleaningString) else { return }
         print("URL: \(url)")
-      //  doRequest(url: url, type: .put)
+      //  doRequest(url: url)
+    }
+    
+    func postReport(report: Report) throws {
+        guard let url = URL(string: endpoint+postReportString) else { return }
+        doPostRequest(url: url, report: report)
+    }
+    
+    // For requests with body (POST)
+    private func doPostRequest(url: URL, report: Report) {
+        do {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            // auth
+            request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
+            request.httpBody = try JSONEncoder().encode(report)
+            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                
+                // Check for errors
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                }
+                
+                // Read status code
+                if let response = response as? HTTPURLResponse {
+                    print("Response status code: \(response.statusCode)")
+                }
+            }
+            task.resume()
+        }
+        catch {
+            print("Error posting to API")
+        }
     }
     
     // For all empty body requests (GET & PUT)
