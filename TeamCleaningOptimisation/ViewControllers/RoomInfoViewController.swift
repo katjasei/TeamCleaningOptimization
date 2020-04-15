@@ -70,8 +70,7 @@ class RoomInfoViewController: UIViewController {
             self.navigationItem.hidesBackButton = true
             cleanedButton.isHidden = false
             startButton.isHidden = true
-            scheduleButton.isHidden = true
-            timeLabel.isHidden = false
+            //timeLabel.isHidden = false
         }
         else {
             self.navigationItem.hidesBackButton = false
@@ -94,7 +93,6 @@ class RoomInfoViewController: UIViewController {
     @IBAction func startButtonClicked(_ sender: UIButton) {
         isCleaning = true
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
-        timeLabel.isHidden = false
         changeButtons()
         //when "Start" button is pressed we should see mov_heatmap
         let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
