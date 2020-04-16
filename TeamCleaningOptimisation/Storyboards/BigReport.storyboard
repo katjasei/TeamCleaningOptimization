@@ -46,7 +46,7 @@
                                 <color key="backgroundColor" red="1" green="0.68833550600000004" blue="0.61276789600000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.32868685787671231" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Wdl-3n-1Q4"/>
                     </view>
                     <connections>
