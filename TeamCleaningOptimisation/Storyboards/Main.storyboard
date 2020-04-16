@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Big report"/>
                                 <connections>
-                                    <segue destination="jvn-PZ-wPi" kind="show" id="g9P-KL-Kbx"/>
+                                    <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,16 +150,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFH-tj-xV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="451" y="-213"/>
-        </scene>
-        <!--bigReport-->
-        <scene sceneID="DcB-r5-ziQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BigReport" referencedIdentifier="bigReport" id="jvn-PZ-wPi" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="ZdI-Iz-4wl"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NxU-sx-2wh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="425" y="27"/>
         </scene>
     </scenes>
 </document>

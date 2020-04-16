@@ -12,10 +12,24 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     
+    @IBAction func onClickBigReportButton(_ sender: UIButton) {
+        let presentationService = BigReportPresentationPresentationService()
+        let presentation = presentationService.present()
+        present(presentation, animated: true) {
+            // Dismiss report if tapped outside
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissReport))
+            presentation.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var scFloorSelection: UISegmentedControl!
     var rooms: Rooms?
     
+    // Dismiss report if tapped outside action
+    @objc func dismissReport() {
+        self.dismiss(animated: true)
+    }
     
     // Lifecycle methods
     override func viewDidLoad() {
