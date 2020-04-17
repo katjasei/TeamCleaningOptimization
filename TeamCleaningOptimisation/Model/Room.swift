@@ -13,9 +13,11 @@ import Foundation
 
 struct Room: Codable {
     let floorId, roomID: String
-    let dirtIndex: Int
+    let dirtIndex: Double
     let dirtHeatmap, movHeatmap: String
     let lastUpdate: Int
+    let lastCleaned: Int
+    let isCleaning: Bool
 
     enum CodingKeys: String, CodingKey {
         case floorId = "floor_id"
@@ -24,6 +26,9 @@ struct Room: Codable {
         case dirtHeatmap = "dirt_heatmap"
         case movHeatmap = "mov_heatmap"
         case lastUpdate = "last_update"
+        case lastCleaned = "last_cleaned"
+        case isCleaning = "is_cleaning"
+        
     }
 }
 
