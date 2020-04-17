@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1H-v3-ZhK">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1H-v3-ZhK">
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,16 +32,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fP-bd-IhG">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1346"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gCv-ti-STa">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1673"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gCv-ti-STa">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="2117.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-Yq-KsZ" userLabel="Top View">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="835.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1058.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="afs-M0-lNX">
-                                                        <rect key="frame" x="20" y="5" width="984" height="825.5"/>
+                                                        <rect key="frame" x="20" y="5" width="984" height="1048.5"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,10 +55,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-Pc-vYJ" userLabel="Bottom View">
-                                                <rect key="frame" x="0.0" y="837.5" width="1024" height="835.5"/>
+                                                <rect key="frame" x="0.0" y="1058.5" width="1024" height="1059"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-kz-Ri1">
-                                                        <rect key="frame" x="20" y="30" width="984" height="301"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-kz-Ri1">
+                                                        <rect key="frame" x="20" y="0.0" width="984" height="271"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ds7-On-wqf">
                                                                 <rect key="frame" x="10" y="0.0" width="964" height="181"/>
@@ -127,7 +127,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-E3-Xfr">
-                                                                <rect key="frame" x="5" y="241" width="974" height="60"/>
+                                                                <rect key="frame" x="5" y="211" width="974" height="60"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOI-lM-C3p" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="213.5" height="60"/>
@@ -209,7 +209,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="YRP-kz-Ri1" firstAttribute="leading" secondItem="Fco-Pc-vYJ" secondAttribute="leading" constant="20" id="QNl-ri-JBP"/>
-                                                    <constraint firstItem="YRP-kz-Ri1" firstAttribute="top" secondItem="Fco-Pc-vYJ" secondAttribute="top" constant="30" id="Twc-UN-4CE"/>
+                                                    <constraint firstItem="YRP-kz-Ri1" firstAttribute="top" secondItem="Fco-Pc-vYJ" secondAttribute="top" id="Twc-UN-4CE"/>
                                                     <constraint firstAttribute="trailing" secondItem="YRP-kz-Ri1" secondAttribute="trailing" constant="20" id="lee-qM-ueP"/>
                                                 </constraints>
                                             </view>
@@ -220,7 +220,7 @@
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="top" secondItem="sQw-62-Oe4" secondAttribute="top" id="2FY-7B-Ir8"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="bottom" secondItem="sQw-62-Oe4" secondAttribute="bottom" constant="2" id="3aq-sT-A9B"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="trailing" secondItem="sQw-62-Oe4" secondAttribute="trailing" id="PzT-2J-CY5"/>
-                                    <constraint firstItem="gCv-ti-STa" firstAttribute="height" secondItem="pax-wR-ZpF" secondAttribute="height" multiplier="1.24288" id="V4a-Ec-IGG"/>
+                                    <constraint firstItem="gCv-ti-STa" firstAttribute="height" secondItem="pax-wR-ZpF" secondAttribute="height" multiplier="1.55" id="V4a-Ec-IGG"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="centerX" secondItem="pax-wR-ZpF" secondAttribute="centerX" id="j2B-HS-2ZF"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="bottom" secondItem="3fP-bd-IhG" secondAttribute="bottom" constant="2" id="svb-Ih-BVl"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="leading" secondItem="sQw-62-Oe4" secondAttribute="leading" id="v23-wB-Jel"/>
