@@ -35,13 +35,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gCv-ti-STa">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="2117.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1776"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-Yq-KsZ" userLabel="Top View">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1058.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="888"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="afs-M0-lNX">
-                                                        <rect key="frame" x="20" y="5" width="984" height="1048.5"/>
+                                                        <rect key="frame" x="20" y="5" width="984" height="878"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,7 +55,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-Pc-vYJ" userLabel="Bottom View">
-                                                <rect key="frame" x="0.0" y="1058.5" width="1024" height="1059"/>
+                                                <rect key="frame" x="0.0" y="888" width="1024" height="888"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-kz-Ri1">
                                                         <rect key="frame" x="20" y="0.0" width="984" height="271"/>
@@ -220,7 +220,7 @@
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="top" secondItem="sQw-62-Oe4" secondAttribute="top" id="2FY-7B-Ir8"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="bottom" secondItem="sQw-62-Oe4" secondAttribute="bottom" constant="2" id="3aq-sT-A9B"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="trailing" secondItem="sQw-62-Oe4" secondAttribute="trailing" id="PzT-2J-CY5"/>
-                                    <constraint firstItem="gCv-ti-STa" firstAttribute="height" secondItem="pax-wR-ZpF" secondAttribute="height" multiplier="1.55" id="V4a-Ec-IGG"/>
+                                    <constraint firstItem="gCv-ti-STa" firstAttribute="height" secondItem="pax-wR-ZpF" secondAttribute="height" multiplier="1.3" id="V4a-Ec-IGG"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="centerX" secondItem="pax-wR-ZpF" secondAttribute="centerX" id="j2B-HS-2ZF"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="bottom" secondItem="3fP-bd-IhG" secondAttribute="bottom" constant="2" id="svb-Ih-BVl"/>
                                     <constraint firstItem="gCv-ti-STa" firstAttribute="leading" secondItem="sQw-62-Oe4" secondAttribute="leading" id="v23-wB-Jel"/>
