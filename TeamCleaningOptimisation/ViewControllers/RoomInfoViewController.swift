@@ -23,7 +23,7 @@ class RoomInfoViewController: UIViewController {
     @IBOutlet weak var cleanedButton: RoundButton!
     
     // for demo
-       var imagesArray = [UIImage.init(named: "mov_heatmap2"), UIImage.init(named: "mov_heatmap3"), UIImage.init(named: "mov_heatmap4"), UIImage.init(named: "mov_heatmap5"), UIImage.init(named: "mov_heatmap6"), UIImage.init(named: "mov_heatmap7"), UIImage.init(named: "mov_heatmap8"), UIImage.init(named: "mov_heatmap9"), UIImage.init(named: "mov_heatmap10"), UIImage.init(named: "mov_heatmap11"), UIImage.init(named: "mov_heatmap12"), UIImage.init(named: "mov_heatmap13"), UIImage.init(named: "mov_heatmap14") ]
+       var imagesArray = [UIImage.init(named: "demo_1"), UIImage.init(named: "demo_2"), UIImage.init(named: "demo_3"), UIImage.init(named: "demo_4"), UIImage.init(named: "demo_5"), UIImage.init(named: "demo_6"), UIImage.init(named: "demo_7"), UIImage.init(named: "demo_8"), UIImage.init(named: "demo_9"), UIImage.init(named: "demo_10"), UIImage.init(named: "demo_11"), UIImage.init(named: "demo_12"), UIImage.init(named: "demo_13") ]
     //
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class RoomInfoViewController: UIViewController {
         //self.heatMapImageView.image = convertedHeatMap
         
         //for demo
-        self.heatMapImageView.image = UIImage.init(named: "dirty_heatmap")
+        self.heatMapImageView.image = UIImage.init(named: "demo_dirty_heatmap")
  
     }
     
@@ -123,7 +123,7 @@ class RoomInfoViewController: UIViewController {
         //self.heatMapImageView.image = convertedMov_heatmap
         
         //for demo version
-        self.heatMapImageView.image = UIImage.init(named: "mov_heatmap1")
+        self.heatMapImageView.image = UIImage.init(named: "demo_dirty_heatmap")
         
         
         //update mov_heatmap every 10 seconds

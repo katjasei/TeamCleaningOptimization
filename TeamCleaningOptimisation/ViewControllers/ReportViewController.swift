@@ -43,7 +43,7 @@ class ReportViewController: UIViewController {
         rSuccessTF.text  = success
         
         //for demo
-        self.resultHeatmapImage.image = UIImage.init(named: "mov_heatmap14")
+        self.resultHeatmapImage.image = UIImage.init(named: "demo_13")
     }
     
     func postReport() {
