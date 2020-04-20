@@ -20,6 +20,7 @@ class ReportViewController: UIViewController {
     @IBOutlet weak var rCleanIndTF:     UITextField!
     @IBOutlet weak var rSuccessTF:      UITextField!
     @IBOutlet weak var rCommentPicker:  UITextField!
+    @IBOutlet weak var resultHeatmapImage: UIImageView!
     @IBAction func onClickSendReport(_ sender: RoundButton) {
         postReport()
     }
@@ -40,6 +41,9 @@ class ReportViewController: UIViewController {
         rCleanerTF.text  = cleaner
         rCleanIndTF.text = cleanInd
         rSuccessTF.text  = success
+        
+        //for demo
+        self.resultHeatmapImage.image = UIImage.init(named: "mov_heatmap14")
     }
     
     func postReport() {
@@ -87,13 +91,6 @@ class ReportViewController: UIViewController {
         view.endEditing(true)
     }
     
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "ShowRoomInfo" {
-               let destinationViewController = segue.destination as! RoomInfoViewController
-               destinationViewController.getNumber = self.roomNumb
-           }
-       }*/
 }
 
 extension ReportViewController: UIPickerViewDelegate, UIPickerViewDataSource {
