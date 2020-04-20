@@ -6,27 +6,23 @@
 //  Copyright © 2020 TeamCleaningOptimization. All rights reserved.
 //
 
-struct Report {
+struct Report: Codable {
     
-    let cleanerName: String // if use authentication
-    let cleanIndex: Int
-    let timeCleaningTook: Double
-    let timeOfCleaning: String
-    let wasCleaningSuccessfull: Bool
-    let cleanerComment: String
-    let heatmapCleaned: Int //should be binary
-  
+    let reportID: String
+    let forRoomID: String
+    let cleanerName: String
+    let timeOfCleaning: Int
+    let wasCleaningSuccessful: Bool
+    let cleanerComments: String
     
-    init(cleanerName: String, cleanIndex: Int, timeCleaningTook: Double, timeOfCleaning: String, wasCleaningSuccessfull: Bool, cleanerComment: String, heatmapCleaned:Int) {
-        
-        self.cleanerName = cleanerName
-        self.cleanIndex = cleanIndex
-        self.timeCleaningTook = timeCleaningTook
-        self.timeOfCleaning = timeOfCleaning
-        self.wasCleaningSuccessfull = wasCleaningSuccessfull
-        self.cleanerComment = cleanerComment
-        self.heatmapCleaned = heatmapCleaned
-        
-    
+    enum CodingKeys: String, CodingKey {
+        case reportID = "report_id"
+        case forRoomID = "for_room_id"
+        case cleanerName = "cleaner_name"
+        case timeOfCleaning = "time_of_cleaning"
+        case wasCleaningSuccessful = "was_cleaning_successful"
+        case cleanerComments = "cleaner_comments"
     }
 }
+
+typealias Reports = [Report]
