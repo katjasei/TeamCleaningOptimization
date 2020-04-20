@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--selection-->
+        <scene sceneID="LWz-Gg-q4k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Selection" referencedIdentifier="selection" id="K3q-vZ-a5X" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nu8-Lf-Gmc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7kS-HL-qGD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="-234"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="BUW-hJ-bZe">
             <objects>
@@ -26,6 +36,13 @@
                                     <action selector="scSelectFloor:" destination="4Bd-6k-aIP" eventType="valueChanged" id="0ik-Ia-zVN"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-S1-5zQ" customClass="dropDownBtn" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                                <rect key="frame" x="489" y="108" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="K3q-vZ-a5X" kind="show" id="owz-N3-xJE"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-wf-OAw">
                                 <rect key="frame" x="20" y="150" width="984" height="1196"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -109,6 +126,8 @@
                         <constraints>
                             <constraint firstItem="jyV-ie-8c9" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="30" id="1AL-v8-RQC"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
+                            <constraint firstItem="7Fy-S1-5zQ" firstAttribute="top" secondItem="jyV-ie-8c9" secondAttribute="bottom" constant="8" id="FyK-kk-lup"/>
+                            <constraint firstItem="7Fy-S1-5zQ" firstAttribute="centerX" secondItem="qYI-iu-YX7" secondAttribute="centerX" id="IZF-dC-4j1"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
