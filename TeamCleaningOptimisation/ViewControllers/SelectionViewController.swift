@@ -10,7 +10,8 @@ import UIKit
 
 class SelectionViewController: UIViewController {
     
-    
+//  MARK: IB & variables
+       
     @IBOutlet weak var bDropDownBtn: RoundButton!
     @IBOutlet weak var bTblView: UITableView!
     
@@ -20,15 +21,18 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var aDropDownBtn: RoundButton!
     @IBOutlet weak var aTblView: UITableView!
     
+    var mainViewController: TableViewController = TableViewController()
+    
     var selectedBuilding = 0
-    var selectedFloor = 0
     var selectedArea = 0
     
-    var buildingList = ["Building1", "Building2"]
-    var floorList = ["Floor1", "Floor2"]
-    var areaList = ["Area1", "Area2"]
+    var buildingList    = ["Building1", "Building2"]
+    var floorList1      = ["Floor1", "Floor2"]
+    var floorList2      = ["Floor3", "Floor4"]
+    var areaList        = ["Area1", "Area2"]
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         bTblView.delegate = self
@@ -44,7 +48,7 @@ class SelectionViewController: UIViewController {
         aTblView.isHidden = true
     }
     
-    
+//    Animation for dropDown
     @IBAction func onClickdropDownBBtn(_ sender: Any) {
         if bTblView.isHidden {
             animate(toogle: true, btn: self.bTblView)
@@ -69,6 +73,10 @@ class SelectionViewController: UIViewController {
         }
     }
     
+    @IBAction func onClickSave(_ sender: Any) {
+        self.performSegue(withIdentifier: "saveData", sender: self)
+    }
+    
     func animate(toogle: Bool, btn: UITableView){
         if toogle {
             UIView.animate(withDuration: 0.3) {
@@ -81,6 +89,7 @@ class SelectionViewController: UIViewController {
         }
         
     }
+    
 }
 
 // Extension to use tableView
@@ -93,7 +102,7 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
         case bTblView:
             numberOfRow = buildingList.count
         case fTblView:
-            numberOfRow = floorList.count
+            numberOfRow = floorList1.count
         case aTblView:
             numberOfRow = areaList.count
         default:
@@ -114,7 +123,14 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
             
         case fTblView:
             cell = tableView.dequeueReusableCell(withIdentifier: "fCell", for: indexPath)
-            cell.textLabel?.text = floorList[indexPath.row]
+            switch selectedBuilding {
+            case 0:
+                cell.textLabel?.text = floorList1[indexPath.row]
+            case 1:
+                cell.textLabel?.text = floorList2[indexPath.row]
+            default:
+                print("Something Wrong!")
+            }
             
         case aTblView:
             cell = tableView.dequeueReusableCell(withIdentifier: "aCell", for: indexPath)
@@ -136,7 +152,7 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
             print(selectedBuilding)
             
         case fTblView:
-            fDropDownBtn.setTitle(floorList[indexPath.row], for: .normal)
+            fDropDownBtn.setTitle(floorList1[indexPath.row], for: .normal)
             animate(toogle: false, btn: self.fTblView)
             selectedFloor = indexPath.row
             print(selectedFloor)
@@ -150,5 +166,8 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             print("Something Wrong!")
         }
+        bTblView.reloadData()
+        fTblView.reloadData()
+        aTblView.reloadData()
     }
 }

@@ -13,7 +13,7 @@ import Foundation
 
 struct Room: Codable {
     let floorId, roomID: String
-    let dirtIndex: Int
+    let dirtIndex: Double
     let dirtHeatmap, movHeatmap: String
     let lastUpdate: Int
 

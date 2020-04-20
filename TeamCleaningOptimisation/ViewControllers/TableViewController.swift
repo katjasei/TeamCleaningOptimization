@@ -7,15 +7,14 @@
 //
 
 import UIKit
-
+var selectedFloor = 0
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var scFloorSelection: UISegmentedControl!
-    var rooms: Rooms?
     
+    var rooms: Rooms?
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -45,8 +44,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let segmentIndex = scFloorSelection.selectedSegmentIndex
-        let roomsInThisFloor = roomsToFloors(floorNumber: segmentIndex)
+        let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
         
         return roomsInThisFloor.count
     }
@@ -63,6 +61,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 returnArray.append(room)
             }
         }
+        
         return returnArray
     }
     
@@ -70,7 +69,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
 
-        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
+        let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
         let room = roomsInThisFloor[indexPath.row]
         cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
@@ -109,13 +108,18 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
+                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
-                destViewController.room = rooms?[selectedRow]
+                destViewController.room = roomsInThisFloor[selectedRow] // MARK: fix needed (rooms is all of rooms not only on the floor)
             }
         }
     }
-    
-    @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
-        tableView.reloadData()
+    @IBAction func unwindToTableViewController(segue: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                print(selectedFloor)
+            }
+        }
     }
 }
