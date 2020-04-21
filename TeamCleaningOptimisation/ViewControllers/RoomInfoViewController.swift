@@ -74,7 +74,6 @@ class RoomInfoViewController: UIViewController {
     //timerForRequest calls this every 10 seconds, for the demo version
     @objc func change_image() {
         
-        
         if (imagesArray.count == counter)
         {
             timerForRequest.invalidate()
