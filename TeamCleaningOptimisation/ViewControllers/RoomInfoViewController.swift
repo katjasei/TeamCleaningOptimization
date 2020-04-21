@@ -16,11 +16,15 @@ class RoomInfoViewController: UIViewController {
     var timerForRequest:Timer!
     var time = 0
     var room: Room!
+    var counter = 0
     @IBOutlet weak var heatMapImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scheduleButton: RoundButton!
     @IBOutlet weak var cleanedButton: RoundButton!
     
+    // for demo
+       var imagesArray = [UIImage.init(named: "demo_1"), UIImage.init(named: "demo_2"), UIImage.init(named: "demo_3"), UIImage.init(named: "demo_4"), UIImage.init(named: "demo_5"), UIImage.init(named: "demo_6"), UIImage.init(named: "demo_7"), UIImage.init(named: "demo_8"), UIImage.init(named: "demo_9"), UIImage.init(named: "demo_10"), UIImage.init(named: "demo_11"), UIImage.init(named: "demo_12"), UIImage.init(named: "demo_13") ]
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +33,12 @@ class RoomInfoViewController: UIViewController {
         changeButtons()
         
         //Set dirt_heatmap
-        let convertedHeatMap = self.base64Convert(base64String: room.dirtHeatmap)
-        //DispatchQueue.main.async {
-        self.heatMapImageView.image = convertedHeatMap
-        //}
+        //let convertedHeatMap = self.base64Convert(base64String: room.dirtHeatmap)
+        //self.heatMapImageView.image = convertedHeatMap
+        
+        //for demo
+        self.heatMapImageView.image = UIImage.init(named: "demo_dirty_heatmap")
+ 
     }
     
     // Timer calls this every second
@@ -64,14 +70,30 @@ class RoomInfoViewController: UIViewController {
           
        }
     
+    
+    //timerForRequest calls this every 10 seconds, for the demo version
+    @objc func change_image() {
+        
+        if (imagesArray.count == counter)
+        {
+            timerForRequest.invalidate()
+             counter = 0
+         } else {
+        
+        self.heatMapImageView.image = imagesArray[counter]
+          
+        counter += 1
+            print (counter)
+        }
+       }
+    
     // Changes start and stop cleaning buttons. Disables back navigation for timer to work correctly
     func changeButtons() {
         if isCleaning {
             self.navigationItem.hidesBackButton = true
             cleanedButton.isHidden = false
             startButton.isHidden = true
-            scheduleButton.isHidden = true
-            timeLabel.isHidden = false
+            //timeLabel.isHidden = false
         }
         else {
             self.navigationItem.hidesBackButton = false
@@ -94,13 +116,17 @@ class RoomInfoViewController: UIViewController {
     @IBAction func startButtonClicked(_ sender: UIButton) {
         isCleaning = true
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
-        timeLabel.isHidden = false
         changeButtons()
         //when "Start" button is pressed we should see mov_heatmap
-        let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
-        self.heatMapImageView.image = convertedMov_heatmap
+        //let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
+        //self.heatMapImageView.image = convertedMov_heatmap
+        
+        //for demo version
+        self.heatMapImageView.image = UIImage.init(named: "demo_dirty_heatmap")
+        
+        
         //update mov_heatmap every 10 seconds
-        timerForRequest = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateMov_heatmap), userInfo: nil, repeats: true)
+        timerForRequest = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(change_image), userInfo: nil, repeats: true)
       }
     
     @IBAction func cleanedButtonClicked(_ sender: UIButton) {

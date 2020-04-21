@@ -12,9 +12,26 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     
+    @IBAction func onClickBigReportButton(_ sender: UIButton) {
+        let presentationService = BigReportPresentationPresentationService()
+        let presentation = presentationService.present()
+        present(presentation, animated: true) {
+            // Dismiss report if tapped outside
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissReport))
+            presentation.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
     
+
     var rooms: Rooms?
+
+    // Dismiss report if tapped outside action
+    @objc func dismissReport() {
+        self.dismiss(animated: true)
+    }
+
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -108,9 +125,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
-                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
+
+                 let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
                 let selectedRow = indexPath.row
-                destViewController.room = roomsInThisFloor[selectedRow] // MARK: fix needed (rooms is all of rooms not only on the floor)
+                destViewController.room = roomsInThisFloor[selectedRow]
+
             }
         }
     }
