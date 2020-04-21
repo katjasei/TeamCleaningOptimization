@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="width" constant="230" id="8cH-so-wPg"/>
                                     <constraint firstAttribute="height" constant="40" id="aVu-Wa-5xE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="SELECTION">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
@@ -153,7 +153,7 @@
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
-                            <constraint firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="50" id="lp7-dk-Y6E"/>
+                            <constraint firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" id="lp7-dk-Y6E"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="7Fy-S1-5zQ" secondAttribute="trailing" constant="30" id="w0j-zk-eQg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74c-Hr-vhK"/>
