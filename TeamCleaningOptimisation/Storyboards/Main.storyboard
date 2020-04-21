@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
@@ -7,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--selection-->
+        <scene sceneID="LWz-Gg-q4k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Selection" referencedIdentifier="selection" id="K3q-vZ-a5X" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nu8-Lf-Gmc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7kS-HL-qGD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="354" y="-228"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="BUW-hJ-bZe">
             <objects>
@@ -15,17 +26,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jyV-ie-8c9">
-                                <rect key="frame" x="30" y="50" width="964" height="51"/>
-                                <segments>
-                                    <segment title="First floor"/>
-                                    <segment title="Second floor"/>
-                                    <segment title="Third floor"/>
-                                </segments>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-S1-5zQ" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                                <rect key="frame" x="472" y="50" width="80" height="45"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="8cH-so-wPg"/>
+                                    <constraint firstAttribute="height" constant="45" id="aVu-Wa-5xE"/>
+                                </constraints>
+                                <state key="normal" title="Selection">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
                                 <connections>
-                                    <action selector="scSelectFloor:" destination="4Bd-6k-aIP" eventType="valueChanged" id="0ik-Ia-zVN"/>
+                                    <segue destination="K3q-vZ-a5X" kind="popoverPresentation" popoverAnchorView="7Fy-S1-5zQ" id="owz-N3-xJE">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
-                            </segmentedControl>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-wf-OAw">
                                 <rect key="frame" x="20" y="150" width="984" height="1196"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -130,8 +146,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="jyV-ie-8c9" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="30" id="1AL-v8-RQC"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
+
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="dKn-YP-kax" secondAttribute="bottom" constant="2" id="FzA-HM-Boc"/>
                             <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="jyV-ie-8c9" secondAttribute="bottom" constant="8" id="MH0-Cx-fjN"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
@@ -141,11 +157,11 @@
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="jyV-ie-8c9" secondAttribute="bottom" constant="50" id="aye-WG-5Hh"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
                             <constraint firstItem="jyV-ie-8c9" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="50" id="lp7-dk-Y6E"/>
+
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74c-Hr-vhK"/>
                     </view>
                     <connections>
-                        <outlet property="scFloorSelection" destination="jyV-ie-8c9" id="GjV-5J-DbO"/>
                         <outlet property="tableView" destination="PVS-wf-OAw" id="VCX-7o-UUt"/>
                     </connections>
                 </viewController>
@@ -161,7 +177,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFH-tj-xV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="451" y="-213"/>
+            <point key="canvasLocation" x="411" y="-208"/>
         </scene>
     </scenes>
 </document>
