@@ -66,6 +66,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="iTc-cd-GtN" secondAttribute="trailing" id="GFm-78-us0"/>
+                                            <constraint firstAttribute="bottom" secondItem="iTc-cd-GtN" secondAttribute="bottom" id="Y1s-xh-YiX"/>
                                             <constraint firstItem="iTc-cd-GtN" firstAttribute="leading" secondItem="9f9-P2-Bho" secondAttribute="leading" id="YXZ-sK-TqW"/>
                                             <constraint firstItem="iTc-cd-GtN" firstAttribute="top" secondItem="uqB-Mk-Cg3" secondAttribute="bottom" id="qnx-N7-Hd0"/>
                                         </constraints>
@@ -117,6 +118,7 @@
                                             </tableView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4LH-Ob-QX8" secondAttribute="bottom" id="FFj-bJ-X7u"/>
                                             <constraint firstItem="4LH-Ob-QX8" firstAttribute="leading" secondItem="sqg-D8-qKv" secondAttribute="leading" id="GDH-nJ-dej"/>
                                             <constraint firstAttribute="trailing" secondItem="4LH-Ob-QX8" secondAttribute="trailing" id="nWU-WB-Nvb"/>
                                             <constraint firstItem="4LH-Ob-QX8" firstAttribute="top" secondItem="D2r-2g-81W" secondAttribute="bottom" id="rE7-j2-lcF"/>
@@ -171,6 +173,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="QMs-PH-bYK" secondAttribute="trailing" id="8Az-R9-tug"/>
                                             <constraint firstItem="QMs-PH-bYK" firstAttribute="top" secondItem="u38-KG-mZw" secondAttribute="bottom" id="bdT-nV-lw0"/>
+                                            <constraint firstAttribute="bottom" secondItem="QMs-PH-bYK" secondAttribute="bottom" id="fQw-qL-2Gb"/>
                                             <constraint firstItem="QMs-PH-bYK" firstAttribute="leading" secondItem="lU1-x3-yyc" secondAttribute="leading" id="hrR-tI-RXB"/>
                                         </constraints>
                                     </stackView>
