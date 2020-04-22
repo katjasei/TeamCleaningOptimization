@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1H-v3-ZhK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="A1H-v3-ZhK">
     <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -242,6 +242,7 @@
                     <connections>
                         <outlet property="cleanedButton" destination="B4V-un-yhs" id="qCn-FH-YBe"/>
                         <outlet property="heatMapImageView" destination="afs-M0-lNX" id="rNI-Gv-I8Z"/>
+                        <outlet property="roomTypeLabel" destination="Y73-gA-gLC" id="GTr-10-D2t"/>
                         <outlet property="scheduleButton" destination="efJ-ia-gpJ" id="70a-z6-W8z"/>
                         <outlet property="startButton" destination="YOI-lM-C3p" id="4vh-vP-Fl9"/>
                         <outlet property="timeLabel" destination="zgv-vV-La9" id="3pG-0J-MYv"/>

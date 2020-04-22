@@ -12,6 +12,7 @@ class RoomInfoViewController: UIViewController {
     
     var isCleaning = false
     var timer: Timer!
+    var roomType = ""
     //make request every 10 sec
     var timerForRequest:Timer!
     var time = 0
@@ -21,6 +22,7 @@ class RoomInfoViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scheduleButton: RoundButton!
     @IBOutlet weak var cleanedButton: RoundButton!
+    @IBOutlet weak var roomTypeLabel: UILabel!
     
     // for demo
        var imagesArray = [UIImage.init(named: "demo2_1"), UIImage.init(named: "demo2_2"), UIImage.init(named: "demo2_3"), UIImage.init(named: "demo2_4"), UIImage.init(named: "demo2_5"), UIImage.init(named: "demo2_6"), UIImage.init(named: "demo2_7"), UIImage.init(named: "demo2_8"), UIImage.init(named: "demo2_9"), UIImage.init(named: "demo2_10"), UIImage.init(named: "demo2_11"), UIImage.init(named: "demo2_12"), UIImage.init(named: "demo2_13") ]
@@ -29,7 +31,9 @@ class RoomInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timeLabel.isHidden = true
+        scheduleButton.isHidden = true
         self.title = "Room " + String(room.roomID)
+        roomTypeLabel.text = roomType
         changeButtons()
         
         //Set dirt_heatmap

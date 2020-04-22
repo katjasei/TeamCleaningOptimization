@@ -122,10 +122,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
 
-                 let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
+                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
+                let roomType = roomsInThisFloor[indexPath.row].roomType
                 destViewController.room = roomsInThisFloor[selectedRow]
-
+                destViewController.roomType = roomType
             }
         }
     }
