@@ -11,25 +11,12 @@ import Foundation
 
 //   let rooms = try? newJSONDecoder().decode(Rooms.self, from: jsonData)
 
-struct Room: Codable {
+struct Room {
     let floorId, roomID: String
     let dirtIndex: Double
-    let dirtHeatmap, movHeatmap: String
-    let lastUpdate: Int
-    let lastCleaned: Int
-    let isCleaning: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case floorId = "floor_id"
-        case roomID = "room_id"
-        case dirtIndex = "dirt_index"
-        case dirtHeatmap = "dirt_heatmap"
-        case movHeatmap = "mov_heatmap"
-        case lastUpdate = "last_update"
-        case lastCleaned = "last_cleaned"
-        case isCleaning = "is_cleaning"
-        
-    }
+    //let lastUpdate: Date
+    //let lastCleaned: Int
+    let roomType: String
 }
 
 typealias Rooms = [Room]

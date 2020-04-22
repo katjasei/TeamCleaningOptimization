@@ -50,23 +50,7 @@ class RoomInfoViewController: UIViewController {
     
     //timerForRequest calls this every 10 seconds
     @objc func updateMov_heatmap() {
-        // API call
-               let apiRequest = APIRequest()
-               do {
-                try apiRequest.getRoom(roomID: room.roomID ,completion: { result in
-                       switch result {
-                       case .success(let room) :
-                        print(room.movHeatmap)
-                        let convertedMov_heatmap = self.base64Convert(base64String: room.movHeatmap)
-                           DispatchQueue.main.async {
-                              self.heatMapImageView.image = convertedMov_heatmap
-                           }
-                       case .failure(let error) : print(error)
-                       }})
-               
-                 } catch {
-                     print("Error getting data from API")
-                 }
+        
           
        }
     

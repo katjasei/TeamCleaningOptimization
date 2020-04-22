@@ -10,23 +10,33 @@ import UIKit
 var selectedFloor = 0
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // Demo database
+    
+    var room1 = Room(floorId: "1", roomID: "A100", dirtIndex: 80, roomType: "Hospital Room")
+    var room2 = Room(floorId: "1", roomID: "A101", dirtIndex: 33, roomType: "Hospital Room")
+    var room3 = Room(floorId: "1", roomID: "A102", dirtIndex: 10, roomType: "Hospital Room")
+    var room4 = Room(floorId: "1", roomID: "A103", dirtIndex: 56, roomType: "Hospital Room")
+    var room5 = Room(floorId: "1", roomID: "A104", dirtIndex: 23, roomType: "Hospital Room")
+    var room6 = Room(floorId: "1", roomID: "A105", dirtIndex: 99, roomType: "Hospital Room")
+
+    var room7 = Room(floorId: "2", roomID: "A201", dirtIndex: 80, roomType: "Hospital Room")
+    var room8 = Room(floorId: "2", roomID: "A202", dirtIndex: 40, roomType: "Hospital Room")
+    var room9 = Room(floorId: "2", roomID: "A203", dirtIndex: 10, roomType: "Hospital Room")
+    var room10 = Room(floorId: "2", roomID: "A204", dirtIndex: 97, roomType: "Hospital Room")
+    var room11 = Room(floorId: "2", roomID: "A205", dirtIndex: 56, roomType: "Hospital Room")
+    var room12 = Room(floorId: "2", roomID: "A206", dirtIndex: 44, roomType: "Hospital Room")
+    var room13 = Room(floorId: "2", roomID: "A207", dirtIndex: 81, roomType: "Hospital Room")
+    var room14 = Room(floorId: "2", roomID: "A208", dirtIndex: 80, roomType: "Hospital Room")
+    
+    var room15 = Room(floorId: "3", roomID: "A301", dirtIndex: 50, roomType: "Surgery")
+
+    var rooms: Array<Room>!
+    
     // MARK: IB & variables
     
-    @IBAction func onClickBigReportButton(_ sender: UIButton) {
-        let presentationService = BigReportPresentationPresentationService()
-        let presentation = presentationService.present()
-        present(presentation, animated: true) {
-            // Dismiss report if tapped outside
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissReport))
-            presentation.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
-        }
-    }
     
     @IBOutlet var tableView: UITableView!
     
-
-    var rooms: Rooms?
-
     // Dismiss report if tapped outside action
     @objc func dismissReport() {
         self.dismiss(animated: true)
@@ -35,27 +45,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Lifecycle methods
     override func viewDidLoad() {
-        // API call
-        let apiRequest = APIRequest()
-        do {
-           try apiRequest.getRooms(completion: { result in
-                switch result {
-                case .success(let rooms) :
-                    self.rooms = rooms
-                    //print(rooms)
-                    // Reload tableView in main thread
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                print(rooms.count)
-                case .failure(let error) : print(error)
-                }})
-        
-          } catch {
-              print("Error getting data from API")
-          }
         super.viewDidLoad()
         tableView.dataSource = self
+        
+        // Init list of demo rooms
+        rooms = [room1, room2, room3, room4, room5, room6, room7, room8, room9, room10, room11,
+        room12, room13, room14]
+        
         self.title = "Room List"
     }
     
@@ -78,7 +74,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 returnArray.append(room)
             }
         }
-        
+        // Sort array
+        returnArray.sort(by: {$0.dirtIndex > $1.dirtIndex})
         return returnArray
     }
     
@@ -90,7 +87,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let room = roomsInThisFloor[indexPath.row]
         cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
-        for room in roomsInThisFloor {
             switch room.dirtIndex {
                 case 0...33:
                     let colour = UIColor(hex: "#81C784ff") ?? UIColor.white //green
@@ -104,9 +100,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 case 91...100:
                     let colour = UIColor(hex: "#EF5350ff") ?? UIColor.white //red
                     cell.updateBackgroundColour(colour: colour)
+                    print("Cell coloured red")
             default:
                 print("Index error")
-            }
         }
         return cell
     }
