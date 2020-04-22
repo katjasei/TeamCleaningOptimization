@@ -18,14 +18,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-Px-lT2">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3uv-vu-1Qm">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1776"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3uv-vu-1Qm">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1284.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Did-PB-P13">
-                                                <rect key="frame" x="3" y="0.0" width="1018" height="1124.5"/>
+                                                <rect key="frame" x="3" y="0.0" width="1018" height="641"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="eGa-9X-7xR">
-                                                        <rect key="frame" x="20" y="5" width="978" height="1114.5"/>
+                                                        <rect key="frame" x="20" y="5" width="978" height="631"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -37,7 +37,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wYJ-pC-Lwr">
-                                                <rect key="frame" x="20" y="1134.5" width="984" height="641.5"/>
+                                                <rect key="frame" x="20" y="643" width="984" height="641.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M9A-ZY-DY9" userLabel="Cleaner SV">
                                                         <rect key="frame" x="0.0" y="0.0" width="984" height="73.5"/>
@@ -160,7 +160,6 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="wYJ-pC-Lwr" firstAttribute="top" secondItem="Did-PB-P13" secondAttribute="bottom" constant="10" id="DBv-ar-tiI"/>
                                             <constraint firstAttribute="trailing" secondItem="Did-PB-P13" secondAttribute="trailing" constant="3" id="HRc-be-KaT"/>
                                             <constraint firstItem="wYJ-pC-Lwr" firstAttribute="leading" secondItem="3uv-vu-1Qm" secondAttribute="leading" constant="20" id="Rdf-LG-omm"/>
                                             <constraint firstItem="Did-PB-P13" firstAttribute="top" secondItem="3uv-vu-1Qm" secondAttribute="top" id="Xwm-ah-m6x"/>
@@ -174,7 +173,6 @@
                                     <constraint firstItem="3uv-vu-1Qm" firstAttribute="trailing" secondItem="SdB-uc-Nal" secondAttribute="trailing" id="QHz-m2-qFa"/>
                                     <constraint firstItem="3uv-vu-1Qm" firstAttribute="width" secondItem="wiU-kK-YQ8" secondAttribute="width" id="izb-If-DFN"/>
                                     <constraint firstItem="3uv-vu-1Qm" firstAttribute="bottom" secondItem="SdB-uc-Nal" secondAttribute="bottom" id="rQj-Ip-fBX"/>
-                                    <constraint firstItem="3uv-vu-1Qm" firstAttribute="height" secondItem="wiU-kK-YQ8" secondAttribute="height" multiplier="1.3" id="vkI-MB-3nk"/>
                                     <constraint firstItem="3uv-vu-1Qm" firstAttribute="top" secondItem="SdB-uc-Nal" secondAttribute="top" id="xgD-2I-soN"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="SdB-uc-Nal"/>
