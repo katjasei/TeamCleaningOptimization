@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,40 +120,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-YP-kax" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                <rect key="frame" x="764" y="108" width="230" height="40"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="3fb-ex-cZq"/>
-                                    <constraint firstAttribute="width" constant="230" id="O7u-PU-Oh9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="BIG REPORT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
-                            <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="13" id="Apk-4Y-9Xk"/>
-                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="dKn-YP-kax" secondAttribute="bottom" constant="2" id="FzA-HM-Boc"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
-                            <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
                             <constraint firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" id="lp7-dk-Y6E"/>
+                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="55" id="vgW-Gp-ovZ"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="7Fy-S1-5zQ" secondAttribute="trailing" constant="30" id="w0j-zk-eQg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74c-Hr-vhK"/>
