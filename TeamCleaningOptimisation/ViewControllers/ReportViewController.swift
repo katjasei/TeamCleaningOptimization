@@ -55,7 +55,6 @@ class ReportViewController: UIViewController {
         
         let apiRequest = APIRequest()
         let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, timeOfCleaning: timeOfCleaning, wasCleaningSuccessful: wasCleaningSuccessful, cleanerComments: cleanerComments)
-        print("Report to be posted: \(report.reportID)")
         do{
             try apiRequest.postReport(report: report)
         } catch {

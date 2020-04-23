@@ -20,36 +20,31 @@ class APIRequest {
     
     func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
-        //print("URL: \(url)")
         doRequest(url: url, completion: completion)
     }
     
     func getRooms(completion: @escaping (Result<Rooms, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomsString) else { return }
-        print("URL: \(url)")
         doRequest(url: url, completion: completion)
     }
     
     func getReports(completion: @escaping (Result<Reports, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getReportString) else { return }
-        print("URL: \(url)")
         doRequest(url: url, completion: completion)
     }
     
     func putStartCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStartCleaningString) else { return }
-        print("URL: \(url)")
        // doRequest(url: url)
     }
     
     func putStopCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStopCleaningString) else { return }
-        print("URL: \(url)")
       //  doRequest(url: url)
     }
     
     func postReport(report: Report) throws {
-        guard let url = URL(string: endpoint+postReportString) else { return }
+        guard let url = URL(string: endpoint+postReportString) else { print("Error in postReport API");return }
         doPostRequest(url: url, report: report)
     }
     
@@ -60,12 +55,11 @@ class APIRequest {
             let encoder = JSONEncoder()
             encoder.outputFormatting = .prettyPrinted
             request.httpMethod = "POST"
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            
             // auth
             request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
             request.httpBody = try encoder.encode(report)
-            
-            print(String(data: request.httpBody!, encoding: .utf8)!)
-            
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 
                 
@@ -77,7 +71,7 @@ class APIRequest {
                 
                 // Read status code
                 if let response = response as? HTTPURLResponse {
-                    print("Response status code: \(response.statusCode)")
+                    print("POST request response status code: \(response.statusCode)")
                 }
             }
             task.resume()
@@ -104,7 +98,7 @@ class APIRequest {
             
             // Read status code
             if let response = response as? HTTPURLResponse {
-                print("Response status code: \(response.statusCode)")
+                print("GET request response status code: \(response.statusCode)")
             }
             
             // Read data
