@@ -47,7 +47,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                print(rooms.count)
                 case .failure(let error) : print(error)
                 }})
         

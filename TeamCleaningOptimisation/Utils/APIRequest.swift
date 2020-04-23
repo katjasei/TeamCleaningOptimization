@@ -35,12 +35,12 @@ class APIRequest {
     
     func putStartCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStartCleaningString) else { return }
-       // doRequest(url: url)
+        doPUTRequest(url: url)
     }
     
     func putStopCleaning(roomID: String) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID+putStopCleaningString) else { return }
-      //  doRequest(url: url)
+        doPUTRequest(url: url)
     }
     
     func postReport(report: Report) throws {
@@ -48,7 +48,29 @@ class APIRequest {
         doPostRequest(url: url, report: report)
     }
     
-    // For requests with body (POST)
+    // For PUT requests
+    private func doPUTRequest(url: URL) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        // Auth
+        request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            // Check for errors
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            // Read status code
+            if let response = response as? HTTPURLResponse {
+                print("GET request response status code: \(response.statusCode)")
+            }
+        }
+        task.resume()
+    }
+    
+    // For POST requests
     private func doPostRequest(url: URL, report: Report) {
         do {
             var request = URLRequest(url: url)
@@ -57,7 +79,7 @@ class APIRequest {
             request.httpMethod = "POST"
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             
-            // auth
+            // Auth
             request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
             request.httpBody = try encoder.encode(report)
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
@@ -81,7 +103,7 @@ class APIRequest {
         }
     }
     
-    // For all empty body requests (GET & PUT)
+    // For GET requests
     private func doRequest<T:Decodable>(url: URL, completion: @escaping (Result<T,Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
