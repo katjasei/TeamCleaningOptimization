@@ -14,56 +14,74 @@ class ReportViewController: UIViewController {
     var cleaner  = "Leonardo DiCaprio"
     var time     = 0
     var cleanInd = "95"
-    var success  = "Yes"
+    var success = true
+    var freeComment = ""
+    var pdComment = ""
+    var commentToBeSent = ""
     
     @IBOutlet weak var rCleanerTF:      UITextField!
     @IBOutlet weak var rCleanIndTF:     UITextField!
     @IBOutlet weak var rSuccessTF:      UITextField!
     @IBOutlet weak var rCommentPicker:  UITextField!
     @IBOutlet weak var resultHeatmapImage: UIImageView!
-    @IBAction func onClickSendReport(_ sender: RoundButton) {
-        postReport()
-    }
+    @IBOutlet weak var freeCommentTextField: UITextField!
     
-    let options = ["Room locked",
+    let pdCommentOptions = ["Room locked",
                    "Room occupied",
                    "Room with infection"]
+    let successOptions = ["Yes", "No"]
     
-    var selectedOption: String?
+    var selectedPdCommentOption: String?
+    var selectedSuccessOption = "Yes"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createOptionPicker()
+        createPdCommentOptionPicker()
         createToolBar()
+        createSuccessOptionPicker()
         
         self.title = "Report \(roomNumb)"
         
         rCleanerTF.text  = cleaner
         rCleanIndTF.text = cleanInd
-        rSuccessTF.text  = success
+        rSuccessTF.text = "Yes"
         
+
         //for demo
         self.resultHeatmapImage.image = UIImage.init(named: "demo2_13")
     }
     
-    func postReport() {
-        // Dummy data for post testing
-        let timeOfCleaning = "01:00"
-        let reportID = "2"
-        let wasCleaningSuccessful: Bool = true
-        let cleanerComments = "Everything went well"
-        
-        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, timeOfCleaning: timeOfCleaning, wasCleaningSuccessful: wasCleaningSuccessful, cleanerComments: cleanerComments)
-        print("Report to be posted: \(report.reportID)")
-        
+    // Free comment is sent if both exist
+    func decideComment() {
+        if pdComment != "" {
+            commentToBeSent = pdComment
+        }
+        if freeComment != "" {
+            commentToBeSent = freeComment
+        }
     }
     
-    func createOptionPicker() {
+    func decideSuccess() {
+        if selectedSuccessOption != "Yes" {
+            success = false
+        }
+    }
+    
+    func createPdCommentOptionPicker() {
         
-        let optionPicker = UIPickerView()
-        optionPicker.delegate = self
-        optionPicker.backgroundColor = .white
-        rCommentPicker.inputView = optionPicker
+        let pdCommentOptionPicker = UIPickerView()
+        pdCommentOptionPicker.delegate = self
+        pdCommentOptionPicker.backgroundColor = .white
+        pdCommentOptionPicker.restorationIdentifier = "pd"
+        rCommentPicker.inputView = pdCommentOptionPicker
+    }
+    
+    func createSuccessOptionPicker() {
+        
+        let successOptionPicker = UIPickerView()
+        successOptionPicker.delegate = self
+        successOptionPicker.restorationIdentifier = "success"
+        rSuccessTF.inputView = successOptionPicker
     }
     
     func createToolBar() {
@@ -71,6 +89,7 @@ class ReportViewController: UIViewController {
         let toolbar = UIToolbar()
         
         rCommentPicker.hideSuggestions()
+        rSuccessTF.hideSuggestions()
         toolbar.barStyle = UIBarStyle.default
         toolbar.sizeToFit()
         
@@ -80,6 +99,7 @@ class ReportViewController: UIViewController {
         toolbar.isUserInteractionEnabled = true
         
         rCommentPicker.inputAccessoryView = toolbar
+        rSuccessTF.inputAccessoryView = toolbar
     }
     
     @objc func dismissKeyboard() {
@@ -95,43 +115,41 @@ extension ReportViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return options.count
+        switch pickerView.restorationIdentifier {
+        case "success":
+            return successOptions.count
+        case "pd":
+            return pdCommentOptions.count
+        default:
+            return pdCommentOptions.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return options[row]
+        switch pickerView.restorationIdentifier {
+        case "success":
+            return successOptions[row]
+        case "pd":
+            return pdCommentOptions[row]
+        default:
+            return pdCommentOptions[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedOption = options[row]
-        rCommentPicker.text = selectedOption
         
+        switch pickerView.restorationIdentifier {
+        case "success":
+            selectedSuccessOption = successOptions[row]
+            rSuccessTF.text = selectedSuccessOption
+        case "pd":
+            selectedPdCommentOption = pdCommentOptions[row]
+            rCommentPicker.text = selectedPdCommentOption
+        default:
+            selectedPdCommentOption = pdCommentOptions[row]
+            rCommentPicker.text = selectedPdCommentOption
+            
+        }
     }
 }
 
-
-extension UITextView {
-    func hideSuggestions() {
-        // Removes suggestions only
-        autocorrectionType = .no
-        //Removes Undo, Redo, Copy & Paste options
-        removeUndoRedoOptions()
-    }
-}
-
-extension UITextField {
-    func hideSuggestions() {
-        // Removes suggestions only
-        autocorrectionType = .no
-        //Removes Undo, Redo, Copy & Paste options
-        removeUndoRedoOptions()
-    }
-}
-
-extension UIResponder {
-    func removeUndoRedoOptions() {
-        //Removes Undo, Redo, Copy & Paste options
-        inputAssistantItem.leadingBarButtonGroups = []
-        inputAssistantItem.trailingBarButtonGroups = []
-    }
-}
