@@ -14,13 +14,14 @@ class ReportViewController: UIViewController {
     var cleaner  = "Leonardo DiCaprio"
     var time     = 0
     var cleanInd = "95"
-    var success  = "Yes"
+    var success = true
     
     @IBOutlet weak var rCleanerTF:      UITextField!
     @IBOutlet weak var rCleanIndTF:     UITextField!
     @IBOutlet weak var rSuccessTF:      UITextField!
     @IBOutlet weak var rCommentPicker:  UITextField!
     @IBOutlet weak var resultHeatmapImage: UIImageView!
+    @IBOutlet weak var freeCommentTextField: UITextField!
     @IBAction func onClickSendReport(_ sender: RoundButton) {
         postReport()
     }
@@ -40,26 +41,40 @@ class ReportViewController: UIViewController {
         
         rCleanerTF.text  = cleaner
         rCleanIndTF.text = cleanInd
-        rSuccessTF.text  = success
-        
+        if success {
+            rSuccessTF.text = "Yes"
+        } else {
+            rSuccessTF.text = "No"
+        }
+
         //for demo
         self.resultHeatmapImage.image = UIImage.init(named: "demo2_13")
     }
     
     func postReport() {
-        // Dummy data for post testing
-        let timeOfCleaning = "01:00"
-        let reportID = "2"
-        let wasCleaningSuccessful: Bool = true
-        let cleanerComments = "Everything went well"
+        // Current time
+/*
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = .current
+        let dateString = dateFormatter.string(from: currentDate)
+ */
+        
+        // Set reportID to a random int 0-100 000
+        let reportID = String(Int.random(in: 0...100000))
+        
+        let comment = freeCommentTextField.text ?? ""
         
         let apiRequest = APIRequest()
-        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, timeOfCleaning: timeOfCleaning, wasCleaningSuccessful: wasCleaningSuccessful, cleanerComments: cleanerComments)
+        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: comment)
+        dump(report)
+        
+        /*
         do{
             try apiRequest.postReport(report: report)
         } catch {
             print("Error posting report to API (from reportVC)")
-        }
+        } */
     }
     
     func createOptionPicker() {

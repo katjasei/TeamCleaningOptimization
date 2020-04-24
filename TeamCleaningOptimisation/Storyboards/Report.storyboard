@@ -192,6 +192,7 @@
                         <viewLayoutGuide key="safeArea" id="pCN-TE-y45"/>
                     </view>
                     <connections>
+                        <outlet property="freeCommentTextField" destination="ilC-YS-Arw" id="YNC-Ri-fmh"/>
                         <outlet property="rCleanIndTF" destination="xEC-ht-kqz" id="Agb-4b-Uru"/>
                         <outlet property="rCleanerTF" destination="Kos-0p-JHh" id="vxL-pP-8P4"/>
                         <outlet property="rCommentPicker" destination="mTY-Dw-2eA" id="ndm-Pj-uez"/>

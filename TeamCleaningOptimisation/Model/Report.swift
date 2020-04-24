@@ -11,7 +11,7 @@ class Report: Codable {
     let reportID: String
     let forRoomID: String
     let cleanerName: String
-    let timeOfCleaning: String
+    //let timeOfCleaning: String
     let wasCleaningSuccessful: Bool
     let cleanerComments: String
     
@@ -19,17 +19,19 @@ class Report: Codable {
         case reportID = "report_id"
         case forRoomID = "for_room_id"
         case cleanerName = "cleaner_name"
-        case timeOfCleaning = "time_of_cleaning"
+        //case timeOfCleaning = "time_of_cleaning"
         case wasCleaningSuccessful = "was_cleaning_successful"
         case cleanerComments = "cleaner_comments"
     }
     
-    init(reportID: String, forRoomID: String, cleanerName: String, timeOfCleaning: String, wasCleaningSuccessful: Bool, cleanerComments: String) {
+    init(reportID: String, forRoomID: String, cleanerName: String,
+         //timeOfCleaning: String,
+         wasCleaningSuccessful: Bool, cleanerComments: String) {
         
         self.reportID = reportID
         self.forRoomID = forRoomID
         self.cleanerName = cleanerName
-        self.timeOfCleaning = timeOfCleaning
+        //self.timeOfCleaning = timeOfCleaning
         self.wasCleaningSuccessful = wasCleaningSuccessful
         self.cleanerComments = cleanerComments
         

@@ -39,7 +39,6 @@ class BigReportViewController: UIViewController {
                 switch result {
                 case .success(let reports) :
                     self.reports = reports
-                    
                 case .failure(let error) : print(error)
                 }})
         
