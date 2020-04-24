@@ -20,17 +20,17 @@ class APIRequest {
     
     func getRoom(roomID: String, completion: @escaping (Result<Room,Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomString+roomID) else { return }
-        doRequest(url: url, completion: completion)
+        doGETRequest(url: url, completion: completion)
     }
     
     func getRooms(completion: @escaping (Result<Rooms, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getRoomsString) else { return }
-        doRequest(url: url, completion: completion)
+        doGETRequest(url: url, completion: completion)
     }
     
     func getReports(completion: @escaping (Result<Reports, Error>) -> Void) throws {
         guard let url = URL(string: endpoint+getReportString) else { return }
-        doRequest(url: url, completion: completion)
+        doGETRequest(url: url, completion: completion)
     }
     
     func putStartCleaning(roomID: String) throws {
@@ -104,7 +104,7 @@ class APIRequest {
     }
     
     // For GET requests
-    private func doRequest<T:Decodable>(url: URL, completion: @escaping (Result<T,Error>) -> Void) {
+    private func doGETRequest<T:Decodable>(url: URL, completion: @escaping (Result<T,Error>) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         //with authorization

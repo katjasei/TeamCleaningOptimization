@@ -35,14 +35,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Lifecycle methods
     override func viewDidLoad() {
-        // API call
-        let apiRequest = APIRequest()
+        doAPIRequest()
+        super.viewDidLoad()
+        tableView.dataSource = self
+        self.title = "Room List"
+    }
+    
+    func doAPIRequest() {
+       let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
                 switch result {
                 case .success(let rooms) :
                     self.rooms = rooms
-                    //print(rooms)
                     // Reload tableView in main thread
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -53,9 +58,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
           } catch {
               print("Error getting data from API")
           }
-        super.viewDidLoad()
-        tableView.dataSource = self
-        self.title = "Room List"
     }
     
     // Number of cells
