@@ -36,6 +36,9 @@
 		6AE00CD0242F5F2D00A34F64 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */; };
 		6AE00CD22430A9CA00A34F64 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE00CD12430A9CA00A34F64 /* Report.swift */; };
 		6AE953AB24485ADB004D3732 /* BigReportPresentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE953AA24485ADB004D3732 /* BigReportPresentationService.swift */; };
+		6AE953AF2452DE95004D3732 /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE953AE2452DE95004D3732 /* UIResponderExtension.swift */; };
+		6AE953B12452DF00004D3732 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE953B02452DF00004D3732 /* UITextFieldExtension.swift */; };
+		6AE953B32452DF4E004D3732 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE953B22452DF4E004D3732 /* UITextViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		6AE00CCF242F5F2D00A34F64 /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
 		6AE00CD12430A9CA00A34F64 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		6AE953AA24485ADB004D3732 /* BigReportPresentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigReportPresentationService.swift; sourceTree = "<group>"; };
+		6AE953AE2452DE95004D3732 /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
+		6AE953B02452DF00004D3732 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		6AE953B22452DF4E004D3732 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				6A58DE3F243B830E00785FEC /* UIColor.swift */,
+				6AE953AE2452DE95004D3732 /* UIResponderExtension.swift */,
 				6A4642ED24462378009C536F /* UIViewControllerExtension.swift */,
+				6AE953B02452DF00004D3732 /* UITextFieldExtension.swift */,
+				6AE953B22452DF4E004D3732 /* UITextViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,7 +232,6 @@
 				5A54794424351D680080738C /* Report.storyboard */,
 				5ADB3A61244867250002456E /* Selection.storyboard */,
 				6AC31F462445E8D3005B8569 /* BigReport.storyboard */,
-
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -236,7 +244,6 @@
 				5A54794224351BDE0080738C /* ReportViewController.swift */,
 				5ADB3A632448685C0002456E /* SelectionViewController.swift */,
 				6AC31F482445F14F005B8569 /* BigReportViewController.swift */,
-
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -384,6 +391,7 @@
 				6A4642EE24462378009C536F /* UIViewControllerExtension.swift in Sources */,
 				5A5287C2242E77BC0095D21D /* RoomIndex.swift in Sources */,
 				6A5D329E2432321300AB4F0E /* DesignView.swift in Sources */,
+				6AE953B32452DF4E004D3732 /* UITextViewExtension.swift in Sources */,
 				6AC31F492445F14F005B8569 /* BigReportViewController.swift in Sources */,
 				6A5D7F4A242BCCDD001AA34B /* RoomInfoViewController.swift in Sources */,
 				5A54794324351BDE0080738C /* ReportViewController.swift in Sources */,
@@ -391,7 +399,9 @@
 				6A4347A7242CB566000A852D /* RoundButton.swift in Sources */,
 				6AE00CD22430A9CA00A34F64 /* Report.swift in Sources */,
 				6AE953AB24485ADB004D3732 /* BigReportPresentationService.swift in Sources */,
+				6AE953AF2452DE95004D3732 /* UIResponderExtension.swift in Sources */,
 				6A5D7F46242BCCDD001AA34B /* AppDelegate.swift in Sources */,
+				6AE953B12452DF00004D3732 /* UITextFieldExtension.swift in Sources */,
 				6A5D7F48242BCCDD001AA34B /* SceneDelegate.swift in Sources */,
 				5ADB3A642448685C0002456E /* SelectionViewController.swift in Sources */,
 				6AE00CD0242F5F2D00A34F64 /* RoomInfo.swift in Sources */,

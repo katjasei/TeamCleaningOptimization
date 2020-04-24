@@ -114,28 +114,3 @@ extension ReportViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 
-extension UITextView {
-    func hideSuggestions() {
-        // Removes suggestions only
-        autocorrectionType = .no
-        //Removes Undo, Redo, Copy & Paste options
-        removeUndoRedoOptions()
-    }
-}
-
-extension UITextField {
-    func hideSuggestions() {
-        // Removes suggestions only
-        autocorrectionType = .no
-        //Removes Undo, Redo, Copy & Paste options
-        removeUndoRedoOptions()
-    }
-}
-
-extension UIResponder {
-    func removeUndoRedoOptions() {
-        //Removes Undo, Redo, Copy & Paste options
-        inputAssistantItem.leadingBarButtonGroups = []
-        inputAssistantItem.trailingBarButtonGroups = []
-    }
-}
