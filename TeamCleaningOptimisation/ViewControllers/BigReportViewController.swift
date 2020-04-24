@@ -8,6 +8,8 @@
 
 import UIKit
 
+// Currently displays all reports from all cleaners
+
 class BigReportViewController: UIViewController {
     
     // IB & Variables

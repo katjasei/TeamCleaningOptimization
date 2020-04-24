@@ -15,6 +15,9 @@ class ReportViewController: UIViewController {
     var time     = 0
     var cleanInd = "95"
     var success = true
+    var freeComment = ""
+    var pdComment = ""
+    var commentToBeSent = ""
     
     @IBOutlet weak var rCleanerTF:      UITextField!
     @IBOutlet weak var rCleanIndTF:     UITextField!
@@ -52,21 +55,18 @@ class ReportViewController: UIViewController {
     }
     
     func postReport() {
-        // Current time
-/*
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = .current
-        let dateString = dateFormatter.string(from: currentDate)
- */
-        
         // Set reportID to a random int 0-100 000
         let reportID = String(Int.random(in: 0...100000))
         
-        let comment = freeCommentTextField.text ?? ""
+        // Set free comment
+        freeComment = freeCommentTextField.text ?? ""
+        
+        // Set predetermined comment
+        pdComment = rCommentPicker.text ?? ""
+        decideComment()
         
         let apiRequest = APIRequest()
-        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: comment)
+        let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: commentToBeSent)
         dump(report)
         
         /*
@@ -75,6 +75,16 @@ class ReportViewController: UIViewController {
         } catch {
             print("Error posting report to API (from reportVC)")
         } */
+    }
+    
+    // Free comment is sent if both exist
+    func decideComment() {
+        if pdComment != "" {
+            commentToBeSent = pdComment
+        }
+        if freeComment != "" {
+            commentToBeSent = freeComment
+        }
     }
     
     func createOptionPicker() {
