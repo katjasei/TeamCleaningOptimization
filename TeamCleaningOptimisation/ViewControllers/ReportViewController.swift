@@ -29,26 +29,26 @@ class ReportViewController: UIViewController {
         postReport()
     }
     
-    let options = ["Room locked",
+    let pdCommentOptions = ["Room locked",
                    "Room occupied",
                    "Room with infection"]
+    let successOptions = ["Yes", "No"]
     
-    var selectedOption: String?
+    var selectedPdCommentOption: String?
+    var selectedSuccessOption = "Yes"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createOptionPicker()
+        createPdCommentOptionPicker()
         createToolBar()
+        createSuccessOptionPicker()
         
         self.title = "Report \(roomNumb)"
         
         rCleanerTF.text  = cleaner
         rCleanIndTF.text = cleanInd
-        if success {
-            rSuccessTF.text = "Yes"
-        } else {
-            rSuccessTF.text = "No"
-        }
+        rSuccessTF.text = "Yes"
+        
 
         //for demo
         self.resultHeatmapImage.image = UIImage.init(named: "demo2_13")
@@ -64,6 +64,7 @@ class ReportViewController: UIViewController {
         // Set predetermined comment
         pdComment = rCommentPicker.text ?? ""
         decideComment()
+        decideSuccess()
         
         let apiRequest = APIRequest()
         let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: commentToBeSent)
@@ -87,12 +88,27 @@ class ReportViewController: UIViewController {
         }
     }
     
-    func createOptionPicker() {
+    func decideSuccess() {
+        if selectedSuccessOption != "Yes" {
+            success = false
+        }
+    }
+    
+    func createPdCommentOptionPicker() {
         
-        let optionPicker = UIPickerView()
-        optionPicker.delegate = self
-        optionPicker.backgroundColor = .white
-        rCommentPicker.inputView = optionPicker
+        let pdCommentOptionPicker = UIPickerView()
+        pdCommentOptionPicker.delegate = self
+        pdCommentOptionPicker.backgroundColor = .white
+        pdCommentOptionPicker.restorationIdentifier = "pd"
+        rCommentPicker.inputView = pdCommentOptionPicker
+    }
+    
+    func createSuccessOptionPicker() {
+        
+        let successOptionPicker = UIPickerView()
+        successOptionPicker.delegate = self
+        successOptionPicker.restorationIdentifier = "success"
+        rSuccessTF.inputView = successOptionPicker
     }
     
     func createToolBar() {
@@ -100,6 +116,7 @@ class ReportViewController: UIViewController {
         let toolbar = UIToolbar()
         
         rCommentPicker.hideSuggestions()
+        rSuccessTF.hideSuggestions()
         toolbar.barStyle = UIBarStyle.default
         toolbar.sizeToFit()
         
@@ -109,6 +126,7 @@ class ReportViewController: UIViewController {
         toolbar.isUserInteractionEnabled = true
         
         rCommentPicker.inputAccessoryView = toolbar
+        rSuccessTF.inputAccessoryView = toolbar
     }
     
     @objc func dismissKeyboard() {
@@ -124,17 +142,41 @@ extension ReportViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return options.count
+        switch pickerView.restorationIdentifier {
+        case "success":
+            return successOptions.count
+        case "pd":
+            return pdCommentOptions.count
+        default:
+            return pdCommentOptions.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return options[row]
+        switch pickerView.restorationIdentifier {
+        case "success":
+            return successOptions[row]
+        case "pd":
+            return pdCommentOptions[row]
+        default:
+            return pdCommentOptions[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedOption = options[row]
-        rCommentPicker.text = selectedOption
         
+        switch pickerView.restorationIdentifier {
+        case "success":
+            selectedSuccessOption = successOptions[row]
+            rSuccessTF.text = selectedSuccessOption
+        case "pd":
+            selectedPdCommentOption = pdCommentOptions[row]
+            rCommentPicker.text = selectedPdCommentOption
+        default:
+            selectedPdCommentOption = pdCommentOptions[row]
+            rCommentPicker.text = selectedPdCommentOption
+            
+        }
     }
 }
 
