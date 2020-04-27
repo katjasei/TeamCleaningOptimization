@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-S1-5zQ" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                <rect key="frame" x="764" y="55" width="230" height="40"/>
+                                <rect key="frame" x="764" y="48" width="230" height="40"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="8cH-so-wPg"/>
@@ -147,13 +147,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
-                            <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="13" id="Apk-4Y-9Xk"/>
+                            <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="20" id="Apk-4Y-9Xk"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="dKn-YP-kax" secondAttribute="bottom" constant="2" id="FzA-HM-Boc"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
-                            <constraint firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" id="lp7-dk-Y6E"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="7Fy-S1-5zQ" secondAttribute="trailing" constant="30" id="w0j-zk-eQg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74c-Hr-vhK"/>

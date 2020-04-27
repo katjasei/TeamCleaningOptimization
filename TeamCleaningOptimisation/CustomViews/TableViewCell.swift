@@ -18,7 +18,7 @@ class TableViewCell: UITableViewCell{
     
     func updateContent(roomID number: String, roomIndex index: Double) {
         roomNumberLabel.text = number
-        roomIndexLabel.text = String(index)
+       // roomIndexLabel.text = String(index)
     }
     func updateBackgroundColour(colour: UIColor) {
         innerView.backgroundColor = colour
