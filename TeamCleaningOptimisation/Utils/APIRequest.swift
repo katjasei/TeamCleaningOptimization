@@ -172,8 +172,8 @@ class APIRequest {
                 
                 // Read data
                  // Convert HTTP Response Data to a simple String
-                   if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                       print("Response data string:\n \(dataString)")
+                if let data = data {
+                       print("Response data string:\n \(data)")
                    }
             }
             task.resume()
