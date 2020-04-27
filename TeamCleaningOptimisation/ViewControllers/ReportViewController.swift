@@ -68,14 +68,13 @@ class ReportViewController: UIViewController {
         
         let apiRequest = APIRequest()
         let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: commentToBeSent)
-        dump(report)
+        //dump(report)
         
-        /*
         do{
             try apiRequest.postReport(report: report)
         } catch {
             print("Error posting report to API (from reportVC)")
-        } */
+        }
     }
     
     // Free comment is sent if both exist
