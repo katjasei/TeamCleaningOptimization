@@ -14,11 +14,16 @@ class BigReportViewController: UIViewController {
     
     // IB & Variables
     
+    var successCount = 0
+    var unsuccessCount = 0
+    
+    @IBOutlet weak var totalRoomsLabel: UILabel!
+    @IBOutlet weak var totalSuccessfulLabel: UILabel!
+    @IBOutlet weak var totalUnsuccessfulLabel: UILabel!
     @IBAction func onClickOkButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-    @IBOutlet weak var roomsLabel: UILabel!
     var reports: Reports = [] {
         // Property observer, do this when value changes
         didSet {
@@ -50,13 +55,24 @@ class BigReportViewController: UIViewController {
     }
     
     private func countTotalData() {
+        // Make array of room IDs
         for report in reports {
             totalRooms.append(report.forRoomID)
+        }
+        
+        // Count successful and unsuccessful cleaning events
+        for report in reports {
+            if report.wasCleaningSuccessful {
+                successCount += 1
+            } else {
+                unsuccessCount += 1
+            }
         }
     }
     
     private func displayData() {
         countTotalData()
-        roomsLabel.text = "\(totalRooms)"
+        totalRoomsLabel?.text = "\(totalRooms.count)"
+        totalSuccessfulLabel?.text = "\(successCount)"
     }
 }
