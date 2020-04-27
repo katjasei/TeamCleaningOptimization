@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Network
+
 var selectedFloor = 0
+
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
@@ -24,10 +27,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableView: UITableView!
     
-
     var rooms: Rooms?
+    let networkMonitor = NWPathMonitor()
 
-    // Dismiss report if tapped outside action
+    // Dismiss report if tapped
     @objc func dismissReport() {
         self.dismiss(animated: true)
     }
@@ -39,6 +42,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
+        useNetworkMonitor()
+    }
+    
+    func useNetworkMonitor() {
+        networkMonitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("Connected")
+            } else {
+                print("No connection")
+            }
+            print(path.isExpensive)
+        }
+        let queue = DispatchQueue(label: "networkMonitor")
+        networkMonitor.start(queue: queue)
     }
     
     func doAPIRequest() {
