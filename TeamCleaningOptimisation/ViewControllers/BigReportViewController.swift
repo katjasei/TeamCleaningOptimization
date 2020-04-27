@@ -8,13 +8,14 @@
 
 import UIKit
 
+// Currently displays all reports from all cleaners
+
 class BigReportViewController: UIViewController {
     
     // IB & Variables
     
     @IBAction func onClickOkButton(_ sender: UIButton) {
-        // UIViewController extension function
-        performSegueToReturnBack()
+        dismiss(animated: true)
     }
     
     @IBOutlet weak var roomsLabel: UILabel!

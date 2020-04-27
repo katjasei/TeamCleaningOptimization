@@ -7,46 +7,62 @@
 //
 
 import UIKit
-
+var selectedFloor = 0
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var scFloorSelection: UISegmentedControl!
-    var rooms: Rooms?
+    @IBAction func onClickBigReportButton(_ sender: UIButton) {
+        let presentationService = BigReportPresentationPresentationService()
+        let presentation = presentationService.present()
+        present(presentation, animated: true) {
+            // Dismiss report if tapped outside
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissReport))
+            presentation.view.superview?.subviews[0].addGestureRecognizer(tapGesture)
+        }
+    }
     
+    @IBOutlet var tableView: UITableView!
+    
+
+    var rooms: Rooms?
+
+    // Dismiss report if tapped outside action
+    @objc func dismissReport() {
+        self.dismiss(animated: true)
+    }
+
     
     // Lifecycle methods
     override func viewDidLoad() {
-        // API call
-        let apiRequest = APIRequest()
+        doAPIRequest()
+        super.viewDidLoad()
+        tableView.dataSource = self
+        self.title = "Room List"
+    }
+    
+    func doAPIRequest() {
+       let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
                 switch result {
                 case .success(let rooms) :
                     self.rooms = rooms
-                    //print(rooms)
                     // Reload tableView in main thread
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                print(rooms.count)
                 case .failure(let error) : print(error)
                 }})
         
           } catch {
               print("Error getting data from API")
           }
-        super.viewDidLoad()
-        tableView.dataSource = self
-        self.title = "Room List"
     }
     
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let segmentIndex = scFloorSelection.selectedSegmentIndex
-        let roomsInThisFloor = roomsToFloors(floorNumber: segmentIndex)
+        let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
         
         return roomsInThisFloor.count
     }
@@ -63,6 +79,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 returnArray.append(room)
             }
         }
+        
         return returnArray
     }
     
@@ -70,7 +87,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! TableViewCell
 
-        let roomsInThisFloor = roomsToFloors(floorNumber: scFloorSelection.selectedSegmentIndex)
+        let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
         let room = roomsInThisFloor[indexPath.row]
         cell.updateContent(roomID: room.roomID, roomIndex: room.dirtIndex)
         
@@ -109,13 +126,20 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
+
+                 let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
-                destViewController.room = rooms?[selectedRow]
+                destViewController.room = roomsInThisFloor[selectedRow]
+
             }
         }
     }
-    
-    @IBAction func scSelectFloor(_ sender: UISegmentedControl) {
-        tableView.reloadData()
+    @IBAction func unwindToTableViewController(segue: UIStoryboardSegue) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                print(selectedFloor)
+            }
+        }
     }
 }

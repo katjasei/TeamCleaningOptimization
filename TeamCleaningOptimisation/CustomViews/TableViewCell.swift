@@ -16,9 +16,9 @@ class TableViewCell: UITableViewCell{
     @IBOutlet weak var roomIndexLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    func updateContent(roomID number: String, roomIndex index: Int) {
+    func updateContent(roomID number: String, roomIndex index: Double) {
         roomNumberLabel.text = number
-        roomIndexLabel.text = String(index)
+       // roomIndexLabel.text = String(index)
     }
     func updateBackgroundColour(colour: UIColor) {
         innerView.backgroundColor = colour
