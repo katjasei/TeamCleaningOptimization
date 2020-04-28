@@ -15,6 +15,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: IB & variables
     
+    @IBAction func onClickRefreshButton(_ sender: UIButton) {
+        // Reload tableView in main thread
+        DispatchQueue.main.async {
+            self.doAPIRequest()
+        }
+    }
     @IBAction func onClickBigReportButton(_ sender: UIButton) {
         let presentationService = BigReportPresentationPresentationService()
         let presentation = presentationService.present()
