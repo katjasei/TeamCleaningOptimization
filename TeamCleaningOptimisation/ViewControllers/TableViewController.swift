@@ -29,6 +29,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var rooms: Rooms?
     let networkMonitor = NWPathMonitor()
+    let connectionErrorTitle = "Connection error"
+    let connectionErrorMessage = "No internet connection"
+    let connectionErrorAction = "Ok"
 
     // Dismiss report if tapped
     @objc func dismissReport() {
@@ -50,9 +53,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if path.status == .satisfied {
                 print("Connected")
             } else {
-                print("No connection")
+                // Alert user
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: self.connectionErrorTitle, message: self.connectionErrorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: self.connectionErrorAction, style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
             }
-            print(path.isExpensive)
         }
         let queue = DispatchQueue(label: "networkMonitor")
         networkMonitor.start(queue: queue)
