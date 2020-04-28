@@ -38,6 +38,17 @@ class RoomInfoViewController: UIViewController {
         
         //for demo
         self.heatMapImageView.image = UIImage.init(named: "demo2_1")
+        
+        // API call
+                      let apiRequest = APIRequest()
+                      do {
+                        try apiRequest.getHeatmap(roomID: room.roomID, completionHandler: { contentLength in
+                             print(contentLength ?? 0)
+                            })
+                      
+                        } catch {
+                            print("Error getting data from API")
+                        }
  
     }
     
