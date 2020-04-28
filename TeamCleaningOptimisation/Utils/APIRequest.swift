@@ -143,42 +143,42 @@ class APIRequest {
     }
     
     
-        // For heatmap GET request
+    // For heatmap GET request
     
-        private func doGETRequestHeatMap(for url: URL, completionHandler: @escaping (_ contentLength: UInt64?) -> ()) {
+    private func doGETRequestHeatMap(for url: URL, completionHandler: @escaping (_ contentLength: UInt64?) -> ()) {
             
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            //with authorization
-            request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
-            //content-type
-            request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        //with authorization
+        request.setValue(API_KEY, forHTTPHeaderField: "Authorization")
+        //content-type
+        request.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
           
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
-                // Check for errors
-                if let error = error {
-                    print("Error: \(error)")
+            // Check for errors
+            if let error = error {
+                print("Error: \(error)")
 
-                    return
-                }
-                
-                // Read status code
-                if let response = response as? HTTPURLResponse {
-                    //print("GET request response status code: \(response.statusCode)")
-                    let contentLength = response.allHeaderFields["Content-Length"] as? String
-                    completionHandler(UInt64(contentLength!))
-                }
-                
-                // Read data
-                 // Convert HTTP Response Data to a simple String
-                if let data = data {
-                       print("Response data string:\n \(data)")
-                   }
+                return
             }
-            task.resume()
+                
+            // Read status code
+            if let response = response as? HTTPURLResponse {
+                //print("GET request response status code: \(response.statusCode)")
+                let contentLength = response.allHeaderFields["Content-Length"] as? String
+                completionHandler(UInt64(contentLength!))
+            }
+                
+            // Read data
+            // Convert HTTP Response Data to a simple String
+            if let data = data {
+                    print("Response data string:\n \(data)")
+                }
         }
+        task.resume()
     }
+}
 
 
 

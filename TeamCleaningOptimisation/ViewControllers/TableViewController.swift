@@ -80,6 +80,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         
+        // Sort array
+        returnArray.sort(by: {$0.dirtIndex > $1.dirtIndex})
         return returnArray
     }
     
