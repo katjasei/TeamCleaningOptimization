@@ -11,7 +11,7 @@ import UIKit
 class ReportViewController: UIViewController {
     
     var roomNumb = String()
-    var cleaner  = "Leonardo DiCaprio"
+    var cleaner  = UserName.shared.userName
     var time     = 0
     var cleanInd = "95"
     var success = true
