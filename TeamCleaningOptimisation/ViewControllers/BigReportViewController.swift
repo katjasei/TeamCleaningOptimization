@@ -74,5 +74,6 @@ class BigReportViewController: UIViewController {
         countTotalData()
         totalRoomsLabel?.text = "\(totalRooms.count)"
         totalSuccessfulLabel?.text = "\(successCount)"
+        totalUnsuccessfulLabel?.text = "\(unsuccessCount)"
     }
 }
