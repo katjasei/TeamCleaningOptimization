@@ -11,13 +11,20 @@ import UIKit
 class ReportViewController: UIViewController {
     
     var roomNumb = String()
-    var cleaner  = UserName.shared.userName
+    private var cleaner  = UserName.shared.userName
     var time     = 0
-    var cleanInd = "95"
-    var success = true
-    var freeComment = ""
-    var pdComment = ""
-    var commentToBeSent = ""
+    private var cleanInd = "95"
+    private var success = true
+    private var freeComment = ""
+    private var pdComment = ""
+    private var commentToBeSent = ""
+    private let pdCommentOptions = ["Room locked",
+                   "Room occupied",
+                   "Room with infection"]
+    private let successOptions = ["Yes", "No"]
+    
+    private var selectedPdCommentOption: String?
+    private var selectedSuccessOption = "Yes"
     
     @IBOutlet weak var rCleanerTF:      UITextField!
     @IBOutlet weak var rCleanIndTF:     UITextField!
@@ -28,14 +35,6 @@ class ReportViewController: UIViewController {
     @IBAction func onClickSendReport(_ sender: RoundButton) {
         postReport()
     }
-    
-    let pdCommentOptions = ["Room locked",
-                   "Room occupied",
-                   "Room with infection"]
-    let successOptions = ["Yes", "No"]
-    
-    var selectedPdCommentOption: String?
-    var selectedSuccessOption = "Yes"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +48,11 @@ class ReportViewController: UIViewController {
         rCleanIndTF.text = cleanInd
         rSuccessTF.text = "Yes"
         
-
         //for demo
         self.resultHeatmapImage.image = UIImage.init(named: "demo2_13")
     }
     
-    func postReport() {
+    private func postReport() {
         // Set reportID to a random int 0-100 000
         let reportID = String(Int.random(in: 0...100000))
         
@@ -68,9 +66,8 @@ class ReportViewController: UIViewController {
         
         let apiRequest = APIRequest()
         let report = Report(reportID: reportID, forRoomID: roomNumb, cleanerName: cleaner, wasCleaningSuccessful: success, cleanerComments: commentToBeSent)
-        //dump(report)
         
-        do{
+        do {
             try apiRequest.postReport(report: report)
         } catch {
             print("Error posting report to API (from reportVC)")
@@ -78,7 +75,7 @@ class ReportViewController: UIViewController {
     }
     
     // Free comment is sent if both exist
-    func decideComment() {
+    private func decideComment() {
         if pdComment != "" {
             commentToBeSent = pdComment
         }
@@ -87,13 +84,13 @@ class ReportViewController: UIViewController {
         }
     }
     
-    func decideSuccess() {
+    private func decideSuccess() {
         if selectedSuccessOption != "Yes" {
             success = false
         }
     }
     
-    func createPdCommentOptionPicker() {
+    private func createPdCommentOptionPicker() {
         
         let pdCommentOptionPicker = UIPickerView()
         pdCommentOptionPicker.delegate = self
@@ -102,7 +99,7 @@ class ReportViewController: UIViewController {
         rCommentPicker.inputView = pdCommentOptionPicker
     }
     
-    func createSuccessOptionPicker() {
+    private func createSuccessOptionPicker() {
         
         let successOptionPicker = UIPickerView()
         successOptionPicker.delegate = self
@@ -110,7 +107,7 @@ class ReportViewController: UIViewController {
         rSuccessTF.inputView = successOptionPicker
     }
     
-    func createToolBar() {
+    private func createToolBar() {
         
         let toolbar = UIToolbar()
         

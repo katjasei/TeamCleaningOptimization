@@ -54,7 +54,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         useNetworkMonitor()
     }
     
-    func useNetworkMonitor() {
+    private func useNetworkMonitor() {
         networkMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 print("Connected")
@@ -71,7 +71,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         networkMonitor.start(queue: queue)
     }
     
-    func doAPIRequest() {
+    private func doAPIRequest() {
        let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
@@ -101,7 +101,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func roomsToFloors(floorNumber: Int) -> Array<Room> {
         var returnArray: [Room] = []
         guard let roomsUnwrapped = rooms else {
-            print("Rooms array was nil")
             return returnArray
         }
         for room in roomsUnwrapped {
@@ -159,7 +158,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
 
-                 let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
+                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
                 destViewController.room = roomsInThisFloor[selectedRow]
 

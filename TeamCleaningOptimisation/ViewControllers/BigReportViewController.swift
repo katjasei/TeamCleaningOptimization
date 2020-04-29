@@ -14,8 +14,9 @@ class BigReportViewController: UIViewController {
     
     // IB & Variables
     
-    var successCount = 0
-    var unsuccessCount = 0
+    private var successCount = 0
+    private var unsuccessCount = 0
+    private var totalRooms: Array<String> = []
     
     @IBOutlet weak var totalRoomsLabel: UILabel!
     @IBOutlet weak var totalSuccessfulLabel: UILabel!
@@ -32,7 +33,6 @@ class BigReportViewController: UIViewController {
             }
         }
     }
-    private var totalRooms: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
