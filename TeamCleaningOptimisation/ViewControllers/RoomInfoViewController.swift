@@ -44,11 +44,15 @@ class RoomInfoViewController: UIViewController {
                       do {
                         try apiRequest.getHeatmap(roomID: room.roomID, completionHandler: { contentLength in
                              print(contentLength ?? 0)
-                            })
+                        }, completion:{ arr in
+                            let array64 = arr
+                            print(array64!) })
                       
                         } catch {
                             print("Error getting data from API")
                         }
+        
+        
  
     }
     
