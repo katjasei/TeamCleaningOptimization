@@ -21,8 +21,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.doAPIRequest()
         }
     }
-    @IBAction func onClickBigReportButton(_ sender: UIButton) {
-        let presentationService = BigReportPresentationPresentationService()
+    @IBAction func onClickStatusReportButton(_ sender: UIButton) {
+        let presentationService = StatusReportPresentationPresentationService()
         let presentation = presentationService.present()
         present(presentation, animated: true) {
             // Dismiss report if tapped outside

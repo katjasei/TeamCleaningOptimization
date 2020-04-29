@@ -1,5 +1,5 @@
 //
-//  BigReportController.swift
+//  StatusReportController.swift
 //  TeamCleaningOptimisation
 //
 //  Created by Oona on 14.4.2020.
@@ -10,7 +10,7 @@ import UIKit
 
 // Currently displays all reports from all cleaners
 
-class BigReportViewController: UIViewController {
+class StatusReportViewController: UIViewController {
     
     // IB & Variables
     

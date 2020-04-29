@@ -128,7 +128,7 @@
                                     <constraint firstAttribute="width" constant="230" id="O7u-PU-Oh9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="BIG REPORT">
+                                <state key="normal" title="STATUS REPORT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -140,7 +140,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
+                                    <action selector="onClickStatusReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-cq-oUA" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
