@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -143,14 +143,31 @@
                                     <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-cq-oUA" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                                <rect key="frame" x="48" y="102" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Ps2-vF-GoF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="↻">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickRefreshButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="lOF-o0-uO7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="kSY-cq-oUA" secondAttribute="bottom" constant="8" id="1Qn-9P-Vb6"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
                             <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="20" id="Apk-4Y-9Xk"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="dKn-YP-kax" secondAttribute="bottom" constant="2" id="FzA-HM-Boc"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
+                            <constraint firstItem="kSY-cq-oUA" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="48" id="Pia-z2-8bE"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
+                            <constraint firstItem="kSY-cq-oUA" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="102" id="Tq2-ui-krc"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="7Fy-S1-5zQ" secondAttribute="trailing" constant="30" id="w0j-zk-eQg"/>
@@ -172,6 +189,18 @@
                     <navigationItem key="navigationItem" id="gIQ-iH-iWN"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFH-tj-xV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIt-af-u1e" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="230" height="40"/>
+                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="230" id="MYF-Ex-MKZ"/>
+                        <constraint firstAttribute="height" constant="40" id="jrD-tG-KpO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="SELECTION">
+                        <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </state>
+                </button>
             </objects>
             <point key="canvasLocation" x="411" y="-208"/>
         </scene>

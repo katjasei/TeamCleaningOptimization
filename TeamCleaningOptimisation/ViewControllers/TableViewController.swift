@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Network
+
 var selectedFloor = 0
+
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: IB & variables
     
+    @IBAction func onClickRefreshButton(_ sender: UIButton) {
+        // Reload tableView in main thread
+        DispatchQueue.main.async {
+            self.doAPIRequest()
+        }
+    }
     @IBAction func onClickBigReportButton(_ sender: UIButton) {
         let presentationService = BigReportPresentationPresentationService()
         let presentation = presentationService.present()
@@ -24,10 +33,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableView: UITableView!
     
-
     var rooms: Rooms?
+    let networkMonitor = NWPathMonitor()
+    let connectionErrorTitle = "Connection error"
+    let connectionErrorMessage = "No internet connection"
+    let connectionErrorAction = "Ok"
 
-    // Dismiss report if tapped outside action
+    // Dismiss report if tapped
     @objc func dismissReport() {
         self.dismiss(animated: true)
     }
@@ -39,6 +51,24 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tableView.dataSource = self
         self.title = "Room List"
+        useNetworkMonitor()
+    }
+    
+    func useNetworkMonitor() {
+        networkMonitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("Connected")
+            } else {
+                // Alert user
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: self.connectionErrorTitle, message: self.connectionErrorMessage, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: self.connectionErrorAction, style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+        let queue = DispatchQueue(label: "networkMonitor")
+        networkMonitor.start(queue: queue)
     }
     
     func doAPIRequest() {
