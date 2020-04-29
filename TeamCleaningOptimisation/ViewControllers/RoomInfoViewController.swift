@@ -19,7 +19,6 @@ class RoomInfoViewController: UIViewController {
     var counter = 0
     @IBOutlet weak var heatMapImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var scheduleButton: RoundButton!
     @IBOutlet weak var cleanedButton: RoundButton!
     
     // Demo image data
@@ -127,9 +126,6 @@ class RoomInfoViewController: UIViewController {
         self.performSegue(withIdentifier: "showReport", sender: "cleanedButton")
     }
     
-    @IBAction func scheduleButtonClicked(_ sender: UIButton) {
-      
-    }
     
     // Notifies database of cleaning event stop
     func notifyStopCleaning() {
