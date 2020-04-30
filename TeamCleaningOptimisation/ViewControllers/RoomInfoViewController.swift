@@ -38,7 +38,43 @@ class RoomInfoViewController: UIViewController {
                              print(contentLength ?? 0)
                         }, completion:{ arr in
                             let array64 = arr
-                            print(array64!) })
+                            print(array64!)
+                            
+                            
+                            
+                            var min: UInt64
+                            var max: UInt64
+                            var minRaw = UInt64.max
+                            var maxRaw = UInt64.min
+                            var pix: UInt64
+                            for j in 0...(array64!.count-1) {
+                                pix = array64![j]
+                                if (pix < minRaw){minRaw = pix}
+                                if (pix>maxRaw) {maxRaw = pix}
+                            }
+                            
+                            max = maxRaw
+                            min = minRaw
+                            var pix1: Int
+                            var im_p : [UInt8] = []
+                            if(max<=min){ max = min + 1 }
+                            for i in 0...(array64!.count-1) {
+                                pix1 = Int((array64![i] - min)*255/(max-min))
+                                if(pix1 > 255) {pix1 = 255}
+                                if(pix1 < 0) {pix1 = 0}
+                                im_p.append(UInt8(pix1))
+                            }
+                            
+                            print (im_p)
+
+                            DispatchQueue.main.async {
+                                
+                                //let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
+                             //   self.heatMapImageView.image = image
+                            }
+                            
+                            
+                        })
                       
                         } catch {
                             print("Error getting data from API")
@@ -47,6 +83,78 @@ class RoomInfoViewController: UIViewController {
         
  
     }
+    
+    
+    
+    
+     
+       func imageFromARGB8Bitmap(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
+              guard width > 0 && height > 0 else { return nil }
+              guard pixels.count == width * height else { return nil }
+
+              let rgbColorSpace = CGColorSpaceCreateDeviceGray()
+              let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+              let bitsPerComponent = 8
+              let bitsPerPixel = 8
+
+              var data = pixels // Copy to mutable []
+              guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
+                                      length: data.count * MemoryLayout<UInt8>.size)
+                  )
+                  else { return nil }
+
+              guard let cgim = CGImage(
+                  width: width,
+                  height: height,
+                  bitsPerComponent: bitsPerComponent,
+                  bitsPerPixel: bitsPerPixel,
+                  bytesPerRow: width * MemoryLayout<UInt8>.size,
+                  space: rgbColorSpace,
+                  bitmapInfo: bitmapInfo,
+                  provider: providerRef,
+                  decode: nil,
+                  shouldInterpolate: true,
+                  intent: .defaultIntent
+                  )
+                  else { return nil }
+              return UIImage(cgImage: cgim)
+          }
+     
+     
+     
+     
+     func imageFromARGB64Bitmap(pixels: Array<UInt64>, width: Int, height: Int) -> UIImage? {
+            guard width > 0 && height > 0 else { return nil }
+            guard pixels.count == width * height else { return nil }
+
+            let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+            let bitsPerComponent = 16
+            let bitsPerPixel = 64
+
+            var data = pixels // Copy to mutable []
+            guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
+                                    length: data.count * MemoryLayout<UInt64>.size)
+                )
+                else { return nil }
+
+            guard let cgim = CGImage(
+                width: width,
+                height: height,
+                bitsPerComponent: bitsPerComponent,
+                bitsPerPixel: bitsPerPixel,
+                bytesPerRow: width * MemoryLayout<UInt64>.size,
+                space: rgbColorSpace,
+                bitmapInfo: bitmapInfo,
+                provider: providerRef,
+                decode: nil,
+                shouldInterpolate: true,
+                intent: .defaultIntent
+                )
+                else { return nil }
+            
+            return UIImage(cgImage: cgim)
+        }
     
     // Timer calls this every second
     @objc func countTime() {
