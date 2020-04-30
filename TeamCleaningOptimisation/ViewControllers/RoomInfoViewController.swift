@@ -41,7 +41,7 @@ class RoomInfoViewController: UIViewController {
                             print(array64!)
                             
                             
-                            
+                            // convert UInt64 array to UInt8 array
                             var min: UInt64
                             var max: UInt64
                             var minRaw = UInt64.max
@@ -68,9 +68,9 @@ class RoomInfoViewController: UIViewController {
                             print (im_p)
 
                             DispatchQueue.main.async {
-                                
-                                //let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
-                             //   self.heatMapImageView.image = image
+                                //
+                               //let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
+                              // self.heatMapImageView.image = image
                             }
                             
                             
@@ -83,17 +83,14 @@ class RoomInfoViewController: UIViewController {
         
  
     }
-    
-    
-    
-    
-     
+
+       //grayscale picture - UInt8 array
        func imageFromARGB8Bitmap(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
               guard width > 0 && height > 0 else { return nil }
               guard pixels.count == width * height else { return nil }
 
-              let rgbColorSpace = CGColorSpaceCreateDeviceGray()
-              let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+              let colorSpace = CGColorSpaceCreateDeviceGray()
+              let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
               let bitsPerComponent = 8
               let bitsPerPixel = 8
 
@@ -109,7 +106,7 @@ class RoomInfoViewController: UIViewController {
                   bitsPerComponent: bitsPerComponent,
                   bitsPerPixel: bitsPerPixel,
                   bytesPerRow: width * MemoryLayout<UInt8>.size,
-                  space: rgbColorSpace,
+                  space: colorSpace,
                   bitmapInfo: bitmapInfo,
                   provider: providerRef,
                   decode: nil,
@@ -117,12 +114,13 @@ class RoomInfoViewController: UIViewController {
                   intent: .defaultIntent
                   )
                   else { return nil }
+        
               return UIImage(cgImage: cgim)
           }
      
      
      
-     
+     //function to get image from UInt64 array
      func imageFromARGB64Bitmap(pixels: Array<UInt64>, width: Int, height: Int) -> UIImage? {
             guard width > 0 && height > 0 else { return nil }
             guard pixels.count == width * height else { return nil }
