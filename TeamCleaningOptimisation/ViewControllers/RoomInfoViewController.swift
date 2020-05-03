@@ -65,12 +65,21 @@ class RoomInfoViewController: UIViewController {
                                 im_p.append(UInt8(pix1))
                             }
                             
-                            print (im_p)
+                            //print (im_p)
 
                             DispatchQueue.main.async {
                                 //
-                               //let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
-                              // self.heatMapImageView.image = image
+                                let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
+                                self.heatMapImageView.image = image
+                                
+                                guard let scaledImageSize = image?.size.applying(CGAffineTransform(scaleX: 10, y: 10))
+                                    else {return}
+                                UIGraphicsBeginImageContext(scaledImageSize)
+                                let scaledContext = UIGraphicsGetCurrentContext()!
+                                scaledContext.interpolationQuality = .high // This determines the interpolation
+                                image?.draw(in: CGRect(origin: .zero, size: scaledImageSize))
+                                let scaledImage = UIGraphicsGetImageFromCurrentImageContext()!
+                                self.heatMapImageView.image = scaledImage
                             }
                             
                             
