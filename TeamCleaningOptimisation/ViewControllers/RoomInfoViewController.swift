@@ -34,38 +34,32 @@ class RoomInfoViewController: UIViewController {
         // API call
                       let apiRequest = APIRequest()
                       do {
-                        try apiRequest.getHeatmap(roomID: room.roomID, completionHandler: { contentLength in
+                        try apiRequest.getHeatmap(roomID: room.roomID, completionHandler: {
+                             contentLength in
                              print(contentLength ?? 0)
-                        }, completion:{ arr in
+                        },
+                            completion:{ arr in
                             let array64 = arr
                             print(array64!)
                             
-                            
                             // convert UInt64 array to UInt8 array
-                            var min: UInt64
-                            var max: UInt64
-                            var minRaw = UInt64.max
-                            var maxRaw = UInt64.min
-                            var pix: UInt64
-                            for j in 0...(array64!.count-1) {
-                                pix = array64![j]
-                                if (pix < minRaw){minRaw = pix}
-                                if (pix>maxRaw) {maxRaw = pix}
-                            }
-                            
-                            max = maxRaw
-                            min = minRaw
-                            var pix1: Int
-                            var im_p : [UInt8] = []
-                            if(max<=min){ max = min + 1 }
-                            for i in 0...(array64!.count-1) {
-                                pix1 = Int((array64![i] - min)*255/(max-min))
-                                if(pix1 > 255) {pix1 = 255}
-                                if(pix1 < 0) {pix1 = 0}
-                                im_p.append(UInt8(pix1))
-                            }
-                            
-                            //print (im_p)
+                           let im_p = self.convert64to8(array: array64!)
+                           print (im_p)
+                                        
+                               //apply color look up table to grayscale image
+                               let cubeData = self.colorLUT1()
+                               let b = cubeData.withUnsafeBufferPointer { Data(buffer: $0) }
+                               let data = b as NSData
+                                print(cubeData)
+                                let size = 4
+                                let image = self.imageFrom8Bitmap(pixels: im_p, width: 72, height: 56)
+                                let ciImage = CIImage(image: image!)
+                                
+                                let colorCube = CIFilter(name: "CIColorCube")
+                                                 colorCube?.setValue(data, forKey: "inputCubeData")
+                                                 colorCube?.setValue(size, forKey: "inputCubeDimension")
+                                                 colorCube?.setValue(ciImage, forKey: kCIInputImageKey)
+                                //let outputImage = colorCube!.outputImage
 
                             DispatchQueue.main.async {
                                 //
@@ -80,88 +74,13 @@ class RoomInfoViewController: UIViewController {
                                 image?.draw(in: CGRect(origin: .zero, size: scaledImageSize))
                                 let scaledImage = UIGraphicsGetImageFromCurrentImageContext()!
                                 self.heatMapImageView.image = scaledImage
-                            }
-                            
-                            
+   
                         })
                       
                         } catch {
                             print("Error getting data from API")
                         }
-        
-        
- 
     }
-
-       //grayscale picture - UInt8 array
-       func imageFromARGB8Bitmap(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
-              guard width > 0 && height > 0 else { return nil }
-              guard pixels.count == width * height else { return nil }
-
-              let colorSpace = CGColorSpaceCreateDeviceGray()
-              let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
-              let bitsPerComponent = 8
-              let bitsPerPixel = 8
-
-              var data = pixels // Copy to mutable []
-              guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
-                                      length: data.count * MemoryLayout<UInt8>.size)
-                  )
-                  else { return nil }
-
-              guard let cgim = CGImage(
-                  width: width,
-                  height: height,
-                  bitsPerComponent: bitsPerComponent,
-                  bitsPerPixel: bitsPerPixel,
-                  bytesPerRow: width * MemoryLayout<UInt8>.size,
-                  space: colorSpace,
-                  bitmapInfo: bitmapInfo,
-                  provider: providerRef,
-                  decode: nil,
-                  shouldInterpolate: true,
-                  intent: .defaultIntent
-                  )
-                  else { return nil }
-        
-              return UIImage(cgImage: cgim)
-          }
-     
-     
-     
-     //function to get image from UInt64 array
-     func imageFromARGB64Bitmap(pixels: Array<UInt64>, width: Int, height: Int) -> UIImage? {
-            guard width > 0 && height > 0 else { return nil }
-            guard pixels.count == width * height else { return nil }
-
-            let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-            let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
-            let bitsPerComponent = 16
-            let bitsPerPixel = 64
-
-            var data = pixels // Copy to mutable []
-            guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
-                                    length: data.count * MemoryLayout<UInt64>.size)
-                )
-                else { return nil }
-
-            guard let cgim = CGImage(
-                width: width,
-                height: height,
-                bitsPerComponent: bitsPerComponent,
-                bitsPerPixel: bitsPerPixel,
-                bytesPerRow: width * MemoryLayout<UInt64>.size,
-                space: rgbColorSpace,
-                bitmapInfo: bitmapInfo,
-                provider: providerRef,
-                decode: nil,
-                shouldInterpolate: true,
-                intent: .defaultIntent
-                )
-                else { return nil }
-            
-            return UIImage(cgImage: cgim)
-        }
     
     // Timer calls this every second
     @objc func countTime() {
@@ -212,7 +131,7 @@ class RoomInfoViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
         changeButtons()
         //for demo version
-        self.heatMapImageView.image = UIImage.init(named: "demo2_1")
+        //self.heatMapImageView.image = UIImage.init(named: "demo2_1")
         
         
         //update mov_heatmap every 10 seconds
@@ -263,6 +182,132 @@ class RoomInfoViewController: UIViewController {
           return decodedimage!
       }
     }
+    
+    
+    //real heat map data functions
+    
+    // convert UInt64 array to UInt8 array
+    
+    func convert64to8(array: Array<UInt64>) -> Array<UInt8>{
+       var min: UInt64
+       var max: UInt64
+       var minRaw = UInt64.max
+       var maxRaw = UInt64.min
+       var pix: UInt64
+       for j in 0...(array.count-1) {
+       pix = array[j]
+       if (pix < minRaw){minRaw = pix}
+       if (pix>maxRaw) {maxRaw = pix}
+       }
+                                  
+       max = maxRaw
+       min = minRaw
+       var pix1: Int
+       var im_p : [UInt8] = []
+       if(max<=min){ max = min + 1 }
+       for i in 0...(array.count-1) {
+       pix1 = Int((array[i] - min)*255/(max-min))
+       if(pix1 > 255) {pix1 = 255}
+       if(pix1 < 0) {pix1 = 0}
+       im_p.append(UInt8(pix1))
+        }
+        return im_p
+    }
+
+    
+    //display grayscaleimage from UInt8 array
+    func imageFrom8Bitmap(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
+           guard width > 0 && height > 0 else { return nil }
+           guard pixels.count == width * height else { return nil }
+
+           let colorSpace = CGColorSpaceCreateDeviceGray()
+           let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+           let bitsPerComponent = 8
+           let bitsPerPixel = 8
+
+           var data = pixels // Copy to mutable []
+           guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
+                                   length: data.count * MemoryLayout<UInt8>.size)
+               )
+               else { return nil }
+
+           guard let cgim = CGImage(
+               width: width,
+               height: height,
+               bitsPerComponent: bitsPerComponent,
+               bitsPerPixel: bitsPerPixel,
+               bytesPerRow: width * MemoryLayout<UInt8>.size,
+               space: colorSpace,
+               bitmapInfo: bitmapInfo,
+               provider: providerRef,
+               decode: nil,
+               shouldInterpolate: true,
+               intent: .defaultIntent
+               )
+               else { return nil }
+     
+           return UIImage(cgImage: cgim)
+       }
+    
+        //function to get image from UInt64 array
+        func imageFromARGB64Bitmap(pixels: Array<UInt64>, width: Int, height: Int) -> UIImage? {
+               guard width > 0 && height > 0 else { return nil }
+               guard pixels.count == width * height else { return nil }
+
+               let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+               let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
+               let bitsPerComponent = 16
+               let bitsPerPixel = 64
+
+               var data = pixels // Copy to mutable []
+               guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
+                                       length: data.count * MemoryLayout<UInt64>.size)
+                   )
+                   else { return nil }
+
+               guard let cgim = CGImage(
+                   width: width,
+                   height: height,
+                   bitsPerComponent: bitsPerComponent,
+                   bitsPerPixel: bitsPerPixel,
+                   bytesPerRow: width * MemoryLayout<UInt64>.size,
+                   space: rgbColorSpace,
+                   bitmapInfo: bitmapInfo,
+                   provider: providerRef,
+                   decode: nil,
+                   shouldInterpolate: true,
+                   intent: .defaultIntent
+                   )
+                   else { return nil }
+               
+               return UIImage(cgImage: cgim)
+           }
+   
+    // lookup color table to apply to grayscale imahe
+    func colorLUT1() -> [Float] {
+           var tableLUT = [Float]()
+           var red, green, blue : Float
+           var a,b : Float
+           for i in 0...255 {
+               a = Float(i) * 0.01236846501
+               b = cos(a - 1.0)
+               red = Float(pow(2.0, sin(a - 1.6))*200)
+               green = Float(atan(a) * b * 155 + 100.0)
+               blue = Float(b * 255)
+               if (red > Float(255)){red = Float(255)}
+               if (green > Float(255)){green = Float(255)}
+               if (blue > Float(255)){blue = Float(255)}
+               if (red < Float(0)){red = Float(0)}
+               if (green < Float(0)){green = Float(0)}
+               if (blue < Float(0)){blue = Float(0)}
+               let alpha = Float(1.0)
+               tableLUT.append(red * alpha)
+               tableLUT.append(green * alpha)
+               tableLUT.append(blue * alpha)
+               tableLUT.append(alpha)
+           }
+        return tableLUT
+       }
     
     // Changes start and stop cleaning buttons. Disables back navigation for timer to work correctly
     private func changeButtons() {
