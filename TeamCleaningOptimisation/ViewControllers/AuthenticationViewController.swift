@@ -20,6 +20,7 @@ class AuthenticationViewController: UIViewController {
         
     }
     
+    // Save username in UserName class
     @IBAction func logInPressed(_ sender: Any) {
         UserName.shared.userName = userNameTextField.text ?? "Cleaner"
     }

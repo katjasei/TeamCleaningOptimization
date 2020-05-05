@@ -23,9 +23,7 @@ class SelectionViewController: UIViewController {
     
     var mainViewController: TableViewController = TableViewController()
     
-    var selectedBuilding = 0
-    var selectedArea = 0
-    
+    // Hard Coded lists to show up as selections
     var buildingList    = ["Building1", "Building2"]
     var floorList1      = ["Floor1", "Floor2"]
     var floorList2      = ["Floor3", "Floor4"]
@@ -48,10 +46,12 @@ class SelectionViewController: UIViewController {
         aTblView.isHidden = true
     }
     
-//    Animation for dropDown
+    // Make animations on click
     @IBAction func onClickdropDownBBtn(_ sender: Any) {
         if bTblView.isHidden {
             animate(toogle: true, btn: self.bTblView)
+            animate(toogle: false, btn: self.aTblView)
+            animate(toogle: false, btn: self.fTblView)
         } else {
             animate(toogle: false, btn: self.bTblView)
         }
@@ -60,6 +60,8 @@ class SelectionViewController: UIViewController {
     @IBAction func onClickdropDownFBtn(_ sender: Any) {
         if fTblView.isHidden {
             animate(toogle: true, btn: self.fTblView)
+            animate(toogle: false, btn: self.aTblView)
+            animate(toogle: false, btn: self.bTblView)
         } else {
             animate(toogle: false, btn: self.fTblView)
         }
@@ -68,15 +70,19 @@ class SelectionViewController: UIViewController {
     @IBAction func onClickdropDownABtn(_ sender: Any) {
         if aTblView.isHidden {
             animate(toogle: true, btn: self.aTblView)
+            animate(toogle: false, btn: self.bTblView)
+            animate(toogle: false, btn: self.fTblView)
         } else {
             animate(toogle: false, btn: self.aTblView)
         }
     }
     
+    // When save clicked close Selection and segue to roomList
     @IBAction func onClickSave(_ sender: Any) {
         self.performSegue(withIdentifier: "saveData", sender: self)
     }
     
+    // Animation for selection drop down
     func animate(toogle: Bool, btn: UITableView){
         if toogle {
             UIView.animate(withDuration: 0.3) {
@@ -92,6 +98,7 @@ class SelectionViewController: UIViewController {
 
 // Extension to use tableView
 extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
+    // Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         var numberOfRow = 1
@@ -109,6 +116,7 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
         return numberOfRow
     }
     
+    // Content of a row in a tableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
@@ -140,6 +148,7 @@ extension SelectionViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // When selecting a row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch tableView {
