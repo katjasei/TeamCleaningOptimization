@@ -45,4 +45,28 @@ extension UIColor {
         
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
+
+}
+
+extension UIColor {
+
+    func rgb() -> UInt32? {
+        var fRed : CGFloat = 0
+        var fGreen : CGFloat = 0
+        var fBlue : CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            let iRed = UInt32(fRed * 255.0)
+            let iGreen = UInt32(fGreen * 255.0)
+            let iBlue = UInt32(fBlue * 255.0)
+            let iAlpha = UInt32(fAlpha * 255.0)
+
+            //  (Bits 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
+            let rgb = (iAlpha << 24) + (iRed << 16) + (iGreen << 8) + iBlue
+            return rgb
+        } else {
+            // Could not extract RGBA components:
+            return nil
+        }
+    }
 }

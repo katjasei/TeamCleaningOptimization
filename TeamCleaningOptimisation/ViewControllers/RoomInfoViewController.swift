@@ -43,27 +43,29 @@ class RoomInfoViewController: UIViewController {
                             print(array64!)
                             
                             // convert UInt64 array to UInt8 array
-                           let im_p = self.convert64to8(array: array64!)
-                           print (im_p)
+                           let grayImage = self.convert64to8(array: array64!)
+                           print (grayImage)
                                         
                                //apply color look up table to grayscale image
-                               let cubeData = self.colorLUT1()
-                               let b = cubeData.withUnsafeBufferPointer { Data(buffer: $0) }
-                               let data = b as NSData
-                                print(cubeData)
-                                let size = 4
-                                let image = self.imageFrom8Bitmap(pixels: im_p, width: 72, height: 56)
-                                let ciImage = CIImage(image: image!)
+                               let colorData = self.colorLUT1()
+                                print(colorData.0)
+                                let red = colorData.0
+                                print(red.count)
+                                let green = colorData.1
+                                let blue = colorData.2
                                 
-                                let colorCube = CIFilter(name: "CIColorCube")
-                                                 colorCube?.setValue(data, forKey: "inputCubeData")
-                                                 colorCube?.setValue(size, forKey: "inputCubeDimension")
-                                                 colorCube?.setValue(ciImage, forKey: kCIInputImageKey)
-                                //let outputImage = colorCube!.outputImage
-
+                                var colorImage = [PixelData]()
+                                
+                                for i in 0...(grayImage.count-1) {
+                                 let pix = Int(grayImage[i])
+                                    colorImage.append(PixelData(a: UInt8(255), r: UInt8(red[pix]), g: UInt8(green[pix]), b: UInt8(blue[pix])))
+                                }
+                                
+                                //print(colorImage)
+                            
                             DispatchQueue.main.async {
                                 //
-                                let image = self.imageFrom8Bitmap(pixels: im_p, width: 72, height: 56)
+                                let image = self.colorImage(pixels: colorImage, width: 72, height: 56)
                                 self.heatMapImageView.image = image
                                 
                                 guard let scaledImageSize = image?.size.applying(CGAffineTransform(scaleX: 10, y: 10))
@@ -216,7 +218,7 @@ class RoomInfoViewController: UIViewController {
 
     
     //display grayscaleimage from UInt8 array
-    func imageFrom8Bitmap(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
+    func grayImage(pixels: Array<UInt8>, width: Int, height: Int) -> UIImage? {
            guard width > 0 && height > 0 else { return nil }
            guard pixels.count == width * height else { return nil }
 
@@ -249,19 +251,21 @@ class RoomInfoViewController: UIViewController {
            return UIImage(cgImage: cgim)
        }
     
+
         //function to get image from UInt64 array
-        func imageFromARGB64Bitmap(pixels: Array<UInt64>, width: Int, height: Int) -> UIImage? {
+        func colorImage(pixels: [PixelData], width: Int, height: Int) -> UIImage? {
+            
                guard width > 0 && height > 0 else { return nil }
                guard pixels.count == width * height else { return nil }
 
                let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
                let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
-               let bitsPerComponent = 16
-               let bitsPerPixel = 64
+               let bitsPerComponent = 8
+               let bitsPerPixel = 32
 
                var data = pixels // Copy to mutable []
                guard let providerRef = CGDataProvider(data: NSData(bytes: &data,
-                                       length: data.count * MemoryLayout<UInt64>.size)
+                                       length: data.count * MemoryLayout<UInt32>.size)
                    )
                    else { return nil }
 
@@ -270,7 +274,7 @@ class RoomInfoViewController: UIViewController {
                    height: height,
                    bitsPerComponent: bitsPerComponent,
                    bitsPerPixel: bitsPerPixel,
-                   bytesPerRow: width * MemoryLayout<UInt64>.size,
+                   bytesPerRow: width * MemoryLayout<UInt32>.size,
                    space: rgbColorSpace,
                    bitmapInfo: bitmapInfo,
                    provider: providerRef,
@@ -284,29 +288,29 @@ class RoomInfoViewController: UIViewController {
            }
    
     // lookup color table to apply to grayscale imahe
-    func colorLUT1() -> [Float] {
-           var tableLUT = [Float]()
-           var red, green, blue : Float
+    func colorLUT1() -> (Array<UInt8>, Array<UInt8>, Array<UInt8>) {
+           var tableRed = [UInt8]()
+           var tableGreen = [UInt8]()
+           var tableBlue = [UInt8]()
+           var red, green, blue : Int
            var a,b : Float
            for i in 0...255 {
                a = Float(i) * 0.01236846501
                b = cos(a - 1.0)
-               red = Float(pow(2.0, sin(a - 1.6))*200)
-               green = Float(atan(a) * b * 155 + 100.0)
-               blue = Float(b * 255)
-               if (red > Float(255)){red = Float(255)}
-               if (green > Float(255)){green = Float(255)}
-               if (blue > Float(255)){blue = Float(255)}
-               if (red < Float(0)){red = Float(0)}
-               if (green < Float(0)){green = Float(0)}
-               if (blue < Float(0)){blue = Float(0)}
-               let alpha = Float(1.0)
-               tableLUT.append(red * alpha)
-               tableLUT.append(green * alpha)
-               tableLUT.append(blue * alpha)
-               tableLUT.append(alpha)
+               red = Int(pow(2.0, sin(a - 1.6))*200)
+               green = Int(atan(a) * b * 155 + 100.0)
+               blue = Int(b * 255)
+               if (red > 255){red = 255}
+               if (green > 255){green = 255}
+               if (blue > 255){blue = 255}
+               if (red < 0){red = 0}
+               if (green < 0){green = 0}
+               if (blue < 0){blue = 0}
+               tableRed.append(UInt8(red))
+               tableGreen.append(UInt8(green))
+               tableBlue.append(UInt8(blue))
            }
-        return tableLUT
+        return (tableRed, tableGreen, tableBlue)
        }
     
     // Changes start and stop cleaning buttons. Disables back navigation for timer to work correctly
