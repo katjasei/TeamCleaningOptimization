@@ -45,7 +45,7 @@ class RoomInfoViewController: UIViewController {
                             // convert UInt64 array to UInt8 array
                            let im_p = self.convert64to8(array: array64!)
                            print (im_p)
-                               
+                                        
                                //apply color look up table to grayscale image
                                let cubeData = self.colorLUT1()
                                let b = cubeData.withUnsafeBufferPointer { Data(buffer: $0) }
@@ -60,16 +60,21 @@ class RoomInfoViewController: UIViewController {
                                                  colorCube?.setValue(size, forKey: "inputCubeDimension")
                                                  colorCube?.setValue(ciImage, forKey: kCIInputImageKey)
                                 //let outputImage = colorCube!.outputImage
-                                
-                                
 
                             DispatchQueue.main.async {
                                 //
-                              //let image = self.imageFrom8Bitmap(pixels: im_p, width: 72, height: 56)
-                              //self.heatMapImageView.image = image
-                            }
-                            
-                            
+                                let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
+                                self.heatMapImageView.image = image
+                                
+                                guard let scaledImageSize = image?.size.applying(CGAffineTransform(scaleX: 10, y: 10))
+                                    else {return}
+                                UIGraphicsBeginImageContext(scaledImageSize)
+                                let scaledContext = UIGraphicsGetCurrentContext()!
+                                scaledContext.interpolationQuality = .high // This determines the interpolation
+                                image?.draw(in: CGRect(origin: .zero, size: scaledImageSize))
+                                let scaledImage = UIGraphicsGetImageFromCurrentImageContext()!
+                                self.heatMapImageView.image = scaledImage
+   
                         })
                       
                         } catch {
