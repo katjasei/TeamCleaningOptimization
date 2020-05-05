@@ -143,7 +143,7 @@
                                     <constraint firstAttribute="width" constant="230" id="O7u-PU-Oh9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="BIG REPORT">
+                                <state key="normal" title="STATUS REPORT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -155,7 +155,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
+                                    <action selector="onClickStatusReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" distribution="fillEqually" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARo-wW-Shd" userLabel="Selection SV">

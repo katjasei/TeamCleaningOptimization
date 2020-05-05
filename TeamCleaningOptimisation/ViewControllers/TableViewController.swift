@@ -23,8 +23,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.doAPIRequest()
         }
     }
-    @IBAction func onClickBigReportButton(_ sender: UIButton) {
-        let presentationService = BigReportPresentationPresentationService()
+    @IBAction func onClickStatusReportButton(_ sender: UIButton) {
+        let presentationService = StatusReportPresentationPresentationService()
         let presentation = presentationService.present()
         present(presentation, animated: true) {
             // Dismiss report if tapped outside
@@ -59,7 +59,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         useNetworkMonitor()
     }
     
-    func useNetworkMonitor() {
+    private func useNetworkMonitor() {
         networkMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 print("Connected")
@@ -76,7 +76,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         networkMonitor.start(queue: queue)
     }
     
-    func doAPIRequest() {
+    private func doAPIRequest() {
        let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
@@ -106,7 +106,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func roomsToFloors(floorNumber: Int) -> Array<Room> {
         var returnArray: [Room] = []
         guard let roomsUnwrapped = rooms else {
-            print("Rooms array was nil")
             return returnArray
         }
         for room in roomsUnwrapped {

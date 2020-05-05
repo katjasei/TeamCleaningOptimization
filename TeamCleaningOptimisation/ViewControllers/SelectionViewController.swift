@@ -93,9 +93,7 @@ class SelectionViewController: UIViewController {
                 btn.isHidden = true
             }
         }
-        
     }
-    
 }
 
 // Extension to use tableView
