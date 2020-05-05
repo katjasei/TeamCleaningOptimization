@@ -63,7 +63,7 @@ class RoomInfoViewController: UIViewController {
 
                             DispatchQueue.main.async {
                                 //
-                                let image = self.imageFromARGB8Bitmap(pixels: im_p, width: 72, height: 56)
+                                let image = self.imageFrom8Bitmap(pixels: im_p, width: 72, height: 56)
                                 self.heatMapImageView.image = image
                                 
                                 guard let scaledImageSize = image?.size.applying(CGAffineTransform(scaleX: 10, y: 10))
@@ -74,7 +74,7 @@ class RoomInfoViewController: UIViewController {
                                 image?.draw(in: CGRect(origin: .zero, size: scaledImageSize))
                                 let scaledImage = UIGraphicsGetImageFromCurrentImageContext()!
                                 self.heatMapImageView.image = scaledImage
-   
+   }
                         })
                       
                         } catch {
