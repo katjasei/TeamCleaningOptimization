@@ -14,7 +14,7 @@ class StatusReportPresentationPresentationService {
     func present() -> StatusReportViewController {
         let storyboard = UIStoryboard(name: "StatusReport", bundle: .main)
         
-        let viewController = storyboard.instantiateViewController(identifier: "bigReport") as!
+        let viewController = storyboard.instantiateViewController(identifier: "StatusReport") as!
             StatusReportViewController
         
         return viewController
