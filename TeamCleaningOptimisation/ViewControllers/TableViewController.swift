@@ -9,7 +9,9 @@
 import UIKit
 import Network
 
+var selectedBuilding = 0
 var selectedFloor = 0
+var selectedArea = 0
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,8 +23,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.doAPIRequest()
         }
     }
-    @IBAction func onClickBigReportButton(_ sender: UIButton) {
-        let presentationService = BigReportPresentationPresentationService()
+    @IBAction func onClickStatusReportButton(_ sender: UIButton) {
+        let presentationService = StatusReportPresentationPresentationService()
         let presentation = presentationService.present()
         present(presentation, animated: true) {
             // Dismiss report if tapped outside
@@ -32,6 +34,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet weak var selectionBuilding: UILabel!
+    @IBOutlet weak var selectionFloor: UILabel!
+    @IBOutlet weak var selectionArea: UILabel!
     
     var rooms: Rooms?
     let networkMonitor = NWPathMonitor()
@@ -43,7 +49,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func dismissReport() {
         self.dismiss(animated: true)
     }
-
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -54,7 +59,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         useNetworkMonitor()
     }
     
-    func useNetworkMonitor() {
+    private func useNetworkMonitor() {
         networkMonitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 print("Connected")
@@ -71,7 +76,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         networkMonitor.start(queue: queue)
     }
     
-    func doAPIRequest() {
+    private func doAPIRequest() {
        let apiRequest = APIRequest()
         do {
            try apiRequest.getRooms(completion: { result in
@@ -101,7 +106,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func roomsToFloors(floorNumber: Int) -> Array<Room> {
         var returnArray: [Room] = []
         guard let roomsUnwrapped = rooms else {
-            print("Rooms array was nil")
             return returnArray
         }
         for room in roomsUnwrapped {
@@ -158,8 +162,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
-
-                 let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
+                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
                 destViewController.room = roomsInThisFloor[selectedRow]
 
@@ -170,7 +173,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print(selectedFloor)
+                
+                // Display selection
+                self.selectionBuilding.text = "Building: \(String(selectedBuilding + 1))"
+                self.selectionFloor.text    = "Floor: \(String(selectedFloor + 1))"
+                self.selectionArea.text     = "Area: \(String(selectedArea + 1))"
             }
         }
     }

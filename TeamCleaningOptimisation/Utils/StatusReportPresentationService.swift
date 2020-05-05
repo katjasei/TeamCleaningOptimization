@@ -9,13 +9,13 @@
 import UIKit
 
 
-class BigReportPresentationPresentationService {
+class StatusReportPresentationPresentationService {
     
-    func present() -> BigReportViewController {
-        let storyboard = UIStoryboard(name: "BigReport", bundle: .main)
+    func present() -> StatusReportViewController {
+        let storyboard = UIStoryboard(name: "StatusReport", bundle: .main)
         
         let viewController = storyboard.instantiateViewController(identifier: "bigReport") as!
-            BigReportViewController
+            StatusReportViewController
         
         return viewController
     }

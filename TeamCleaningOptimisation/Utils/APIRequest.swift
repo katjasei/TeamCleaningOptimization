@@ -34,9 +34,9 @@ class APIRequest {
         doGETRequest(url: url, completion: completion)
     }
     
-    func getHeatmap(roomID: String, completionHandler: @escaping (_ contentLength: UInt64?) -> ()) throws {
+    func getHeatmap(roomID: String, completionHandler: @escaping (_ contentLength: UInt64?) -> (), completion: @escaping (_ arrayUInt64: Array<UInt64>?) -> () ) throws {
     guard let url = URL(string: endpoint+getRoomString+roomID+getHeatmapString) else { return }
-    doGETRequestHeatMap(for: url, completionHandler: completionHandler)
+    doGETRequestHeatMap(for: url, completionHandler: completionHandler, completion: completion)
     }
     
     func putStartCleaning(roomID: String) throws {
@@ -145,7 +145,7 @@ class APIRequest {
     
     // For heatmap GET request
     
-    private func doGETRequestHeatMap(for url: URL, completionHandler: @escaping (_ contentLength: UInt64?) -> ()) {
+    private func doGETRequestHeatMap(for url: URL, completionHandler: @escaping (_ contentLength: UInt64?) -> (), completion: @escaping (_ arrayUInt64: Array<UInt64>?) -> () ) {
             
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -170,12 +170,16 @@ class APIRequest {
                 completionHandler(UInt64(contentLength!))
             }
                 
-            // Read data
-            // Convert HTTP Response Data to a simple String
-            if let data = data {
-                    print("Response data string:\n \(data)")
-                }
-        }
+           // Read data
+                // Convert HTTP Response Data to a simple String
+                if let data = data {
+                        let myNSData = data as NSData
+                    var arr = Array<UInt64>(repeating: 0, count: myNSData.count/MemoryLayout<UInt64>.stride)
+                    _ = arr.withUnsafeMutableBytes{myNSData.copyBytes(to: $0)}
+                        completion(arr)
+                       // print("Response data string:\n \(arr)")
+                    }
+            }
         task.resume()
     }
 }

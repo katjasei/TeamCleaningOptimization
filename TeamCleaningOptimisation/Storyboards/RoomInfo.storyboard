@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,13 +35,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gCv-ti-STa">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1112"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1636"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-Yq-KsZ" userLabel="Top View">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="555"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="817"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_heatmap" translatesAutoresizingMaskIntoConstraints="NO" id="afs-M0-lNX">
-                                                        <rect key="frame" x="20" y="5" width="984" height="545"/>
+                                                        <rect key="frame" x="20" y="5" width="984" height="807"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="807" id="IgP-IZ-24n"/>
+                                                            <constraint firstAttribute="width" constant="984" id="q77-jG-Rk7"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,7 +59,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fco-Pc-vYJ" userLabel="Bottom View">
-                                                <rect key="frame" x="0.0" y="557" width="1024" height="555"/>
+                                                <rect key="frame" x="0.0" y="819" width="1024" height="817"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-kz-Ri1">
                                                         <rect key="frame" x="20" y="10" width="984" height="271"/>
@@ -148,7 +152,7 @@
                                                                 <rect key="frame" x="5" y="211" width="974" height="60"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOI-lM-C3p" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="213.5" height="60"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="60"/>
                                                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                         <state key="normal" title="START">
@@ -167,7 +171,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="B4V-un-yhs" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                                                        <rect key="frame" x="253.5" y="0.0" width="213.5" height="60"/>
+                                                                        <rect key="frame" x="338" y="0.0" width="298" height="60"/>
                                                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                         <state key="normal" title="STOP CLEANING">
@@ -186,30 +190,11 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgv-vV-La9">
-                                                                        <rect key="frame" x="507" y="0.0" width="213.5" height="60"/>
+                                                                        <rect key="frame" x="676" y="0.0" width="298" height="60"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-ia-gpJ" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                                                        <rect key="frame" x="760.5" y="0.0" width="213.5" height="60"/>
-                                                                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                                        <state key="normal" title="SCHEDULE">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </state>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="15"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="scheduleButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="LyO-6s-AJ4"/>
-                                                                        </connections>
-                                                                    </button>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="bdS-G2-GSm"/>
@@ -261,7 +246,6 @@
                     <connections>
                         <outlet property="cleanedButton" destination="B4V-un-yhs" id="qCn-FH-YBe"/>
                         <outlet property="heatMapImageView" destination="afs-M0-lNX" id="rNI-Gv-I8Z"/>
-                        <outlet property="scheduleButton" destination="efJ-ia-gpJ" id="70a-z6-W8z"/>
                         <outlet property="startButton" destination="YOI-lM-C3p" id="4vh-vP-Fl9"/>
                         <outlet property="timeLabel" destination="zgv-vV-La9" id="3pG-0J-MYv"/>
                         <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="UMc-DO-mmQ"/>

@@ -1,5 +1,5 @@
 //
-//  BigReportController.swift
+//  StatusReportController.swift
 //  TeamCleaningOptimisation
 //
 //  Created by Oona on 14.4.2020.
@@ -10,12 +10,13 @@ import UIKit
 
 // Currently displays all reports from all cleaners
 
-class BigReportViewController: UIViewController {
+class StatusReportViewController: UIViewController {
     
     // IB & Variables
     
-    var successCount = 0
-    var unsuccessCount = 0
+    private var successCount = 0
+    private var unsuccessCount = 0
+    private var totalRooms: Array<String> = []
     
     @IBOutlet weak var totalRoomsLabel: UILabel!
     @IBOutlet weak var totalSuccessfulLabel: UILabel!
@@ -32,7 +33,6 @@ class BigReportViewController: UIViewController {
             }
         }
     }
-    private var totalRooms: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
