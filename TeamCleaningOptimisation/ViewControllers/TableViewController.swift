@@ -9,7 +9,9 @@
 import UIKit
 import Network
 
+var selectedBuilding = 0
 var selectedFloor = 0
+var selectedArea = 0
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -33,6 +35,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var selectionBuilding: UILabel!
+    @IBOutlet weak var selectionFloor: UILabel!
+    @IBOutlet weak var selectionArea: UILabel!
+    
     var rooms: Rooms?
     let networkMonitor = NWPathMonitor()
     let connectionErrorTitle = "Connection error"
@@ -43,7 +49,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func dismissReport() {
         self.dismiss(animated: true)
     }
-
     
     // Lifecycle methods
     override func viewDidLoad() {
@@ -158,8 +163,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard let destViewController = segue.destination as? RoomInfoViewController else {return}
-
-                 let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
+                let roomsInThisFloor = roomsToFloors(floorNumber: selectedFloor)
                 let selectedRow = indexPath.row
                 destViewController.room = roomsInThisFloor[selectedRow]
 
@@ -170,7 +174,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print(selectedFloor)
+                
+                // Display selection
+                self.selectionBuilding.text = "Building: \(String(selectedBuilding + 1))"
+                self.selectionFloor.text    = "Floor: \(String(selectedFloor + 1))"
+                self.selectionArea.text     = "Area: \(String(selectedArea + 1))"
             }
         }
     }

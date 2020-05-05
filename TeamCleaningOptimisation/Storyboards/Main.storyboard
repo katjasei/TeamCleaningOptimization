@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,11 +23,25 @@
             <objects>
                 <viewController storyboardIdentifier="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Bd-6k-aIP" customClass="TableViewController" customModule="TeamCleaningOptimisation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qYI-iu-YX7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-cq-oUA" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
+                                <rect key="frame" x="48" y="56" width="40" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Ps2-vF-GoF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="↻">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickRefreshButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="lOF-o0-uO7"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fy-S1-5zQ" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                <rect key="frame" x="764" y="48" width="230" height="40"/>
+                                <rect key="frame" x="574" y="56" width="230" height="40"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="8cH-so-wPg"/>
@@ -43,39 +58,39 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-wf-OAw">
-                                <rect key="frame" x="20" y="150" width="984" height="1196"/>
+                                <rect key="frame" x="20" y="250" width="794" height="924"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableViewCell" rowHeight="110" id="ZJx-Z9-bCI" customClass="TableViewCell" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="984" height="110"/>
+                                        <rect key="frame" x="0.0" y="28" width="794" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJx-Z9-bCI" id="lS3-2Z-Krf">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="794" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBo-Ug-ABz" customClass="DesignView" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="10" width="964" height="90"/>
+                                                    <rect key="frame" x="10" y="10" width="774" height="90"/>
                                                     <subviews>
                                                         <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F7E-UW-WyL">
-                                                            <rect key="frame" x="20" y="20" width="924" height="50"/>
+                                                            <rect key="frame" x="20" y="20" width="734" height="50"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vVw-Ua-ad5">
-                                                                    <rect key="frame" x="20" y="7" width="884" height="36"/>
+                                                                    <rect key="frame" x="20" y="7" width="694" height="36"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" restorationIdentifier="roomNumberLabel" text="no" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-ak-dAh">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="778.5" height="36"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="588.5" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="roomIndexLabel" text="Index" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-FO-EJT">
-                                                                            <rect key="frame" x="778.5" y="0.0" width="70.5" height="36"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="roomIndexLabel" text="Index" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyA-FO-EJT">
+                                                                            <rect key="frame" x="588.5" y="0.0" width="70.5" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcD-X4-PME" userLabel="TimeCleaned">
-                                                                            <rect key="frame" x="849" y="0.0" width="35" height="36"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcD-X4-PME" userLabel="TimeCleaned">
+                                                                            <rect key="frame" x="659" y="0.0" width="35" height="36"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -121,7 +136,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-YP-kax" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                <rect key="frame" x="764" y="108" width="230" height="40"/>
+                                <rect key="frame" x="574" y="116" width="230" height="40"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3fb-ex-cZq"/>
@@ -143,38 +158,52 @@
                                     <action selector="onClickBigReportButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="l1c-w9-LXv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSY-cq-oUA" customClass="RoundButton" customModule="TeamCleaningOptimisation" customModuleProvider="target">
-                                <rect key="frame" x="48" y="102" width="40" height="40"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Ps2-vF-GoF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="↻">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickRefreshButton:" destination="4Bd-6k-aIP" eventType="touchUpInside" id="lOF-o0-uO7"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="center" semanticContentAttribute="forceLeftToRight" distribution="fillEqually" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARo-wW-Shd" userLabel="Selection SV">
+                                <rect key="frame" x="30" y="190" width="774" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itM-JK-kiO">
+                                        <rect key="frame" x="0.0" y="0.0" width="252.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Floor: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-JZ-NVE">
+                                        <rect key="frame" x="260.5" y="0.0" width="253" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqM-H4-nvm">
+                                        <rect key="frame" x="521.5" y="0.0" width="252.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="kSY-cq-oUA" secondAttribute="bottom" constant="8" id="1Qn-9P-Vb6"/>
-                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="150" id="3Lv-LK-CIX"/>
+                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="250" id="3Lv-LK-CIX"/>
                             <constraint firstItem="dKn-YP-kax" firstAttribute="top" secondItem="7Fy-S1-5zQ" secondAttribute="bottom" constant="20" id="Apk-4Y-9Xk"/>
-                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="dKn-YP-kax" secondAttribute="bottom" constant="2" id="FzA-HM-Boc"/>
+                            <constraint firstItem="PVS-wf-OAw" firstAttribute="top" secondItem="ARo-wW-Shd" secondAttribute="bottom" constant="30" id="Gv5-zP-YVe"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="bottom" secondItem="74c-Hr-vhK" secondAttribute="bottom" id="Mbi-Wn-gb7"/>
                             <constraint firstItem="kSY-cq-oUA" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="48" id="Pia-z2-8bE"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="trailing" secondItem="qYI-iu-YX7" secondAttribute="trailingMargin" id="QLg-GQ-ALS"/>
-                            <constraint firstItem="kSY-cq-oUA" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="102" id="Tq2-ui-krc"/>
+                            <constraint firstItem="ARo-wW-Shd" firstAttribute="leading" secondItem="74c-Hr-vhK" secondAttribute="leading" constant="30" id="SL4-Qg-VJi"/>
+                            <constraint firstItem="kSY-cq-oUA" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="56" id="Tq2-ui-krc"/>
                             <constraint firstItem="PVS-wf-OAw" firstAttribute="leading" secondItem="qYI-iu-YX7" secondAttribute="leadingMargin" id="WU6-xh-r8y"/>
+                            <constraint firstItem="7Fy-S1-5zQ" firstAttribute="top" secondItem="74c-Hr-vhK" secondAttribute="top" constant="56" id="a5I-k9-Nwp"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="dKn-YP-kax" secondAttribute="trailing" constant="30" id="gCq-VV-PO0"/>
+                            <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="ARo-wW-Shd" secondAttribute="trailing" constant="30" id="jYo-ve-gja"/>
                             <constraint firstItem="74c-Hr-vhK" firstAttribute="trailing" secondItem="7Fy-S1-5zQ" secondAttribute="trailing" constant="30" id="w0j-zk-eQg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="74c-Hr-vhK"/>
                     </view>
                     <connections>
+                        <outlet property="selectionArea" destination="rqM-H4-nvm" id="4o4-Xr-zrE"/>
+                        <outlet property="selectionBuilding" destination="itM-JK-kiO" id="npr-nd-sND"/>
+                        <outlet property="selectionFloor" destination="8Hq-JZ-NVE" id="8P5-H1-ube"/>
                         <outlet property="tableView" destination="PVS-wf-OAw" id="VCX-7o-UUt"/>
                     </connections>
                 </viewController>
