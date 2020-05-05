@@ -26,7 +26,7 @@ class SelectionViewController: UIViewController {
     // Hard Coded lists to show up as selections
     var buildingList    = ["Building1", "Building2"]
     var floorList1      = ["Floor1", "Floor2"]
-    var floorList2      = ["Floor3", "Floor4"]
+    var floorList2      = ["Floor1", "Floor2"]
     var areaList        = ["Area1", "Area2"]
     
     override func viewDidLoad() {
