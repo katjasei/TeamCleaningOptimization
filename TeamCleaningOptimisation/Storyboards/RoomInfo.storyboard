@@ -174,7 +174,6 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="cleanedButtonClicked:" destination="UfH-TH-SQD" eventType="touchUpInside" id="MD2-1a-ymP"/>
-                                                    <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="qgc-iU-cZV"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2G-5I-KYx">
@@ -231,25 +230,25 @@
                         <viewLayoutGuide key="safeArea" id="QDB-3K-qdf"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="cni-DY-qaU"/>
+                                <exclude reference="daI-Pa-7Dm"/>
                                 <exclude reference="Mev-QB-9PK"/>
                                 <exclude reference="OhD-xv-858"/>
                                 <exclude reference="hoM-ml-wkp"/>
-                                <exclude reference="cni-DY-qaU"/>
-                                <exclude reference="daI-Pa-7Dm"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <exclude reference="5FK-7C-nYK"/>
+                                <exclude reference="9B5-Dx-3dF"/>
+                                <include reference="cni-DY-qaU"/>
+                                <include reference="daI-Pa-7Dm"/>
                                 <exclude reference="3qh-1D-Kjw"/>
                                 <exclude reference="9be-SB-NTC"/>
                                 <include reference="Mev-QB-9PK"/>
                                 <include reference="OhD-xv-858"/>
                                 <exclude reference="Toi-cr-Wkg"/>
                                 <include reference="hoM-ml-wkp"/>
-                                <exclude reference="5FK-7C-nYK"/>
-                                <exclude reference="9B5-Dx-3dF"/>
-                                <include reference="cni-DY-qaU"/>
-                                <include reference="daI-Pa-7Dm"/>
                             </mask>
                         </variation>
                     </view>
@@ -259,6 +258,7 @@
                         <outlet property="heatMapImageView" destination="afs-M0-lNX" id="vZh-om-7us"/>
                         <outlet property="startButton" destination="smV-hW-ldS" id="0uM-RE-1FP"/>
                         <outlet property="timeLabel" destination="Y2G-5I-KYx" id="49F-sv-NnQ"/>
+                        <segue destination="BHT-2J-buH" kind="show" identifier="showReport" id="pM2-on-7hJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJN-n7-IfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -273,7 +273,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOB-Pz-fTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="-880"/>
+            <point key="canvasLocation" x="98" y="-495"/>
         </scene>
         <!--Main-->
         <scene sceneID="sie-k7-RcJ">
